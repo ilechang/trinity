@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+
+/* Global Styles */
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  overflow-y: auto;
+  /* Ensure scrolling is handled globally */
+  background-color: rgb(31, 31, 31);
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure page is scrollable */
+.main-container {
+  width: 100%;
+  overflow: hidden;
+  /* Prevent nested scrollbars */
+  height: auto;
+  /* Let the content define the height */
+}
+
+/* Three.js Landing Section */
+.landing {
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  background-color: rgb(31, 31, 31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5vh;
+}
+
+/* Scroll Section */
+.secondSection {
+  width: 100vw;
+  height: 100vh;
+  /* Keeps it exactly one screen height */
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* ✅ Prevents inner scrolling */
+  position: relative;
+}
+
+.thirdSection {
+
+  padding-bottom: 20vh;
+}
+
+.forthSection {
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20vh;
+}
+
+.fifthSection {
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fixed Three.js Scene */
+.threejs-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Scrollable Content */
+.content-section {
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  width: 100%;
+  min-height: 100vh;
+  /* At least full viewport height */
+  padding: 100px 50px;
+  color: black;
+  text-align: center;
+}
+
+/* Typography */
+.hurricane-text {
+  font-family: "Hurricane", cursive;
+  font-weight: 400;
+}
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Centered Container */
+.html-container {
+  position: relative;
+  text-align: center;
+}
+
+/* Trinity Title */
+.trinity-title {
+  position: absolute;
+  top: -20px;
+  left: 24%;
+  transform: translateX(-50%) rotate(-12deg);
+  color: white;
+  font-size: 220px;
+  z-index: 2;
+}
+
+/* Hi-CAPA Title */
+.hi-capa-title {
+  color: gray;
+  font-size: 250px;
+  font-weight: bold;
+  margin-top: 280px;
+  z-index: 1;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 60%);
+}
+
+/* Subtitle */
+.subtitle {
+  position: absolute;
+  font-size: 25px;
+  top: 250px;
+  left: 735px;
+  color: white;
+}
+
+.text {
+  font-family: "Archivo Black", sans-serif;
+  position: absolute;
+  opacity: 80%;
+  font-size: 16px;
+  top: 840px;
+  left: 0px;
+  color: white;
+  min-width: 1200px;
+}
+
+/* Disable text selection */
+.no-select {
+  user-select: none;
+  /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+}
+
+
+
+
+
+
+
+
+.popover {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid #ddd !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.popover-body {
+  background-color: white !important;
+  color: black !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+}
+
+/* 🔥 讓 Popover 箭頭也變白色 */
+.popover-arrow::before {
+  border-top-color: white !important;
+  border-bottom-color: white !important;
+  border-left-color: white !important;
+  border-right-color: white !important;
+}
