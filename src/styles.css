@@ -38,6 +38,8 @@ body,
   padding-bottom: 5vh;
 }
 
+
+
 /* Scroll Section */
 .secondSection {
   width: 100vw;
@@ -127,6 +129,9 @@ body,
   font-style: normal;
 }
 
+
+
+
 /* Centered Container */
 .html-container {
   position: relative;
@@ -136,18 +141,18 @@ body,
 /* Trinity Title */
 .trinity-title {
   position: absolute;
-  top: -20px;
-  left: 24%;
-  transform: translateX(-50%) rotate(-12deg);
+  top: 5px;
+  left: 30%;
+  transform: translateX(-50%) rotate(-13deg);
   color: white;
-  font-size: 220px;
+  font-size: 180px;
   z-index: 2;
 }
 
 /* Hi-CAPA Title */
 .hi-capa-title {
   color: gray;
-  font-size: 250px;
+  font-size: 260px;
   font-weight: bold;
   margin-top: 280px;
   z-index: 1;
@@ -161,7 +166,7 @@ body,
   position: absolute;
   font-size: 25px;
   top: 250px;
-  left: 735px;
+  left: 780px;
   color: white;
 }
 

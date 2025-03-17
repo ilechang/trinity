@@ -1,14 +1,31 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { OrbitControls, Environment, Html } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState,useEffect, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import "./styles.css"; // Import the external CSS file
 import { useSharedModel } from "./ModelProvider";
 
+
 const items = [
-  { initialPosition: [-3.5, 0, 0], finalPosition: [-1.5, -0.28, 0] },
-  { initialPosition: [0, 3.5, 0], finalPosition: [0, -0.5, 0] },
-  { initialPosition: [3.5, 0, 0], finalPosition: [1.5, -0.28, 0] },
+  { initialPosition: [-3.5, 0, 0], finalPosition: [-1.5, -0.95, 0] },
+  { initialPosition: [0, 3.5, 0], finalPosition: [0, -1, 0] },
+  { initialPosition: [3.5, 0, 0], finalPosition: [1.5, -0.95, 0] },
 ];
 
 const Scene = () => {
@@ -17,6 +34,15 @@ const Scene = () => {
   const targetRotation = useRef({ x: 0, y: 0 }); // Store target rotation values
   const [animationComplete, setAnimationComplete] = useState(false);
 
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const updateHeight = () => setViewportHeight(window.innerHeight);
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
+
   // **預先克隆模型，避免 map 內多次 clone**
   const clonedScenes = useMemo(() => {
     return Array.from({ length: items.length }, () => scene.clone());
@@ -24,9 +50,9 @@ const Scene = () => {
 
   // Hardcoded rotation values from Leva
   const rotations = [
-    [0.38, -2.25, -0.2], // First model
-    [0.36, -1.57, -0.22], // Second model
-    [0.38, -0.8, -0.2], // Third model
+    [0.15, -2.25, -0.2], // First model
+    [0.25, -1.57, -0.22], // Second model
+    [0.15, -0.8, -0.2], // Third model
   ];
 
   // Animate models to final position
@@ -58,7 +84,8 @@ const Scene = () => {
 
   return (
     <>
-      <OrbitControls enableZoom={false} enablePan={false} />
+
+      {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
       <ambientLight intensity={0.5} />
       <Environment files="./2k.hdr" />
 
@@ -84,12 +111,31 @@ const Scene = () => {
             Airsoft Gas Blowback Pistol
           </h3>
         </div>
-        <p style={{ marginTop: "265px" }} className="archivo-black-regular text no-select">
-          Trinity is a high-end match-grade airsoft pistol. With its quality and
-          practical design, it enhances a shooter's performance, making it ideal for
-          tactical training, recreational shooting, airsoft gameplay, and competition shooting.
-        </p>
+        <p
+        className="archivo-black-regular "
+        style={{
+       
+          transform: "translateX(-32%)",
+         
+          textAlign: "center",
+          width: "100%",
+          maxWidth: "1200px",
+          fontSize: "14px",
+          color: "white",
+          position: "absolute", 
+          top: "75%",
+          left: "50%",
+          transform: "translateX(-50%)"
+        
+        }}
+      >
+        Trinity is a high-end match-grade airsoft pistol. With its quality and
+        practical design, it enhances a shooter's performance, making it ideal for
+        tactical training, recreational shooting, airsoft gameplay, and competition shooting.
+      </p>
+          
       </Html>
+
     </>
   );
 };
