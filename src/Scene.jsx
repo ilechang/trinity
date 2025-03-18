@@ -114,8 +114,7 @@ const Scene = () => {
         <p
         className="archivo-black-regular "
         style={{
-       
-          transform: "translateX(-32%)",
+     
          
           textAlign: "center",
           width: "100%",

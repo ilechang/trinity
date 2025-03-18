@@ -1,19 +1,7 @@
-
-
-
-
-
-
-
-
-
 import { ModelProvider } from "./ModelProvider"; // ✅ 引入 ModelProvider
-import ReactDOM from "react-dom/client";
 import "./styles.css";
 import { Canvas } from "@react-three/fiber";
-
 import ScrollControl from "./ScrollControl";
-
 import Detail from "./Detail";
 import HopupScene from "./HopupScene";
 import TriggerScene from "./TriggerScene";

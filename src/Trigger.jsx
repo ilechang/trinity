@@ -12,7 +12,7 @@ const Trigger = () => {
   // **硬編碼 Leva 的數值**
   const posX = 7.3;
   const posY = 0;
-  const posZ = -5;
+  const posZ = -4;
   const scale = 45;
   const rotationX = 0.6
   const rotationY = -3.1;

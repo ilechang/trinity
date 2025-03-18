@@ -1,4 +1,27 @@
-import { useState } from "react";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { Canvas } from "@react-three/fiber";
 import Trigger from "./Trigger";
 
@@ -8,43 +31,37 @@ const TriggerScene = () => {
         <div style={{ position: "relative", width: "100vw", height: "100vh", background: "rgb(31,31,31)" }}>
             {/* ✅ h2 Title */}
             <h2
-                className="archivo-black-regular hi-capa-title no-select text-center"
+                className="archivo-black-regular hi-capa-title no-select"
                 style={{
-                    fontSize: "120px",
-                    textAlign: "center",
-                    width: "100%",
-                    position: "absolute",
-                    top: "-13%",
-                    left: "50.5%",
-                    transform: "translate(-50%, -50%)",
+                    fontSize: "clamp(24px, 10vw, 120px)", // Responsive font size
+                    textAlign: "center", // Center the text
+                    width: "max-content", // Make the width fit the content
                     color: "white",
                     zIndex: 10,
-                    pointerEvents: "none",
+                    marginTop: "60px", // Reduce space above
+                    marginBottom: "-20px", // Reduce space below
+                    padding: "0",
+                    marginLeft: "auto", // Align with p
+                    marginRight: "auto", // Keep centered while aligning left side
                 }}
             >
                 Match Grade Trigger
-                {/* Tooltip Icon */}
-    
             </h2>
 
-            {/* ✅ Patent Information */}
             <p
                 style={{
-                    fontSize: "24px",
-                    textAlign: "center",
+                    fontSize: "clamp(14px, 1.4vw, 28px)", // Responsive font size
+                    textAlign: "center", // Align text to the left
                     width: "100%",
-                    position: "absolute",
-                    top: "24.5%",
-                    left: "26.5%",
-                    transform: "translate(-50%, -50%)",
                     fontFamily: "'Arial', sans-serif",
                     color: "white",
                     zIndex: 10,
                     fontWeight: 500,
-                    pointerEvents: "none",
+                    margin: "0",
+
                 }}
             >
-                Taiwan Utility Models Patent : M628501
+                Taiwan Utility Models Patent: M628501
             </p>
 
             {/* ✅ Canvas for 3D Model */}
@@ -53,7 +70,7 @@ const TriggerScene = () => {
                     width: "100%",
                     height: "100%",
                     position: "absolute",
-                    top: 0,
+                    top: "0%",
                     left: "12%",
                     zIndex: 1,
                 }}
@@ -65,37 +82,34 @@ const TriggerScene = () => {
             {/* ✅ Trigger Description */}
             <p
                 style={{
-                    fontSize: "18px",
+                    fontSize: "16px",
                     textAlign: "start",
                     width: "100%",
-                    position: "absolute",
-                    top: "32%",
-                    left: "15.7%",
                     fontFamily: "'Arial', sans-serif",
                     color: "white",
                     zIndex: 10,
                     fontWeight: 500,
                     pointerEvents: "none",
-                    maxWidth: "800px",
-                    marginTop: "15px",
+                    maxWidth: "clamp(500px, 45vw, 900px)", // Responsive maxWidth
+                    marginLeft: "15%",
+                    marginTop: "35px", // Space from previous element
                     lineHeight: "1.5",
                 }}
+
             >
+
                 The Trinity match grade trigger system has a super short trigger pull (only 0.9mm) and resets in a split second.
                 This not only makes rapid fire easier, but also increases the accuracy of the first and follow-up shots, making it the best choice in shooting competitions and close-quarters combat (CQB).
             </p>
 
             {/* ✅ Trigger Image */}
-            <img
-                src="./images/triggerilla.png"
-                alt="Trigger View"
-                style={{
-                    width: "800px",
-                    position: "absolute",
-                    top: "50%",
-                    left: "15.6%",
-                }}
-            />
+            <div style={{ display: "flex", justifyContent: "start", marginTop: "5vh", paddingLeft: "15%" }}>
+                <img
+                    src="./images/triggerilla.png"
+                    alt="Trigger View"
+                    className="responsive-img" // Remove inline width control
+                />
+            </div>
         </div>
     );
 };

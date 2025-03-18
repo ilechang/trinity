@@ -151,7 +151,7 @@ body,
 
 /* Hi-CAPA Title */
 .hi-capa-title {
-  color: gray;
+  color: rgb(146, 146, 146);
   font-size: 260px;
   font-weight: bold;
   margin-top: 280px;
@@ -221,3 +221,11 @@ body,
   border-left-color: white !important;
   border-right-color: white !important;
 }
+
+/* Default: Large screens (keep full size) */
+.responsive-img {
+  width: 50%;
+  max-width: 900px;
+  height: auto;
+}
+
