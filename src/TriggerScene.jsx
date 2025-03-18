@@ -38,7 +38,7 @@ const TriggerScene = () => {
                     width: "max-content", // Make the width fit the content
                     color: "white",
                     zIndex: 10,
-                    marginTop: "60px", // Reduce space above
+                    marginTop: "25px", // Reduce space above
                     marginBottom: "-20px", // Reduce space below
                     padding: "0",
                     marginLeft: "auto", // Align with p
@@ -58,23 +58,23 @@ const TriggerScene = () => {
                     zIndex: 10,
                     fontWeight: 500,
                     margin: "0",
-
+                    marginBottom: "35px", // ✅ Ensures spacing below header
                 }}
             >
                 Taiwan Utility Models Patent: M628501
             </p>
-
+<hr />
             {/* ✅ Canvas for 3D Model */}
             <Canvas
                 style={{
                     width: "100%",
                     height: "100%",
                     position: "absolute",
-                    top: "0%",
+                    top: "2%",
                     left: "12%",
                     zIndex: 1,
                 }}
-                camera={{ position: [-3, 0, 10], fov: 50, near: 0.01, far: 100 }}
+                camera={{ position: [-3, 0, 12], fov: 50, near: 0.01, far: 100 }}
             >
                 <Trigger />
             </Canvas>
@@ -103,7 +103,7 @@ const TriggerScene = () => {
             </p>
 
             {/* ✅ Trigger Image */}
-            <div style={{ display: "flex", justifyContent: "start", marginTop: "5vh", paddingLeft: "15%" }}>
+            <div style={{ display: "flex", justifyContent: "start", marginTop: "6vh", paddingLeft: "15%" }}>
                 <img
                     src="./images/triggerilla.png"
                     alt="Trigger View"

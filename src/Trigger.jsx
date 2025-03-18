@@ -89,14 +89,14 @@ const Trigger = () => {
           onClick={toggleAnimation}
           style={{
             position: "absolute",
-            padding: "10px 20px",
-            fontSize: "16px",
+            padding: "7px 13px",
+            fontSize: "14px",
             background: "#f0f0f0",
             color: "black",
             border: "none",
             cursor: "pointer",
-            borderRadius: "5px",
-            transform: "translateX(-100px)",
+            borderRadius: "0px",
+            transform: "translateX(-50px)",
             transition: "background 0.3s ease, transform 0.2s ease",
           }}
           onMouseEnter={(e) => (e.target.style.background = "rgb(180,180,180)")}

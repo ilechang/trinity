@@ -150,7 +150,7 @@ export default function Detail() {
 
                 // ✅ **滾動到 30% 之後，讓紅點顯示**
                 shadowRoot.querySelectorAll(".btn-danger").forEach((btn) => {
-                    setTimeout(() => btn.classList.add("visible"), 600);
+                    setTimeout(() => btn.classList.add("visible"), 500);
                 });
             });
         }

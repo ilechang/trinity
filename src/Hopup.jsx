@@ -79,13 +79,13 @@ const Hopup = () => {
           onClick={toggleAnimation}
           style={{
             position: "absolute",
-            padding: "10px 20px",
-            fontSize: "16px",
+            padding: "7px 13px",
+            fontSize: "14px",
             background: "rgb(31,31,31)",
             color: "#fff",
             border: "none",
             cursor: "pointer",
-            borderRadius: "5px",
+            borderRadius: "0px",
             transform: "translateX(-100px)",
             transition: "background 0.3s ease, transform 0.2s ease",
           }}

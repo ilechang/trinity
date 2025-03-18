@@ -224,7 +224,7 @@ body,
 
 /* Default: Large screens (keep full size) */
 .responsive-img {
-  width: 50%;
+  width: 55%;
   max-width: 900px;
   height: auto;
 }
@@ -272,9 +272,36 @@ body,
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   margin-left: 20px;
+
 }
 
 .notice-bar button:hover {
   background-color: #ffffff; /* White background on hover */
   color: #4e4e4e; /* Dark text color on hover */
+}
+
+
+.section-title {
+  font-size: 18px;
+  text-align: start;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-weight: 600;
+  max-width: clamp(500px, 45vw, 900px); /* Responsive width */
+  margin-left: 15%;
+  margin-bottom: 0px; /* Removes extra spacing */
+  margin-top: 20px; /* Controls spacing */
+}
+
+.section-text {
+  font-size: 16px;
+  text-align: start;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-weight: 500;
+  max-width: clamp(500px, 45vw, 900px); /* Responsive width */
+  margin-left: 15%;
+  line-height: 1.5;
+  margin-bottom: 3px; /* Controls spacing */
+  margin-top: 3px; /* Controls spacing */
 }

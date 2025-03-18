@@ -40,11 +40,11 @@ function App() {
           <Detail />
         </div>
 
-        <div className="forthSection">
+        <div className="forthSection" style={{height:"130vh"}}>
           <HopupScene />
         </div>
 
-        <div className="fifthSection" style={{ background: "rgb(31,31,31)" }}>
+        <div className="fifthSection" style={{ background: "rgb(31,31,31)", height:"110vh"}}>
           <TriggerScene />
         </div>
 
