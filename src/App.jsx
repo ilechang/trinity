@@ -1,4 +1,5 @@
-import { ModelProvider } from "./ModelProvider"; // ✅ 引入 ModelProvider
+import { useState } from "react";
+import { ModelProvider } from "./ModelProvider"; 
 import "./styles.css";
 import { Canvas } from "@react-three/fiber";
 import ScrollControl from "./ScrollControl";
@@ -8,20 +9,27 @@ import TriggerScene from "./TriggerScene";
 import Tm from "./Tm";
 import Video from "./Video";
 
-function App() { // ✅ Define App function
-  return (
-    <ModelProvider> {/* ✅ ModelProvider 包住所有 Canvas */}
-      <div className="main-container"> {/* Main wrapper */}
+function App() { 
+  const [noticeVisible, setNoticeVisible] = useState(true); // ✅ State to show/hide notice
 
-        
+  return (
+    <ModelProvider> 
+      {/* ✅ Notice Bar */}
+      {noticeVisible && (
+        <div className="notice-bar">
+          <p>This is a toy gun, not a real gun.</p>
+          <button onClick={() => setNoticeVisible(false)}>I Understand</button>
+        </div>
+      )}
+
+      <div className="main-container">
         <div className="secondSection">
           <Canvas
-            camera={{ position: [0, 0, 5], fov:60 }}
+            camera={{ position: [0, 0, 5], fov: 60 }}
             style={{
               background: "#f0f0f0",
               width: "100vw",
               height: "100vh",
-          
             }}
           >
             <ScrollControl />
@@ -32,10 +40,8 @@ function App() { // ✅ Define App function
           <Detail />
         </div>
 
-    <div className="forthSection">
-          
-            <HopupScene /> {/* ✅ 共享 ModelProvider */}
-          
+        <div className="forthSection">
+          <HopupScene />
         </div>
 
         <div className="fifthSection" style={{ background: "rgb(31,31,31)" }}>
@@ -50,11 +56,93 @@ function App() { // ✅ Define App function
           <Video />
         </div>
       </div>
-      </ModelProvider> 
+    </ModelProvider>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { ModelProvider } from "./ModelProvider"; // ✅ 引入 ModelProvider
+// import "./styles.css";
+// import { Canvas } from "@react-three/fiber";
+// import ScrollControl from "./ScrollControl";
+// import Detail from "./Detail";
+// import HopupScene from "./HopupScene";
+// import TriggerScene from "./TriggerScene";
+// import Tm from "./Tm";
+// import Video from "./Video";
+
+// function App() { // ✅ Define App function
+//   return (
+//     <ModelProvider> {/* ✅ ModelProvider 包住所有 Canvas */}
+//       <div className="main-container"> {/* Main wrapper */}
+
+        
+//         <div className="secondSection">
+//           <Canvas
+//             camera={{ position: [0, 0, 5], fov:60 }}
+//             style={{
+//               background: "#f0f0f0",
+//               width: "100vw",
+//               height: "100vh",
+          
+//             }}
+//           >
+//             <ScrollControl />
+//           </Canvas>
+//         </div>
+
+//         <div className="thirdSection">
+//           <Detail />
+//         </div>
+
+//     <div className="forthSection">
+          
+//             <HopupScene /> {/* ✅ 共享 ModelProvider */}
+          
+//         </div>
+
+//         <div className="fifthSection" style={{ background: "rgb(31,31,31)" }}>
+//           <TriggerScene />
+//         </div>
+
+//         <div className="fifthSection">
+//           <Tm />
+//         </div>
+
+//         <div className="sixthSection">
+//           <Video />
+//         </div>
+//       </div>
+//       </ModelProvider> 
+//   );
+// }
+
+// export default App;
 
 
 

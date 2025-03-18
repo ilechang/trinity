@@ -229,3 +229,52 @@ body,
   height: auto;
 }
 
+
+
+
+
+.notice-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, 
+    #1f1f1f 18%,  /* Dark color covers 20% of the left */
+    #4e4e4e 50%,  /* Lighter center peak at 50% */
+    #1f1f1f 82%   /* Dark color returns at 80% */
+  );
+  color: #ffffff; /* White text */
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-family: "Arial", sans-serif;
+}
+
+
+.notice-bar p {
+  margin: 0;
+}
+
+.notice-bar button {
+  background: transparent; /* Transparent background */
+  color: #ffffff; /* White text */
+  border: 1px solid #ffffff; /* Thinner white border */
+  padding: 6px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 0; /* Remove rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  margin-left: 20px;
+}
+
+.notice-bar button:hover {
+  background-color: #ffffff; /* White background on hover */
+  color: #4e4e4e; /* Dark text color on hover */
+}
