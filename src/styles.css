@@ -305,3 +305,21 @@ body,
   margin-bottom: 3px; /* Controls spacing */
   margin-top: 3px; /* Controls spacing */
 }
+
+
+
+
+
+/* Disable Bootstrap globally */
+.accordion,
+.table,
+.container {
+  all: unset;
+}
+
+/* Enable Bootstrap only inside .tm-bootstrap */
+.tm-bootstrap .accordion,
+.tm-bootstrap .table,
+.tm-bootstrap .container {
+  all: revert;
+}

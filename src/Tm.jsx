@@ -1,9 +1,75 @@
-import { Container, Row, Col, Table } from "react-bootstrap";
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+
+import { Accordion, Table, Container } from "react-bootstrap";
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls,Environment } from "@react-three/drei";
+import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { useState } from "react";
 
+
+const partsData = [
+  {
+    category: "Upper Parts",
+    parts: [
+      { number: 1, name: "Slide (Hi-CAPA 5.1)" },
+      { number: 2, name: "Outer Barrel (Hi-CAPA 5.1)" },
+      { number: 3, name: "Inner Barrel (Hi-CAPA 5.1)" },
+      { number: 4, name: "Hop-up Bucking (Hi-CAPA 5.1/4.3)" },
+      { number: 5, name: "Loading Nozzle Set (Hi-CAPA 5.1/4.3)" },
+      { number: 6, name: "Loading Nozzle Housing (Hi-CAPA 5.1/4.3)" },
+      { number: 7, name: "Loading Nozzle Spring (Hi-CAPA 5.1/4.3)" },
+      { number: 8, name: "Guide Rod (Hi-CAPA 4.3)" },
+      { number: 9, name: "Recoil Spring (Hi-CAPA 4.3)" },
+      { number: 10, name: "Recoil Spring Plug (Hi-CAPA 4.3)" }
+    ]
+  },
+  {
+    category: "Middle Frame Parts",
+    parts: [
+      { number: 11, name: "Valve Knocker (Hi-CAPA 5.1/4.3)" },
+      { number: 12, name: "Sear (Hi-CAPA 5.1/4.3)" },
+      { number: 13, name: "Hammer (Hi-CAPA 5.1/4.3)" },
+      { number: 14, name: "Hammer Strut (Hi-CAPA 5.1/4.3)" },
+      { number: 15, name: "Thumb Safety (Hi-CAPA 5.1/4.3)" },
+      { number: 16, name: "Grip Safety (Hi-CAPA 5.1/4.3)" }
+    ]
+  },
+  {
+    category: "Grip and Magazine Parts",
+    parts: [
+      { number: 17, name: "Grip (Hi-CAPA 5.1/4.3)" },
+      { number: 18, name: "Hammer Spring (Hi-CAPA 5.1/4.3)" },
+      { number: 19, name: "Hammer Spring Cap (Hi-CAPA 5.1/4.3)" },
+      { number: 20, name: "Hammer Spring Housing (Hi-CAPA 5.1/4.3)" },
+      { number: 21, name: "Sear Spring (Hi-CAPA 5.1/4.3)" },
+      { number: 22, name: "Trigger (Hi-CAPA 5.1/4.3)" },
+    ]
+  },
+  {
+    category: "Magazine Parts",
+    parts: [
+      { number: 23, name: "Magazine (Hi-CAPA 5.1/4.3)" },
+      { number: 24, name: "Magazine Baseplate (Hi-CAPA 5.1/4.3)" },
+      { number: 25, name: "Feeding Lip (Hi-CAPA 5.1/4.3)" },
+      { number: 26, name: "Gasket (Hi-CAPA 5.1/4.3)" },
+      { number: 27, name: "Follower (Hi-CAPA 5.1/4.3)" },
+      { number: 28, name: "Follower Spring (Hi-CAPA 5.1/4.3)" },
+      { number: 29, name: "Gas Valve (Hi-CAPA 5.1/4.3)" }
+    ]
+  }
+];
+
 export default function Tm() {
+
   const [showTooltip, setShowTooltip] = useState(false);
 
   const model = useGLTF("./models/explode1.glb");
@@ -86,67 +152,63 @@ export default function Tm() {
         <div
           style={{
             position: "absolute",
-            top: "25%",
+            top: "17%",
             left: "0%",
             width: "100%",
             height: "100%",
           }}
         >
-       <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
-  <Environment files="./2k.hdr" />
-  <primitive object={model.scene} scale={25} />
-  <OrbitControls enableZoom={false} enablePan={false} />
-</Canvas>
+          <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
+
+
+            <ambientLight intensity={0.8} />
+            <Environment files="./2k.hdr" />
+            <primitive object={model.scene} scale={25} rotation={[0.5, -2.5, 0]} />
+            <OrbitControls enableZoom={false} enablePan={false} />
+          </Canvas>
         </div>
 
-        {/* Table */}
-        <table
+        {/* list */}
+        <Container className="mt-4 "
           style={{
             position: "absolute",
-            top: "30%",
-            left: "65%",
-            width: "400px",
-            backgroundColor: "#f8f9fa",
-            border: "2px solid #343a40",
-            fontFamily: "Arial, sans-serif",
-            fontSize: "16px",
-            borderCollapse: "collapse",
-            textAlign: "center",
+            top: "25%",
+            left: "70%",
+            transform: "translateX(-50%)",
+            width: "30%",
+            zIndex: 10, // Ensures it's above the 3D model
+            background: "rgba(255, 255, 255, 0.9)", // Light background for readability
+            borderRadius: "10px",
+            padding: "10px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
           }}
         >
-          <thead
-            style={{
-              backgroundColor: "#343a40",
-              color: "white",
-              fontSize: "20px",
-              fontWeight: "bold",
-            }}
-          >
-            <tr>
-              <th style={{ padding: "5px", border: "1px solid #343a40" }}>#</th>
-              <th style={{ padding: "5px", border: "1px solid #343a40" }}>
-                Part Name
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {parts.map((part, index) => (
-              <tr
-                key={part.number}
-                style={{
-                  backgroundColor: index % 2 === 0 ? "#e9ecef" : "#ffffff",
-                }}
-              >
-                <td style={{ padding: "5px", border: "1px solid #343a40" }}>
-                  {part.number}
-                </td>
-                <td style={{ padding: "5px", border: "1px solid #343a40" }}>
-                  {part.name}
-                </td>
-              </tr>
+          <Accordion defaultActiveKey="0">
+            {partsData.map((category, index) => (
+              <Accordion.Item eventKey={index.toString()} key={index}>
+                <Accordion.Header>{category.category}</Accordion.Header>
+                <Accordion.Body>
+                  <Table bordered hover responsive className="text-center">
+                    <thead className="table-dark ">
+                      <tr>
+                        <th>#</th>
+                        <th>Part Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {category.parts.map((part) => (
+                        <tr key={part.number}>
+                          <td>{part.number}</td>
+                          <td>{part.name}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Accordion.Body>
+              </Accordion.Item>
             ))}
-          </tbody>
-        </table>
+          </Accordion>
+        </Container>
       </div>
     </>
   );
