@@ -14,7 +14,7 @@
 
 
 
-import { OrbitControls, Environment, Html } from "@react-three/drei";
+import { Environment, Html } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { useRef, useState,useEffect, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
