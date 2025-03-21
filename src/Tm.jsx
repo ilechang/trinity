@@ -2,49 +2,50 @@ import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 
+// ✅ 在應用啟動時就開始 `preload()`，不等待 `Tm` 渲染
+const modelFiles = [
+  "valve.glb",
+  "magbase.glb",
+  "followerspring.glb",
+  "follower.glb",
+  "gasket.glb",
+  "lip.glb",
+  "mag.glb",
+  "trigger.glb",
+  "grip.glb",
+  "hammerspringhousing.glb",
+  "hammerspring.glb",
+  "hammerspringcap.glb",
+  "searspring.glb",
+  "gripsafety.glb",
+  "strut.glb",
+  "hammer.glb",
+  "sear.glb",
+  "knocker.glb",
+  "thumb.glb",
+  "guiderod.glb",
+  "recoilspring.glb",
+  "recoilplug.glb",
+  "nzspring.glb",
+  "slide.glb",
+  "nzhousing.glb",
+  "nz.glb",
+  "outter.glb",
+  "bucking.glb",
+  "innerbarrel.glb",
+];
+
+// ✅ 頁面載入時預先載入所有模型
+modelFiles.forEach((file) => useGLTF.preload(`./models/${file}`));
+
 export default function Tm() {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  // 模型檔案列表（必須在函式內定義）
-  const modelFiles = [
-    "valve.glb",
-    "magbase.glb",
-    "followerspring.glb",
-    "follower.glb",
-    "gasket.glb",
-    "lip.glb",
-    "mag.glb",
-    "trigger.glb",
-    "grip.glb",
-    "hammerspringhousing.glb",
-    "hammerspring.glb",
-    "hammerspringcap.glb",
-    "searspring.glb",
-    "gripsafety.glb",
-    "strut.glb",
-    "hammer.glb",
-    "sear.glb",
-    "knocker.glb",
-    "thumb.glb",
-    "guiderod.glb",
-    "recoilspring.glb",
-    "recoilplug.glb",
-    "nzspring.glb",
-    "slide.glb",
-    "nzhousing.glb",
-    "nz.glb",
-    "outter.glb",
-    "bucking.glb",
-    "innerbarrel.glb",
-  ];
-
-  // 動態載入所有模型
-  const models = modelFiles.map((file) => useGLTF(`./models/${file}`));
-
-  // 預載入所有模型（必須放在 useEffect 或函式內）
-  React.useEffect(() => {
-    modelFiles.forEach((file) => useGLTF.preload(`./models/${file}`));
-  }, []);
+  // ✅ 個別調用 `useGLTF()`，確保 React Hooks 正確使用
+  const models = modelFiles.map((file) => ({
+    file,
+    model: useGLTF(`./models/${file}`),
+  }));
 
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
@@ -128,7 +129,7 @@ export default function Tm() {
           <Environment files="./2k.hdr" />
 
           {/* 渲染所有模型 */}
-          {models.map((model, index) => (
+          {models.map(({ file, model }, index) => (
             <primitive
               key={index}
               object={model.scene}
@@ -143,10 +144,6 @@ export default function Tm() {
     </div>
   );
 }
-
-
-
-
 
 
 
