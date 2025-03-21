@@ -95,12 +95,33 @@ export default function Tm() {
 
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
+
+<h2
+          className="archivo-black-regular hi-capa-title no-select text-center"
+          style={{
+            fontSize: "120px",
+            textAlign: "center",
+            width: "100%",
+            color: "black",
+            zIndex: 10,
+            pointerEvents: "none",
+            margin: "55px auto 30px auto",
+
+            lineHeight: "1.1",
+          }}
+        >
+          TM Compatibility
+        </h2>
+<hr />
+
+
+        
       {/* 3D Scene */}
       <div
         style={{
           position: "absolute",
-          top: "17%",
-          left: "0%",
+          top: "19%",
+          left: "-2%",
           width: "100%",
           height: "100%",
         }}
@@ -117,7 +138,7 @@ export default function Tm() {
 
             return (
               <group key={index}>
-                <primitive object={scene} scale={25} rotation={[0.5, -2.5, 0]} />
+                <primitive object={scene} scale={18} rotation={[0.5, -2.5, 0]} />
                 {activeCategory !== null &&
                   partsWithFiles[activeCategory].parts.some(part => part.file === file) && (
                     <Html ref={labelRef} position={[center.x, center.y, center.z]} center zIndexRange={[0, 0]}>
@@ -133,8 +154,20 @@ export default function Tm() {
           <OrbitControls enableZoom={false} enablePan={false} />
         </Canvas>
 
-{/* ✅ Accordion List */}
-<div className="accordion-container">
+
+
+
+      </div>
+      {/* ✅ Accordion List */}
+<div className="accordion-container"
+ style={{
+  position: "absolute",
+  top: "37%",
+  left: "80%",
+  width: "20%",
+
+}}
+>
   {partsWithFiles.map((category, index) => (
     <div key={index} className={`accordion-item ${activeCategory === index ? "active" : ""}`}>
       <div className="accordion-header" onClick={() => toggleAccordion(index)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -158,9 +191,6 @@ export default function Tm() {
     </div>
   ))}
 </div>
-
-
-      </div>
     </div>
   );
 }
