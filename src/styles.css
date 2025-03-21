@@ -306,6 +306,86 @@ body,
   margin-top: 3px; /* Controls spacing */
 }
 
+.label-container {
+  background: rgb(31, 31, 31);
+  padding: 5px;
+  border-radius: 50px;
+  opacity: 0.8; /* Background should be semi-transparent */
+}
+
+.label-container span {
+  font-family: Arial, sans-serif;
+  color: white; /* Ensure text is white */
+  opacity: 1; /* Text remains fully visible */
+}
 
 
 
+
+
+
+
+
+
+
+/* Accordion container */
+.accordion-container {
+  position: absolute;
+  top: 25%;
+  left: 70%;
+  transform: translateX(-50%);
+  width: 30%;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* Accordion Header */
+.accordion-header {
+  background: #343a40;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: #495057;
+}
+
+/* Accordion Body (Hidden by default) */
+.accordion-body {
+  display: none;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 5px;
+}
+
+/* Show Body when Active */
+.accordion-item.active .accordion-body {
+  display: block;
+}
+
+/* Table Styling */
+.accordion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accordion-table th, .accordion-table td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: center;
+}
+
+.accordion-table th {
+  background: #343a40;
+  color: white;
+}
