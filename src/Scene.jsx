@@ -1,19 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { Environment, Html } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { useRef, useState,useEffect, useMemo } from "react";

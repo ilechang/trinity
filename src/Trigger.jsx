@@ -2,22 +2,31 @@ import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
+
+
+
+
 const Trigger = () => {
-  const model = useGLTF("./models/trinity18.glb");
+  const model = useGLTF("./models/shoot2.glb");
+
+
+
+  
   const { animations } = model;
   const { actions } = useAnimations(animations, model.scene);
   const modelRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
   // **硬編碼 Leva 的數值**
-  const posX = 7.3;
+  const posX = 5;
   const posY = 0;
   const posZ = -4;
-  const scale = 45;
-  const rotationX = 0.6
-  const rotationY = -3.1;
-  const rotationZ = -0.4
-  ;
+  const scale = 42;
+
+  const rotationX = 0
+  const rotationY = -0.3
+  const rotationZ = 0
+    ;
 
   useEffect(() => {
     if (model.scene) {
@@ -39,7 +48,7 @@ const Trigger = () => {
 
     const interval = setInterval(() => {
       playAnimation();
-    }, 3000);
+    }, 1800);
 
     return () => clearInterval(interval);
   }, [isPlaying]);
@@ -51,6 +60,7 @@ const Trigger = () => {
         action.reset();
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
+        action.timeScale =3; // ← 1.8x speed
         action.play();
       });
     }
@@ -76,7 +86,7 @@ const Trigger = () => {
       return newState;
     });
   };
-  
+
   return (
     <>
       <directionalLight position={[1.8, -2, 3]} />
@@ -84,7 +94,7 @@ const Trigger = () => {
       <primitive ref={modelRef} object={model.scene} />
 
       {/* ✅ 用 Html 包裹 button，確保它是 HTML 而不是 Three.js 物件 */}
-      <Html position={[3.2, -1.8, 0]}>
+      <Html position={[6.2, -2.5, 0]}>
         <button
           onClick={toggleAnimation}
           style={{
@@ -108,8 +118,6 @@ const Trigger = () => {
     </>
   );
 };
-
-useGLTF.preload("./models/trinity12.glb");
 
 export default Trigger;
 
