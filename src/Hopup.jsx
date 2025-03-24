@@ -64,10 +64,7 @@ function Hopup() {
 
   return (
     <>
-{/* 
-<directionalLight position={[1.8, -2, 3]} intensity={0.5} />
-<directionalLight position={[3.8, -1, 3]} intensity={0.5} />
-<directionalLight position={[-1.8, 0, 1]} intensity={0.5} /> */}
+
       <Environment files="./2k.hdr" />
       <ambientLight intensity={0.7} />
 
