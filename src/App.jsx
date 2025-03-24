@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ModelProvider } from "./ModelProvider"; 
+
 import "./styles.css";
 import { Canvas } from "@react-three/fiber";
 import ScrollControl from "./ScrollControl";
@@ -14,7 +14,7 @@ function App() {
   const [noticeVisible, setNoticeVisible] = useState(true); // ✅ State to show/hide notice
 
   return (
-    <ModelProvider> 
+<>
       {/* ✅ Notice Bar */}
       {noticeVisible && (
         <div className="notice-bar">
@@ -57,7 +57,7 @@ function App() {
           <Video />
         </div>
       </div>
-    </ModelProvider>
+      </>
   );
 }
 
