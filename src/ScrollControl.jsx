@@ -1,27 +1,27 @@
-import { lazy, Suspense } from "react"; // 加上 lazy
 import { ScrollControls, Scroll } from "@react-three/drei";
 import Images from "./Images";
-import Loader from "./Loader";
-
-// ✅ Lazy load Scene
-const Scene = lazy(() => import("./Scene"));
+import Scene from "./Scene";
 
 const ScrollControl = () => {
   return (
     <ScrollControls pages={4} damping={0.2} infinite={false}>
-      {/* Page 1: Scene - Suspense 包起來 */}
+      
+      {/* Page 1: 只顯示 Scene */}
       <Scroll>
-        <Suspense fallback={<Loader />}>
-          <Scene />
-        </Suspense>
+        <Scene />
       </Scroll>
 
+      {/* Page 2: 顯示 Images */}
       <Scroll>
         <Images />
       </Scroll>
 
-      <Scroll>{/* 未來內容 */}</Scroll>
+      {/* Page 3: 留空或加入其他內容 */}
+      <Scroll>
+        {/* Empty section or future content */}
+      </Scroll>
 
+      {/* Page 4: HTML Text */}
       <Scroll html>
         <h1 style={{ position: "absolute", top: "110vh", left: "5.4em", fontSize: "10vw" }}>
           Dominate
@@ -38,69 +38,6 @@ const ScrollControl = () => {
 };
 
 export default ScrollControl;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { ScrollControls, Scroll } from "@react-three/drei";
-// import Images from "./Images";
-// import Scene from "./Scene";
-// import Loader from "./Loader";
-// import { Suspense } from "react"; // ⬅️ Add this
-
-
-
-// const ScrollControl = () => {
-//   return (
-//     <ScrollControls pages={4} damping={0.2} infinite={false}>
-      
-//       {/* Page 1: 只顯示 Scene */}
-//       <Scroll>
-//       <Suspense fallback={<Loader />}>
-//         <Scene />
-//         </Suspense>
-//       </Scroll>
-
-//       {/* Page 2: 顯示 Images */}
-//       <Scroll>
-//         <Images />
-//       </Scroll>
-
-//       {/* Page 3: 留空或加入其他內容 */}
-//       <Scroll>
-//         {/* Empty section or future content */}
-//       </Scroll>
-
-//       {/* Page 4: HTML Text */}
-//       <Scroll html>
-//         <h1 style={{ position: "absolute", top: "110vh", left: "5.4em", fontSize: "10vw" }}>
-//           Dominate
-//         </h1>
-//         <h1 style={{ position: "absolute", top: "220vh", left: "60vw", fontSize: "10vw" }}>
-//           The
-//         </h1>
-//         <h1 style={{ position: "absolute", top: "262vh", left: "0.5vw", fontSize: "30vw" }}>
-//           Field
-//         </h1>
-//       </Scroll>
-//     </ScrollControls>
-//   );
-// };
-
-// export default ScrollControl;
 
 
 

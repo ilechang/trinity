@@ -17,6 +17,7 @@
 
 
 
+import { useThree, useFrame } from "@react-three/fiber";
 
 import { Accordion, Table, Container } from "react-bootstrap";
 import React, { useState, useEffect, useRef } from "react";
@@ -76,6 +77,34 @@ const partsWithFiles = [
     ]
   }
 ];
+function RotatingCamera({ speed = 0.2, isUserInteracting }) {
+  const angleRef = useRef(0);
+  const { camera } = useThree();
+
+  // 📌 在使用者結束互動後，重新記錄角度
+  useEffect(() => {
+    if (!isUserInteracting) {
+      const x = camera.position.x;
+      const z = camera.position.z;
+      angleRef.current = Math.atan2(x, z); // 保留目前角度
+    }
+  }, [isUserInteracting, camera.position.x, camera.position.z]);
+
+  useFrame((_, delta) => {
+    if (isUserInteracting) return; // 🛑 正在拖曳不旋轉
+
+    angleRef.current -= delta * speed *0.5;
+
+    const radius = camera.position.length(); // 動態取得半徑長度
+    const x = Math.sin(angleRef.current) * radius;
+    const z = Math.cos(angleRef.current) * radius;
+
+    camera.position.set(x, 0, z);
+    camera.lookAt(0, 0, 0);
+  });
+
+  return null;
+}
 
 // ✅ Preload models based on the updated dataset
 partsWithFiles.forEach(category => {
@@ -83,6 +112,7 @@ partsWithFiles.forEach(category => {
 });
 
 export default function Tm() {
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [modelCenters, setModelCenters] = useState({});
 
@@ -146,33 +176,59 @@ export default function Tm() {
           height: "100%",
         }}
       >
-        <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
-          <ambientLight intensity={0.85} />
-          <Environment files="./2k.hdr" />
+<Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
+  <ambientLight intensity={0.85} />
+  <Environment files="./2k.hdr" />
 
-          {/* ✅ Render each model correctly */}
-          {models.map(({ file, model, number }, index) => {
-            const scene = model.scene;
-            const center = modelCenters[file] || new THREE.Vector3(0, 0, 0);
-            const labelRef = useRef();
 
-            return (
-              <group key={index}>
-                <primitive object={scene} scale={18} rotation={[0.5, -2.5, 0]} />
-                {activeCategory !== null &&
-                  partsWithFiles[activeCategory].parts.some(part => part.file === file) && (
-                    <Html ref={labelRef} position={[center.x, center.y, center.z]} center zIndexRange={[0, 0]}>
-                      <div className="label-container">
-                        <span>{number}</span>
-                      </div>
-                    </Html>
-                  )}
-              </group>
-            );
-          })}
 
-          <OrbitControls enableZoom={false} enablePan={false} />
-        </Canvas>
+  {models.map(({ file, model, number }, index) => {
+    const scene = model.scene;
+    const center = modelCenters[file] || new THREE.Vector3(0, 0, 0);
+    const labelRef = useRef();
+
+    return (
+      <group key={index}>
+        <primitive object={scene} scale={18} rotation={[0, -2.5, -0.3]} />
+        <Html position={[0, -2.5, 0]} zIndexRange={[10, 0]}>
+  <img
+    src="/images/360.jpg"
+    alt="360° 產品預覽"
+    width="40"
+    height="40"
+    style={{
+      pointerEvents: "none",
+      opacity: 0.8,
+      animation: "floatHint 2s ease-in-out infinite",
+    }}
+  />
+</Html>
+        {activeCategory !== null &&
+          partsWithFiles[activeCategory].parts.some(part => part.file === file) && (
+            <Html ref={labelRef} position={[center.x, center.y, center.z]} center zIndexRange={[0, 0]}>
+              
+              <div className="label-container">
+                <span>{number}</span>
+              </div>
+              
+            </Html>
+          )}
+      </group>
+    );
+  })}
+  <RotatingCamera speed={0.3} isUserInteracting={isUserInteracting} />
+
+  <OrbitControls
+  enableZoom={false}
+  enablePan={false}
+  minPolarAngle={Math.PI / 2}  // 90° 下限
+  maxPolarAngle={Math.PI / 2}  // 90° 上限
+  onStart={() => setIsUserInteracting(true)}
+  onEnd={() => setIsUserInteracting(false)}
+/>
+
+</Canvas>
+
 
 
 

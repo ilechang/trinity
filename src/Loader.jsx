@@ -1,35 +1,25 @@
-// Loader.jsx
-import { Html, useProgress } from "@react-three/drei";
-
 const Loader = () => {
-  const { progress } = useProgress();
-
-  return (
-    <Html fullscreen>
-      <div style={{
-        height: '100vh',
-        width: '100vw',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        pointerEvents: 'none', // optional, so it doesn’t block scene interaction
-      }}>
-        <div style={{
-          transform: 'translateY(-25vh)', // shifts the loader upwards to ~50vh
-          color: "white",
-          fontSize: "18px",
-          background: "rgba(0,0,0,0.8)",
-          padding: "20px 30px",
-          borderRadius: "8px",
-          textAlign: "center",
-          fontFamily: "Arial",
-          boxShadow: "0 0 20px rgba(0,0,0,0.5)"
-        }}>
-          Loading... {progress.toFixed(0)}%
-        </div>
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          background: "#000",
+          color: "#fff",
+          fontSize: "24px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 9999,
+        }}
+      >
+         Loading...
       </div>
-    </Html>
-  );
-};
-
-export default Loader;
+    );
+  };
+  
+  export default Loader;
+  
