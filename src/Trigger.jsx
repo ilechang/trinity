@@ -7,7 +7,7 @@ import * as THREE from "three";
 
 
 const Trigger = () => {
-  const model = useGLTF("./models/shoot2.glb");
+  const model = useGLTF("./models/shoot3.glb");
 
 
 

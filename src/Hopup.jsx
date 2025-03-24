@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
 function Hopup() {
-  const { scene, animations } = useGLTF("./models/trinity12.glb");
+  const { scene, animations } = useGLTF("./models/hop.glb");
   const { actions } = useAnimations(animations, scene);
   const modelRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);

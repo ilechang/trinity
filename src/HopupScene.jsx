@@ -23,7 +23,7 @@ const HopupScene = () => {
   useEffect(() => {
     const preloadTimeout = setTimeout(() => {
       useGLTF.preload("./models/trinity12.glb");
-    }, 8000);
+    }, 3000);
     return () => clearTimeout(preloadTimeout);
   }, []);
 
