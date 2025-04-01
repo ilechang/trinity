@@ -56,11 +56,11 @@ const partsWithFiles = [
   {
     category: "Grip Parts",
     parts: [
-      { number: 17, name: "Grip (Hi-CAPA 5.1/4.3)", file: "grip.glb" },
+      { number: 17, name: "Grip (Hi-CAPA 5.1/4.3)", file: "gripsm.glb" },
       { number: 18, name: "Hammer Spring (Hi-CAPA 5.1/4.3)", file: "hammerspring.glb" },
       { number: 19, name: "Hammer Spring Cap (Hi-CAPA 5.1/4.3)", file: "hammerspringcap.glb" },
       { number: 20, name: "Hammer Spring Housing (Hi-CAPA 5.1/4.3)", file: "hammerspringhousing.glb" },
-      { number: 21, name: "Sear Spring (Hi-CAPA 5.1/4.3)", file: "searspring.glb" },
+      { number: 21, name: "Sear Spring (Hi-CAPA 5.1/4.3)", file: "searspringsm.glb" },
       { number: 22, name: "Trigger (Hi-CAPA 5.1/4.3)", file: "trigger.glb" }
     ]
   },

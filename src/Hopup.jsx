@@ -1,9 +1,12 @@
+useGLTF.preload("/models/hopsm.glb");
 import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
+
 function Hopup() {
-  const { scene, animations } = useGLTF("./models/hop.glb");
+
+  const { scene, animations } = useGLTF("/models/hopsm.glb");
   const { actions } = useAnimations(animations, scene);
   const modelRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);

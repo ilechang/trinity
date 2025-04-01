@@ -20,12 +20,7 @@ const HopupScene = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const preloadTimeout = setTimeout(() => {
-      useGLTF.preload("./models/hop.glb");
-    }, 3000);
-    return () => clearTimeout(preloadTimeout);
-  }, []);
+
 
   return (
     <div ref={ref} style={{ position: "relative", width: "100vw", height: "100vh" }}>

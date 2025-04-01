@@ -11,7 +11,8 @@ const items = [
 ];
 
 const Scene = () => {
-  const { scene } = useGLTF("./models/noanimation.glb"); // ✅ 直接載入模型
+  const { scene } = useGLTF("/models/compressed.glb"); // ✅ 直接載入模型
+
   const groupRef = useRef();
   const targetRotation = useRef({ x: 0, y: 0 });
   const [animationComplete, setAnimationComplete] = useState(false);

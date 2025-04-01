@@ -24,13 +24,6 @@ const TriggerScene = () => {
     return () => observer.disconnect();
   }, []);
 
-  // ⬇️ 過幾秒後 preload GLTF 模型
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      useGLTF.preload("./models/shoot3.glb");
-    }, 3000);
-    return () => clearTimeout(timeout);
-  }, []);
 
   return (
     <div
