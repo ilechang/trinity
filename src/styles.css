@@ -308,7 +308,7 @@ body,
 
 .label-container {
   background: rgb(31, 31, 31);
-  padding: 5px;
+  padding: 3px;
   border-radius: 50px;
   opacity: 0.8; /* Background should be semi-transparent */
 }
@@ -317,6 +317,7 @@ body,
   font-family: Arial, sans-serif;
   color: white; /* Ensure text is white */
   opacity: 1; /* Text remains fully visible */
+  font-size: 0.9rem;
 }
 
 

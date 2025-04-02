@@ -49,34 +49,36 @@ const partsWithFiles = [
       { number: 12, name: "Sear (Hi-CAPA 5.1/4.3)", file: "sear.glb" },
       { number: 13, name: "Hammer (Hi-CAPA 5.1/4.3)", file: "hammer.glb" },
       { number: 14, name: "Hammer Strut (Hi-CAPA 5.1/4.3)", file: "strut.glb" },
-      { number: 15, name: "Thumb Safety (Hi-CAPA 5.1/4.3)", file: "thumb.glb" },
-      { number: 16, name: "Grip Safety (Hi-CAPA 5.1/4.3)", file: "gripsafety.glb" }
+      { number: 15, name: "Thumb Safety Left (Hi-CAPA 5.1/4.3)", file: "thumbleft.glb" },
+      { number: 16, name: "Thumb Safety Right (Hi-CAPA 5.1/4.3)", file: "thumbright.glb" },
+      { number: 17, name: "Grip Safety (Hi-CAPA 5.1/4.3)", file: "gripsafety.glb" }
     ]
   },
   {
     category: "Grip Parts",
     parts: [
-      { number: 17, name: "Grip (Hi-CAPA 5.1/4.3)", file: "gripsm.glb" },
-      { number: 18, name: "Hammer Spring (Hi-CAPA 5.1/4.3)", file: "hammerspring.glb" },
-      { number: 19, name: "Hammer Spring Cap (Hi-CAPA 5.1/4.3)", file: "hammerspringcap.glb" },
-      { number: 20, name: "Hammer Spring Housing (Hi-CAPA 5.1/4.3)", file: "hammerspringhousing.glb" },
-      { number: 21, name: "Sear Spring (Hi-CAPA 5.1/4.3)", file: "searspringsm.glb" },
-      { number: 22, name: "Trigger (Hi-CAPA 5.1/4.3)", file: "trigger.glb" }
+      { number: 18, name: "Grip (Hi-CAPA 5.1/4.3)", file: "gripsm.glb" },
+      { number: 19, name: "Hammer Spring (Hi-CAPA 5.1/4.3)", file: "hammerspring.glb" },
+      { number: 20, name: "Hammer Spring Cap (Hi-CAPA 5.1/4.3)", file: "hammerspringcap.glb" },
+      { number: 21, name: "Hammer Spring Housing (Hi-CAPA 5.1/4.3)", file: "hammerspringhousing.glb" },
+      { number: 22, name: "Sear Spring (Hi-CAPA 5.1/4.3)", file: "searspringsm.glb" },
+      { number: 23, name: "Trigger (Hi-CAPA 5.1/4.3)", file: "trigger.glb" }
     ]
   },
   {
     category: "Magazine Parts",
     parts: [
-      { number: 23, name: "Magazine (Hi-CAPA 5.1/4.3)", file: "mag.glb" },
-      { number: 24, name: "Magazine Baseplate (Hi-CAPA 5.1/4.3)", file: "magbase.glb" },
-      { number: 25, name: "Feeding Lip (Hi-CAPA 5.1/4.3)", file: "lip.glb" },
-      { number: 26, name: "Gasket (Hi-CAPA 5.1/4.3)", file: "gasket.glb" },
-      { number: 27, name: "Follower (Hi-CAPA 5.1/4.3)", file: "follower.glb" },
-      { number: 28, name: "Follower Spring (Hi-CAPA 5.1/4.3)", file: "followerspring.glb" },
-      { number: 29, name: "Gas Valve (Hi-CAPA 5.1/4.3)", file: "valve.glb" }
+      { number: 24, name: "Magazine (Hi-CAPA 5.1/4.3)", file: "mag.glb" },
+      { number: 25, name: "Magazine Baseplate (Hi-CAPA 5.1/4.3)", file: "magbase.glb" },
+      { number: 26, name: "Feeding Lip (Hi-CAPA 5.1/4.3)", file: "lip.glb" },
+      { number: 27, name: "Gasket (Hi-CAPA 5.1/4.3)", file: "gasket.glb" },
+      { number: 28, name: "Follower (Hi-CAPA 5.1/4.3)", file: "follower.glb" },
+      { number: 29, name: "Follower Spring (Hi-CAPA 5.1/4.3)", file: "followerspring.glb" },
+      { number: 30, name: "Gas Valve (Hi-CAPA 5.1/4.3)", file: "valve.glb" }
     ]
   }
 ];
+
 function RotatingCamera({ speed = 0.2, isUserInteracting }) {
   const angleRef = useRef(0);
   const { camera } = useThree();
@@ -163,6 +165,10 @@ export default function Tm() {
           TM Compatibility
         </h2>
 <hr />
+<p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop:"2rem" }} >
+Tokyo Marui(TM)sets the gold standard in the airsoft industry. The more parts of a gun that are compatible with TM, the easier it is to find replacements and upgrades.
+</p>
+
 
 
         
@@ -170,7 +176,7 @@ export default function Tm() {
       <div
         style={{
           position: "absolute",
-          top: "19%",
+          top: "26%",
           left: "-2%",
           width: "100%",
           height: "100%",
@@ -238,9 +244,9 @@ export default function Tm() {
 <div className="accordion-container"
  style={{
   position: "absolute",
-  top: "37%",
+  top: "45%",
   left: "80%",
-  width: "20%",
+  width: "25%",
 
 }}
 >

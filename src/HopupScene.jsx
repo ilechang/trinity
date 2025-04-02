@@ -93,8 +93,7 @@ const HopupScene = () => {
             color: "black",
             zIndex: 10,
             fontWeight: 500,
-            marginTop: "10px",
-            marginBottom: "35px",
+            margin: "20px 0 30px 0",
           }}
         >
           Taiwan Utility Models Patent: M626103

@@ -59,7 +59,7 @@ const TriggerScene = () => {
           color: "white",
           zIndex: 10,
           fontWeight: 500,
-          margin: "0 0 35px 0",
+          margin: "10px 0 30px 0",
         }}
       >
         Taiwan Utility Models Patent: M628501
