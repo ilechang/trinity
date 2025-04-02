@@ -69,7 +69,7 @@ function Hopup() {
     <>
 
       <Environment files="./2k.hdr" />
-      <ambientLight intensity={0.7} />
+      <ambientLight intensity={0.9} />
 
       <primitive ref={modelRef} object={scene} />
 
