@@ -81,7 +81,7 @@ function Hopup() {
       <ambientLight intensity={0.9} />
       <primitive ref={modelRef} object={scene} />
 
-      <Html position={[1.9, -1.7, 0]}>
+      <Html position={[-3, -1.7, 0]}>
         <button
           onClick={toggleAnimation}
           style={{

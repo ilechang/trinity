@@ -78,7 +78,7 @@ const TriggerScene = () => {
           zIndex: 0,
 
         }}
-          camera={{ position: [-3, 0, -5], fov: 60, near: 0.01, far: 100 }}
+          camera={{ position: [-3, 0, 12], fov: 50, near: 0.01, far: 100 }}
         >
           <Suspense fallback={null}>
             <Trigger />
