@@ -2,12 +2,12 @@ import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
-useGLTF.preload("/models/hop2.glb");
+useGLTF.preload("/models/shoot8.glb");
 
 
 
 const Trigger = () => {
-  const model = useGLTF("/models/hop2.glb");
+  const model = useGLTF("/models/shoot8.glb");
 
 
 

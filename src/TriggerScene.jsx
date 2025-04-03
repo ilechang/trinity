@@ -31,8 +31,8 @@ const TriggerScene = () => {
         position: "relative",
         width: "100vw",
         height: "100vh",
-        // background: "rgb(31,31,31)",
-        background: "white"
+        background: "rgb(31,31,31)",
+        // background: "white"
       }}
     >
       <h2

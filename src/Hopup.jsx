@@ -1,21 +1,30 @@
-useGLTF.preload("/models/hopsm.glb");
 import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
+useGLTF.preload("/models/hop6.glb");
 
 function Hopup() {
-
-  const { scene, animations } = useGLTF("/models/hopsm.glb");
+  const { scene, animations } = useGLTF("/models/hop6.glb");
   const { actions } = useAnimations(animations, scene);
   const modelRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
+  // ✅ 與 Trigger 一致的位置設定
+  const posX = -1.8
+  ;
+  const posY =0.5;
+  const posZ = 5;
+  const scale = 35;
+  const rotationX = 0;
+  const rotationY = -0.1;
+  const rotationZ = 0;
+
   useEffect(() => {
     if (modelRef.current) {
-      modelRef.current.position.set(-5, 1, -5);
-      modelRef.current.scale.set(33, 33, 33);
-      modelRef.current.rotation.set(0.6, -2.4, -0.2);
+      modelRef.current.position.set(posX, posY, posZ);
+      modelRef.current.scale.set(scale, scale, scale);
+      modelRef.current.rotation.set(rotationX, rotationY, rotationZ);
     }
   }, [scene]);
 
@@ -29,7 +38,7 @@ function Hopup() {
     if (!isPlaying) return;
     const interval = setInterval(() => {
       playAnimation();
-    }, 2500);
+    }, 12000);
     return () => clearInterval(interval);
   }, [isPlaying, actions]);
 
@@ -41,6 +50,8 @@ function Hopup() {
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
         action.play();
+        action.timeScale =1.2
+
       });
     }
   };
@@ -49,7 +60,6 @@ function Hopup() {
     setIsPlaying((prev) => {
       const newState = !prev;
       if (actions) {
-
         Object.values(actions).forEach((action) => {
           if (!newState) {
             action.paused = true;
@@ -67,13 +77,11 @@ function Hopup() {
 
   return (
     <>
-
       <Environment files="./2k.hdr" />
       <ambientLight intensity={0.9} />
-
       <primitive ref={modelRef} object={scene} />
 
-      <Html position={[-3.5, -0.9, 0]}>
+      <Html position={[1.9, -1.7, 0]}>
         <button
           onClick={toggleAnimation}
           style={{
@@ -99,8 +107,6 @@ function Hopup() {
 }
 
 export default Hopup;
-
-
 
 
 
