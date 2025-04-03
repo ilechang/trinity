@@ -2,12 +2,12 @@ import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
-useGLTF.preload("/models/shoot4.glb");
+useGLTF.preload("/models/shoot8.glb");
 
 
 
 const Trigger = () => {
-  const model = useGLTF("/models/shoot4.glb");
+  const model = useGLTF("/models/shoot8.glb");
 
 
 
@@ -20,11 +20,11 @@ const Trigger = () => {
   // **硬編碼 Leva 的數值**
   const posX = 5;
   const posY = 0;
-  const posZ = -4;
-  const scale = 42;
+  const posZ = 5
+  const scale = 40;
 
   const rotationX = 0
-  const rotationY = -0.3
+  const rotationY = -0.1
   const rotationZ = 0
     ;
 
@@ -60,7 +60,8 @@ const Trigger = () => {
         action.reset();
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
-        action.timeScale =3; // ← 1.8x speed
+        action.timeScale =2.9
+        ; // ← 1.8x speed
         action.play();
       });
     }
@@ -94,7 +95,7 @@ const Trigger = () => {
       <primitive ref={modelRef} object={model.scene} />
 
       {/* ✅ 用 Html 包裹 button，確保它是 HTML 而不是 Three.js 物件 */}
-      <Html position={[6.2, -2.5, 0]}>
+      <Html position={[1.9, -1.7, 0]}>
         <button
           onClick={toggleAnimation}
           style={{
