@@ -59,7 +59,7 @@ const TriggerScene = () => {
           color: "white",
           zIndex: 10,
           fontWeight: 500,
-          margin: "10px 0 30px 0",
+          margin: "0 0 35px 0",
         }}
       >
         Taiwan Utility Models Patent: M628501
@@ -69,16 +69,15 @@ const TriggerScene = () => {
 
       {shouldRender && (
         <Canvas
-        style={{
-          width: "100vw",
-          height: "100vh",
-          position: "absolute",
-          top: 0,
-          left: 620,
-          zIndex: 0,
-
-        }}
-          camera={{ position: [-3, 0, -5], fov: 60, near: 0.01, far: 100 }}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "2%",
+            left: "12%",
+            zIndex: 1,
+          }}
+          camera={{ position: [-3, 0, 12], fov: 50, near: 0.01, far: 100 }}
         >
           <Suspense fallback={null}>
             <Trigger />
@@ -102,8 +101,8 @@ const TriggerScene = () => {
           lineHeight: "1.5",
         }}
       >
-       The Trinity match grade trigger system has a super short trigger pull (only 1mm) and resets in a split second.
- This not only makes rapid fire easier, but also increases the accuracy of the first and follow-up shots, making it the best choice in shooting competitions and close-quarters combat (CQB).
+       The Trinity match grade trigger system has a super short trigger pull (only 0.9mm) and resets in a split second.
+//                 This not only makes rapid fire easier, but also increases the accuracy of the first and follow-up shots, making it the best choice in shooting competitions and close-quarters combat (CQB).
       </p>
 
       <div style={{ display: "flex", justifyContent: "start", marginTop: "6vh", paddingLeft: "15%" }}>

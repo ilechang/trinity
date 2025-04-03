@@ -49,9 +49,9 @@ function App() {
           <TriggerScene />
         </div>
 
-     <div className="fifthSection">
+        <div className="fifthSection">
           <Tm />
-        </div> 
+        </div>
 
         <div className="sixthSection">
           <Video />
