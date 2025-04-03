@@ -2,12 +2,12 @@ import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
-useGLTF.preload("/models/shoot7.glb");
+useGLTF.preload("/models/shoot8.glb");
 
 
 
 const Trigger = () => {
-  const model = useGLTF("/models/shoot7.glb");
+  const model = useGLTF("/models/shoot8.glb");
 
 
 
@@ -60,7 +60,7 @@ const Trigger = () => {
         action.reset();
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
-        action.timeScale =2.8
+        action.timeScale =2.9
         ; // ← 1.8x speed
         action.play();
       });
