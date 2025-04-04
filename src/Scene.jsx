@@ -81,7 +81,7 @@ const Scene = () => {
       <Html position={[0, 2.2, 0]} center>
         <div className="html-container">
           <h1 className="hurricane-text trinity-title no-select">Trinity</h1>
-          <h2 className="archivo-black-regular hi-capa-title no-select">Hi-CAPA</h2>
+          <h2 className="archivo-black-regular hi-capa-title no-select " >Hi-CAPA</h2>
           <h3 className="archivo-black-regular subtitle no-select">
             Airsoft Gas Blowback Pistol
           </h3>

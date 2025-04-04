@@ -2,10 +2,10 @@ import { useGLTF, useAnimations, Environment, Html } from "@react-three/drei";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 
-useGLTF.preload("/models/hop6.glb");
+useGLTF.preload("/models/hop7.glb");
 
 function Hopup() {
-  const { scene, animations } = useGLTF("/models/hop6.glb");
+  const { scene, animations } = useGLTF("/models/hop7.glb");
   const { actions } = useAnimations(animations, scene);
   const modelRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -88,16 +88,17 @@ function Hopup() {
             position: "absolute",
             padding: "7px 13px",
             fontSize: "14px",
-            background: "rgb(31,31,31)",
-            color: "#fff",
+            background: "#f0f0f0",
+            color: "black",
             border: "none",
             cursor: "pointer",
             borderRadius: "0px",
             transform: "translateX(-100px)",
             transition: "background 0.3s ease, transform 0.2s ease",
           }}
-          onMouseEnter={(e) => (e.target.style.background = "rgb(50,50,50)")}
-          onMouseLeave={(e) => (e.target.style.background = "rgb(31,31,31)")}
+
+          onMouseEnter={(e) => (e.target.style.background = "rgb(180,180,180)")}
+          onMouseLeave={(e) => (e.target.style.background = "#f0f0f0")}
         >
           {isPlaying ? "Pause" : "Play"}
         </button>

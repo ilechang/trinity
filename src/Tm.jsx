@@ -153,7 +153,7 @@ export default function Tm() {
   return (
     <div style={{ position: "relative", width: "100vw", height: "100vh" }}>
       <h2
-        className="archivo-black-regular hi-capa-title no-select text-center"
+        className="archivo-black-regular hi-capa-secondary-title no-select text-center"
         style={{ fontSize: "120px", textAlign: "center", width: "100%", color: "black", zIndex: 10, pointerEvents: "none", margin: "55px auto 30px auto", lineHeight: "1.1" }}
       >
         TM Compatibility

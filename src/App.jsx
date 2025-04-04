@@ -41,15 +41,15 @@ function App() {
           <Detail />
         </div>
 
-        <div className="forthSection" style={{height:"130vh"}}>
-          <HopupScene />
-        </div>
-
-        <div className="fifthSection" style={{ background: "rgb(31,31,31)", height:"110vh"}}>
+        <div className="fifthSection" style={{  height:"110vh"}}>
           <TriggerScene />
         </div>
 
-     <div className="fifthSection">
+        <div className="forthSection" style={{height:"130vh",background: "rgb(31,31,31)"}}>
+          <HopupScene />
+        </div>
+
+         <div className="fifthSection">
           <Tm />
         </div> 
 

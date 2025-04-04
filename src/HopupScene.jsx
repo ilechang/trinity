@@ -4,7 +4,7 @@ import Hopup from "./Hopup";
 
 
 const HopupScene = () => {
-  const [showTooltip, setShowTooltip] = useState(false);
+
   const [shouldRender, setShouldRender] = useState(false);
   const ref = useRef();
 
@@ -32,7 +32,7 @@ const HopupScene = () => {
           fontSize: "120px",
           textAlign: "center",
           width: "100%",
-          color: "black",
+          color: "white",
           zIndex: 10,
           pointerEvents: "none",
           margin: "-70px auto 0 auto",
@@ -49,7 +49,7 @@ const HopupScene = () => {
           textAlign: "center",
           width: "100%",
           fontFamily: "'Arial', sans-serif",
-          color: "black",
+          color: "white",
           zIndex: 10,
           fontWeight: 500,
           margin: "20px 0 30px 0",
@@ -58,10 +58,10 @@ const HopupScene = () => {
         Taiwan Utility Models Patent: M626103
       </p>
       <hr />
-      <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem" }}>
+      <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem" ,color: "white",}}>
         Hop-up is a device that applies friction to the top of a BB, creating backspin, which generates lift through the Magnus effect, thereby increasing the effective range of low muzzle velocity airsoft guns.
       </p>
-      <div style={{ display: "flex", width: "100%", maxWidth: "1600px", margin: "10px auto", alignItems: "flex-start", marginTop: "2rem" }}>
+      <div style={{ color: "white", display: "flex", width: "100%", maxWidth: "1600px", margin: "10px auto", alignItems: "flex-start", marginTop: "2rem" }}>
         {/* Left Column - Text + Main Illustration */}
         <div style={{ flex: "0 0 65%" }}>
           <h5 className="section-title">What is the problem?</h5>
@@ -105,7 +105,7 @@ const HopupScene = () => {
             left: "10%",
             zIndex: 1,
           }}
-          camera={{ position: [-8, 0, -8], fov: 50, near: 0.01, far: 94.5 }}
+          camera={{ position: [-8, 0, -8], fov: 50, near: 0.01, far: 116 }}
         >
           <Suspense fallback={null}>
             <Hopup />

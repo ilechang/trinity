@@ -11,7 +11,7 @@ const Trigger = () => {
 
 
 
-  
+
   const { animations } = model;
   const { actions } = useAnimations(animations, model.scene);
   const modelRef = useRef(null);
@@ -25,7 +25,7 @@ const Trigger = () => {
   const scale = 36;
 
   const rotationX = 0
-  const rotationY = -0.3
+  const rotationY = -0.19
   const rotationZ = 0
     ;
 
@@ -62,9 +62,9 @@ const Trigger = () => {
         action.reset();
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
-        action.timeScale =2.8
+        action.timeScale = 2.8
 
-        ; // ← x speed
+          ; // ← x speed
         action.play();
       });
     }
@@ -105,16 +105,16 @@ const Trigger = () => {
             position: "absolute",
             padding: "7px 13px",
             fontSize: "14px",
-            background: "#f0f0f0",
-            color: "black",
+            background: "rgb(31,31,31)",
+            color: "white",
             border: "none",
             cursor: "pointer",
             borderRadius: "0px",
             transform: "translateX(-50px)",
             transition: "background 0.3s ease, transform 0.2s ease",
           }}
-          onMouseEnter={(e) => (e.target.style.background = "rgb(180,180,180)")}
-          onMouseLeave={(e) => (e.target.style.background = "#f0f0f0")}
+          onMouseEnter={(e) => (e.target.style.background = "rgb(90,90,90)")}
+          onMouseLeave={(e) => (e.target.style.background = "rgb(31,31,31)")}
         >
           {isPlaying ? "Pause" : "Play"}
         </button>
