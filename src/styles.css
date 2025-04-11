@@ -141,7 +141,7 @@ body,
 /* Trinity Title */
 .trinity-title {
   position: absolute;
-  top: 5px;
+  top: 25px;
   left: 30%;
   transform: translateX(-50%) rotate(-13deg);
   color: white;
