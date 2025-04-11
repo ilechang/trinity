@@ -9,7 +9,7 @@ import Tm from "./Tm";
 import Video from "./Video";
 
 function App() {
-  const [noticeVisible, setNoticeVisible] = useState(true);
+  // const [noticeVisible, setNoticeVisible] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
@@ -42,12 +42,12 @@ function App() {
 
   return (
     <>
-      {noticeVisible && (
+      {/* {noticeVisible && (
         <div className="notice-bar">
           <p>This is a toy gun, not a real gun.</p>
           <button onClick={() => setNoticeVisible(false)}>I Understand</button>
         </div>
-      )}
+      )} */}
 
       <div className="main-container">
         <div className="secondSection">
