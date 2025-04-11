@@ -22,7 +22,7 @@ const Trigger = () => {
   const posX = -2.7;
   const posY = 0;
   const posZ = -4;
-  const scale = 36;
+  const scale = 32;
 
   const rotationX = 0
   const rotationY = -0.19
