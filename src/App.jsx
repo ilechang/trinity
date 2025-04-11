@@ -13,7 +13,7 @@ function App() {
   const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
-    const minDelay = new Promise((resolve) => setTimeout(resolve, 2000)); // 至少顯示2秒
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 3000)); // 至少顯示2秒
 
     const contentReady = new Promise((resolve) => {
       if ("requestIdleCallback" in window) {
