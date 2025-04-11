@@ -152,9 +152,9 @@ body,
 /* Hi-CAPA Title */
 .hi-capa-title {
   color: rgb(146, 146, 146);
-  font-size: 260px;
+  font-size: 280px;
   font-weight: bold;
-  margin-top: 280px;
+  margin-top: 300px;
   z-index: 1;
   white-space: nowrap;
   -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
@@ -176,8 +176,8 @@ body,
 .subtitle {
   position: absolute;
   font-size: 25px;
-  top: 250px;
-  left: 780px;
+  top: 280px;
+  left: 865px;
   color: white;
 }
 

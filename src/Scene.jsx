@@ -78,7 +78,7 @@ const Scene = () => {
         ))}
       </group>
 
-      <Html position={[0, 2.2, 0]} center>
+      <Html position={[0, 1.8, 0]} center>
         <div className="html-container">
           <h1 className="hurricane-text trinity-title no-select">Trinity</h1>
           <h2 className="archivo-black-regular hi-capa-title no-select " >Hi-CAPA</h2>
@@ -86,7 +86,7 @@ const Scene = () => {
             Airsoft Gas Blowback Pistol
           </h3>
         </div>
-        <p
+        {/* <p
           className="archivo-black-regular"
           style={{
             textAlign: "center",
@@ -104,7 +104,7 @@ const Scene = () => {
           practical design, it enhances a shooter's performance, making it ideal
           for tactical training, recreational shooting, airsoft gameplay, and
           competition shooting.
-        </p>
+        </p> */}
       </Html>
     </>
   );
