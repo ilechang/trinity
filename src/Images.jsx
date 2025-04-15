@@ -32,7 +32,7 @@ const Images = () => {
             <Image url="images/bg.jpg" scale={[width * 5, height * 1.3, 1]} position={[0, 0, -1.2]}
                 zoom={1}
             />
-            <Image url="images/1.webp" scale={[4, height, 1]} position={[-2, -6.5, 0]}
+            <Image url="images/airsoft.jpg" scale={[5, height*0.6, 1]} position={[2.8, -6.5, 0]}
                 zoom={1}
             />
 
@@ -58,13 +58,13 @@ const Images = () => {
             <Image
                 position={[0, -height * 1.5 - 6, 2.5]}
                 scale={[1.5, 3, 1]}
-                url="./images/6.jpg"
+                url="./images/1.png"
                 grayscale={1}
             />
             <Image
                 position={[0, -height * 2 - height / 4 - 6, 0]}
                 scale={[width, height / 2, 1]}
-                url="./images/4.jpg"
+                url="./images/trinity5.jpg"
             />
 
         </group>

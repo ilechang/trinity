@@ -129,6 +129,11 @@ body,
   font-style: normal;
 }
 
+.archivo-black-thin {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
 
 
 
@@ -180,6 +185,15 @@ body,
   left: 865px;
   color: white;
 }
+
+.landing-p{
+
+    position: absolute;
+    font-size: 13.2px;
+    top: 325px;
+    left: 865px;
+    color: white;
+  }
 
 .text {
   font-family: "Archivo Black", sans-serif;

@@ -2,6 +2,7 @@ import { ScrollControls, Scroll } from "@react-three/drei";
 import Images from "./Images";
 import Scene from "./Scene";
 
+
 const ScrollControl = () => {
   return (
     <ScrollControls pages={4} damping={0.2} infinite={false}>
@@ -23,15 +24,75 @@ const ScrollControl = () => {
 
       {/* Page 4: HTML Text */}
       <Scroll html>
-        <h1 style={{ position: "absolute", top: "110vh", left: "5.4em", fontSize: "10vw" }}>
-          Dominate
+        <h1 style={{ position: "absolute", top: "115vh", left: "0.5em", fontSize: "12vw" }}>
+        Vision
         </h1>
-        <h1 style={{ position: "absolute", top: "220vh", left: "60vw", fontSize: "10vw" }}>
-          The
+        <div
+  style={{
+    position: "absolute",
+    top: "160vh",
+    left: "6em",
+    width: "40vw",
+    fontSize: "16px",
+    fontFamily: "Arial, sans-serif",
+    lineHeight: "1.6",
+  }}
+>
+<h3 style={{ marginBottom: 0 }}>Background</h3>
+  <p style={{ marginTop: "8px" }}>
+    In response to the renewed popularity of airsoft in the post-COVID era, MODIFY TECH set out to boost brand recognition with the launch of a competition pistol.
+  </p>
+
+  <h3 style={{ marginBottom: 0 }}>Challenge</h3>
+  <p style={{ marginTop: "8px" }}>
+    As a lower-profile brand, MODIFY needed a design that delivered strong performance without a high price tag—innovative, yet compatible with common Hi-CAPA specifications.
+  </p>
+</div>
+
+
+        <h1 style={{ position: "absolute", top: "180vh", left: "60vw", fontSize: "10vw" }}>
+          to
         </h1>
-        <h1 style={{ position: "absolute", top: "262vh", left: "0.5vw", fontSize: "30vw" }}>
-          Field
+        <div
+  style={{
+    position: "absolute",
+    top: "218vh",
+    left: "60.5vw",
+    width: "40vw",
+    fontSize: "16px",
+    fontFamily: "Arial, sans-serif",
+    lineHeight: "1.6",
+  }}
+>
+  <h3 style={{ marginBottom: 0 }}>1 REVERSE ENGINEERING</h3>
+  <p style={{ marginTop: "8px" }}>
+    - 3D SCANNING of an existing product (Tokyo Marui Hi-CAPA 5.1)<br />
+
+  </p>
+
+  <h3 style={{ marginBottom: 0 }}>2 RESEARCH & IMPROVE</h3>
+  <p style={{ marginTop: "8px" }}>
+    - Identifying user pain points through surveys, interviews and analysis<br />
+    - CAD modeling
+  </p>
+
+  <h3 style={{ marginBottom: 0 }}>3 PROTOTYPING</h3>
+  <p style={{ marginTop: "8px" }}>
+    - 3D printing to test the optimized ergonomics<br />
+    - Testing for existing in-house parts to maximize cost reduction
+  </p>
+</div>
+
+        <h1 style={{ position: "absolute", top: "285vh", left: "6vw", fontSize: "16vw" }}>
+        Production
         </h1>
+        <p style={{ position: "absolute", top: "340vh", left: "0.5vw",      left: "6em",   width: "85vw",
+    fontSize: "16px",
+    fontFamily: "Arial, sans-serif",
+    lineHeight: "1.6", }}>
+        The end result is a refined competition pistol where form meets function — featuring an ergonomic grip, an innovative hop-up system, a match-grade trigger, and high compatibility with Tokyo Marui Hi-CAPA platforms.
+  </p>
+
       </Scroll>
     </ScrollControls>
   );

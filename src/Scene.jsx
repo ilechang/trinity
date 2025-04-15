@@ -85,6 +85,7 @@ const Scene = () => {
           <h3 className="archivo-black-regular subtitle no-select">
             Airsoft Gas Blowback Pistol
           </h3>
+          <p className="landing-p archivo-black-thin">Industrial Design | Modify Tech | 2022–2023 | Solo-led</p>
         </div>
         {/* <p
           className="archivo-black-regular"

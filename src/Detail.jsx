@@ -161,7 +161,7 @@ function LazyDetailContent() {
                         textAlign: "center",
                         width: "100%",
                         position: "absolute",
-                        top: "10%",
+                        top: "65%",
                         left: "50%",
                         transform: "translate(-50%, -190%)",
                         color: "white",
