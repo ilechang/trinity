@@ -64,35 +64,82 @@ const ScrollControl = () => {
     lineHeight: "1.6",
   }}
 >
-  <h3 style={{ marginBottom: 0 }}>1 REVERSE ENGINEERING</h3>
+<h3 style={{ marginBottom: 0 }}>Process</h3>
+  <h4 style={{ marginBottom: 0}}>1. Reverse engineering</h4>
   <p style={{ marginTop: "8px" }}>
     - 3D SCANNING of an existing product (Tokyo Marui Hi-CAPA 5.1)<br />
 
   </p>
 
-  <h3 style={{ marginBottom: 0 }}>2 RESEARCH & IMPROVE</h3>
+  <h4 style={{ marginBottom: 0 }}>2. Research & Improvement</h4>
   <p style={{ marginTop: "8px" }}>
     - Identifying user pain points through surveys, interviews and analysis<br />
     - CAD modeling
   </p>
 
-  <h3 style={{ marginBottom: 0 }}>3 PROTOTYPING</h3>
+  <h4 style={{ marginBottom: 0 }}>3. Prototyping</h4>
   <p style={{ marginTop: "8px" }}>
     - 3D printing to test the optimized ergonomics<br />
     - Testing for existing in-house parts to maximize cost reduction
   </p>
-</div>
 
-        <h1 style={{ position: "absolute", top: "285vh", left: "6vw", fontSize: "16vw" }}>
-        Production
-        </h1>
-        <p style={{ position: "absolute", top: "340vh", left: "0.5vw",      left: "6em",   width: "85vw",
-    fontSize: "16px",
-    fontFamily: "Arial, sans-serif",
-    lineHeight: "1.6", }}>
-        The end result is a refined competition pistol where form meets function — featuring an ergonomic grip, an innovative hop-up system, a match-grade trigger, and high compatibility with Tokyo Marui Hi-CAPA platforms.
+  <h3 style={{ marginBottom: 0 }}>Design Decisions</h3>
+  
+
+  <h4 style={{ marginBottom: 0 }}>1. Hop-up system redesign</h4>
+  <p style={{ marginTop: "8px" }}>
+  - The new hop-up allows adjustment without disassembling the gun.
   </p>
 
+
+
+<h4 style={{ marginBottom: 0 }}>2. Trigger system redesign</h4>
+<p style={{ marginTop: "8px" }}>
+  - Ultra-short trigger pull for faster shooting.
+  </p>
+
+
+
+</div>
+
+        <h1 style={{ position: "absolute", top: "275vh", left: "6vw", fontSize: "16vw" }}>
+        Production
+        </h1>
+     
+        <div
+  style={{
+    position: "absolute",
+    top: "330vh",
+    left: "6em",
+    width: "85vw",
+    fontSize: "16px",
+    fontFamily: "Arial, sans-serif",
+    lineHeight: "1.6",
+    display: "flex",
+    gap: "4em", // spacing between columns
+    justifyContent: "space-between",
+  }}
+>
+  {/* Result section */}
+  <div style={{ flex: 1 }}>
+    <h3 style={{ marginBottom: 0 }}>The result</h3>
+    <p style={{ fontSize: "16px" }}>
+      The end result is a refined competition pistol where form meets function —
+      featuring an ergonomic grip, an innovative hop-up system, a match-grade trigger,
+      and high compatibility with Tokyo Marui Hi-CAPA platforms.
+    </p>
+  </div>
+
+  {/* Reflection section */}
+  <div style={{ flex: 1 }}>
+    <h3 style={{ marginBottom: 0 }}>Reflection</h3>
+    <p style={{ fontSize: "16px" }}>
+      In the end, the trigger redesign was a miscalculation. The original Tokyo Marui trigger
+      was already excellent, and most players are not willing to pay more for minor performance gains.
+      In the airsoft world, creativity often comes after price.
+    </p>
+  </div>
+</div>
       </Scroll>
     </ScrollControls>
   );
