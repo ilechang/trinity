@@ -62,7 +62,7 @@ const Trigger = () => {
         action.reset();
         action.setLoop(THREE.LoopOnce, 1);
         action.clampWhenFinished = true;
-        action.timeScale = 2.8
+        action.timeScale = 2.2
 
           ; // ← x speed
         action.play();
