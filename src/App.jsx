@@ -13,7 +13,7 @@ function App() {
   const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
-    const minDelay = new Promise((resolve) => setTimeout(resolve, 3500)); // 至少顯示3秒
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 4000)); // 至少顯示3秒
 
     const contentReady = new Promise((resolve) => {
       // requestIdleCallback fallback，確保 Safari 不會卡住

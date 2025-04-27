@@ -24,6 +24,91 @@
       font-size: 3rem;
       letter-spacing: 1px;
       z-index: 9999;
+      overflow: hidden;
+    }
+
+    /* 🔥 文字一開始透明，延遲出現後再閃爍 */
+    .loading-text {
+      opacity: 0;
+      animation: appear 0.5s ease forwards 0.6s, blink 1.8s infinite ease-in-out 1.3s;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes appear {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="global-loading">
+    <span class="loading-text">Loading weapon system...</span>
+  </div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + React</title>
+  <style>
+    #global-loading {
+      position: fixed;
+      inset: 0;
+      background: 
+        url('/images/loadingbg.png') center center no-repeat,
+        linear-gradient(to bottom right, #000000, #1a1a1a);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      z-index: 9999;
       
       /* 🔥 新增這行：一開始背景透明 */
       background-blend-mode: normal;
@@ -63,7 +148,7 @@
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
-</html>
+</html> -->
 
 
 
