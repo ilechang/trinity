@@ -64,7 +64,7 @@ const Images = () => {
             <Image
                 position={[0, -height * 2 - height / 4 - 6, 0]}
                 scale={[width, height / 2, 1]}
-                url="./images/trinity5.jpg"
+                url="./images/trinity1.jpg"
             />
 
         </group>
