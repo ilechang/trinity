@@ -68,7 +68,7 @@ function App() {
           </div>
         )}
 
-        {/* <div className="thirdSection">
+        <div className="thirdSection">
           <Detail />
         </div>
 
@@ -89,7 +89,7 @@ function App() {
 
         <div className="sixthSection">
           <Video />
-        </div> */}
+        </div>
       </div>
     </>
   );
