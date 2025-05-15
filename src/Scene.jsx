@@ -86,6 +86,7 @@ const Scene = () => {
             Airsoft Gas Blowback Pistol
           </h3>
           <p className="landing-p archivo-black-thin">Industrial Design | Modify Tech | 2022–2023 | Solo-led</p>
+
         </div>
         {/* <p
           className="archivo-black-regular"
@@ -106,6 +107,7 @@ const Scene = () => {
           for tactical training, recreational shooting, airsoft gameplay, and
           competition shooting.
         </p> */}
+
       </Html>
     </>
   );
