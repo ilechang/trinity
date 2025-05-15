@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useRef } from "react";
 
 const TriggerScene = () => {
@@ -28,7 +29,7 @@ const TriggerScene = () => {
     // 等 1 秒再重新播放
     setTimeout(() => {
       videoRef.current.play();
-    }, 1200);
+    }, 1500);
   };
 
   return (
@@ -37,9 +38,10 @@ const TriggerScene = () => {
       style={{
         position: "relative",
         width: "100vw",
-        height: "100vh",
+
         background: "white",
         overflow: "hidden",
+
       }}
     >
       <h2
@@ -76,26 +78,81 @@ const TriggerScene = () => {
 
       {/* ✅ 播放影片，維持比例、不變形、不留黑框 */}
       {shouldRender && (
-        <video
-          ref={videoRef}
-          src="./trigger.mp4"
-          autoPlay
-          muted
-          playsInline
-          onEnded={handleEnded}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "65%",
-            transform: "translate(-50%, -50%)",
-            width: "45%",
-            height: "45%",
-            objectFit: "contain",
-            backgroundColor: "white", // 防止沒蓋住部分變黑
-            zIndex: 0,
-            pointerEvents: "none",
-          }}
-        />
+        <div
+  style={{
+    position: "absolute",
+    top: "60%",
+    left: "85%",
+    transform: "translate(-50%, -50%)",
+    width: "45%",
+    height: "45%",
+    overflow: "hidden", // 裁切影片黑邊
+    backgroundColor: "white", // 保底背景
+    zIndex: 0,
+  }}
+>
+  <video
+    ref={videoRef}
+    src="./trigger.mp4"
+    autoPlay
+    muted
+    playsInline
+    onEnded={handleEnded}
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+      backgroundColor: "white",
+      pointerEvents: "none",
+    }}
+  />
+
+  {/* 上遮罩 */}
+  <div style={{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    height: "5%",
+    width: "100%",
+    backgroundColor: "white",
+    zIndex: 1,
+  }} />
+
+  {/* 下遮罩 */}
+  <div style={{
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    height: "5%",
+    width: "100%",
+    backgroundColor: "white",
+    zIndex: 1,
+  }} />
+
+  {/* 左遮罩 */}
+  <div style={{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "5%",
+    height: "100%",
+    backgroundColor: "white",
+    zIndex: 1,
+  }} />
+
+  {/* 右遮罩 */}
+  <div style={{
+    position: "absolute",
+    top: 0,
+    right: 0,
+    width: "22%",
+    height: "100%",
+    backgroundColor: "white",
+    zIndex: 1,
+  }} />
+</div>
+
+   
       )}
 
       <p
@@ -118,14 +175,7 @@ const TriggerScene = () => {
         This not only makes rapid fire easier, but also increases the accuracy of the first and follow-up shots, making it the best choice in shooting competitions and close-quarters combat (CQB).
       </p>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "start",
-          marginTop: "6vh",
-          paddingLeft: "15%",
-        }}
-      >
+      <div style={{ display: "flex", justifyContent: "start", marginTop: "6vh", paddingLeft: "15%"  }}>
         <img
           src="./images/triggerilla.jpg"
           alt="Trigger View"
@@ -137,6 +187,15 @@ const TriggerScene = () => {
 };
 
 export default TriggerScene;
+
+
+
+
+
+
+
+
+
 
 
 
