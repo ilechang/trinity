@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 const TriggerScene = () => {
   const [shouldRender, setShouldRender] = useState(false);
   const ref = useRef();
+  const videoRef = useRef();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -16,6 +17,20 @@ const TriggerScene = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 2.1;
+    }
+  }, [shouldRender]);
+
+  const handleEnded = () => {
+    if (!videoRef.current) return;
+    // 等 1 秒再重新播放
+    setTimeout(() => {
+      videoRef.current.play();
+    }, 1200);
+  };
+
   return (
     <div
       ref={ref}
@@ -24,7 +39,7 @@ const TriggerScene = () => {
         width: "100vw",
         height: "100vh",
         background: "white",
-        overflow: "hidden"
+        overflow: "hidden",
       }}
     >
       <h2
@@ -59,23 +74,26 @@ const TriggerScene = () => {
 
       <hr />
 
-      {/* ✅ Show video instead of canvas */}
+      {/* ✅ 播放影片，維持比例、不變形、不留黑框 */}
       {shouldRender && (
         <video
+          ref={videoRef}
           src="./trigger.mp4"
           autoPlay
           muted
-          loop
           playsInline
+          onEnded={handleEnded}
           style={{
             position: "absolute",
-            top: 0,
-            left: 620,
-            width: "100vw",
-            height: "100vh",
+            top: "50%",
+            left: "65%",
+            transform: "translate(-50%, -50%)",
+            width: "45%",
+            height: "45%",
             objectFit: "contain",
+            backgroundColor: "white", // 防止沒蓋住部分變黑
             zIndex: 0,
-            pointerEvents: "none"
+            pointerEvents: "none",
           }}
         />
       )}
@@ -100,7 +118,14 @@ const TriggerScene = () => {
         This not only makes rapid fire easier, but also increases the accuracy of the first and follow-up shots, making it the best choice in shooting competitions and close-quarters combat (CQB).
       </p>
 
-      <div style={{ display: "flex", justifyContent: "start", marginTop: "6vh", paddingLeft: "15%" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "start",
+          marginTop: "6vh",
+          paddingLeft: "15%",
+        }}
+      >
         <img
           src="./images/triggerilla.jpg"
           alt="Trigger View"
@@ -112,9 +137,6 @@ const TriggerScene = () => {
 };
 
 export default TriggerScene;
-
-
-
 
 
 
