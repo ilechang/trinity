@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import { Canvas } from "@react-three/fiber";
-import ScrollControl from "./ScrollControl";
+// import ScrollControl from "./ScrollControl";
 import Detail from "./Detail";
 import HopupScene from "./HopupScene";
 import TriggerScene from "./TriggerScene";
 import Tm from "./Tm";
 import Video from "./Video";
+import Scene from "./Scene";
 
 function App() {
   const [noticeVisible, setNoticeVisible] = useState(true);
@@ -62,7 +63,7 @@ function App() {
                 height: "100vh",
               }}
             >
-              <ScrollControl />
+                <Scene />
             </Canvas>
           </div>
         )}
