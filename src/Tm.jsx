@@ -1,5 +1,5 @@
 import { useThree, useFrame } from "@react-three/fiber";
-import { Accordion, Table, Container } from "react-bootstrap";
+
 import React, { useState, useEffect, useRef, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Environment, Html } from "@react-three/drei";
@@ -167,7 +167,7 @@ export default function Tm() {
         {shouldRender && (
           <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
             <ambientLight intensity={0.85} />
-            <Environment files="./2k.hdr" />
+            <Environment files="./quad.hdr" />
             <Suspense fallback={null}>
               {PARTS_WITH_FILES.flatMap(category =>
                 category.parts.map((part, index) => (
