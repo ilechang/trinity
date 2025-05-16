@@ -1,6 +1,5 @@
 import { Suspense, useEffect, useState, useRef } from "react";
-// import { Canvas } from "@react-three/fiber";
-// import Hopup from "./Hopup";
+
 
 const HopupScene = () => {
   const [shouldRender, setShouldRender] = useState(false);
@@ -94,7 +93,7 @@ const HopupScene = () => {
       {shouldRender && (
         <video
           ref={videoRef}
-          src="./nohop.mp4"
+          src="./withhop.mp4"
           autoPlay
           muted
           loop
