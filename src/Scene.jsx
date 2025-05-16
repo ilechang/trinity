@@ -64,7 +64,7 @@ const Scene = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
-      <Environment files="./2k.hdr" />
+      {/* <Environment files="./2k.hdr" /> */}
 
       <group ref={groupRef}>
         {springs.map((spring, i) => (
