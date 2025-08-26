@@ -64,7 +64,6 @@ const Scene = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
-      {/* <Environment files="./2k.hdr" /> */}
       <Environment  files="./quad.hdr" />
 
       <group ref={groupRef}>
