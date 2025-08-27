@@ -64,6 +64,7 @@ const Scene = () => {
   return (
     <>
       <ambientLight intensity={0.5} />
+      {/* <Environment files="./2k.hdr" /> */}
       <Environment  files="./quad.hdr" />
 
       <group ref={groupRef}>
@@ -78,37 +79,32 @@ const Scene = () => {
         ))}
       </group>
 
-      <Html position={[0, 1.8, 0]} center>
-        <div className="html-container">
-          <h1 className="hurricane-text trinity-title no-select">Trinity</h1>
-          <h2 className="archivo-black-regular hi-capa-title no-select " >Hi-CAPA</h2>
-          <h3 className="archivo-black-regular subtitle no-select">
-            Airsoft Gas Blowback Pistol
-          </h3>
-          <p className="landing-p archivo-black-thin">Industrial Design | Modify Tech | 2022–2023 | Solo-led</p>
 
-        </div>
-        {/* <p
-          className="archivo-black-regular"
-          style={{
-            textAlign: "center",
-            width: "100%",
-            maxWidth: "1200px",
-            fontSize: "14px",
-            color: "white",
-            position: "absolute",
-            top: "75%",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-        >
-          Trinity is a high-end match-grade airsoft pistol. With its quality and
-          practical design, it enhances a shooter's performance, making it ideal
-          for tactical training, recreational shooting, airsoft gameplay, and
-          competition shooting.
-        </p> */}
 
-      </Html>
+      <Html fullscreen>
+  <div
+    className="html-container text-center"
+    style={{
+      position: "absolute",
+      top: "10%", // 👈 調整這裡就能往上移
+      left: "50%",
+      transform: "translateX(-50%)",
+      color: "white",
+    }}
+  >
+    <h1 className="hurricane-text trinity-title no-select">Trinity</h1>
+    <h2 className="archivo-black-regular hi-capa-title no-select">Hi-CAPA</h2>
+    <h3 className="archivo-black-regular subtitle no-select">
+      Airsoft Gas Blowback Pistol
+    </h3>
+    <p className="landing-p archivo-black-thin">
+      Industrial Design | Modify Tech | 2022–2023 | Solo-led
+    </p>
+  </div>
+</Html>
+
+
+
     </>
   );
 };

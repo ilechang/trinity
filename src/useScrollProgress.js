@@ -1,25 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./styles.css";
 import { Canvas } from "@react-three/fiber";
-import Research from "./Research";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Scene from "./Scene";
+import Images from "./Images";
 import Detail from "./Detail";
 import HopupScene from "./HopupScene";
 import TriggerScene from "./TriggerScene";
 import Tm from "./Tm";
 import Video from "./Video";
-import Scene from "./Scene";
-import CameraRig from "./CameraRig";
 
 function App() {
   const [noticeVisible, setNoticeVisible] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
+  const secondRef = useRef(null);
 
   useEffect(() => {
-    const minDelay = new Promise((resolve) => setTimeout(resolve, 4000)); // 至少顯示3秒
-
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 3000));
     const contentReady = new Promise((resolve) => {
-      // requestIdleCallback fallback，確保 Safari 不會卡住
       if ("requestIdleCallback" in window) {
         requestIdleCallback(resolve);
       } else {
@@ -29,8 +26,6 @@ function App() {
 
     Promise.all([minDelay, contentReady]).then(() => {
       setShowLoading(false);
-
-      // ⛔ 移除 index.html 中的初始 loading 畫面
       const loader = document.getElementById("global-loading");
       if (loader) loader.remove();
     });
@@ -39,32 +34,38 @@ function App() {
   if (showLoading) {
     return (
       <div className="loading-screen">
-
+        <h1>Loading...</h1>
       </div>
     );
   }
 
   return (
     <>
+      {noticeVisible && (
+        <div className="notice-bar">
+          <p>This is a toy gun, not a real gun.</p>
+          <button onClick={() => setNoticeVisible(false)}>I Understand</button>
+        </div>
+      )}
 
       <div className="main-container">
-
-
-        {/* ✅ Canvas 避免在 loading 中渲染 */}
-        {!showLoading && (
-          <div className="secondSection" style={{ height: "100vh" }}>
-            <Canvas
-              camera={{ position: [0, 0, 5], fov: 60 }}
-              style={{ background: "rgb(31,31,51)", width: "100vw", height: "100%" }}
-              frameloop="demand"
-            >
-              <CameraRig />  {/* 改成用 wheel 控制 */}
-              <Scene />
-            </Canvas>
-          </div>
-        )}
-
-        <Research />
+        {/* Sticky Canvas section */}
+        <div
+          className="secondSection"
+          ref={secondRef}
+          style={{
+            position: "sticky",
+            top: 0,
+            height: "100vh",
+            background: "#f0f0f0",
+            zIndex: 1,
+          }}
+        >
+          <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
+            <Scene sectionRef={secondRef} />
+            <Images sectionRef={secondRef} />
+          </Canvas>
+        </div>
 
         <div className="thirdSection">
           <Detail />
@@ -94,7 +95,3 @@ function App() {
 }
 
 export default App;
-
-
-
-

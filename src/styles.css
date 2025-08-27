@@ -149,11 +149,11 @@ video {
 /* Trinity Title */
 .trinity-title {
   position: absolute;
-  top: 25px;
+  top: 90px;
   left: 30%;
   transform: translateX(-50%) rotate(-13deg);
   color: white;
-  font-size: 180px;
+  font-size: 170px;
   z-index: 2;
 }
 
@@ -162,7 +162,7 @@ video {
   color: rgb(146, 146, 146);
   font-size: 280px;
   font-weight: bold;
-  margin-top: 300px;
+  margin-top: -50px;
   z-index: 1;
   white-space: nowrap;
   -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
@@ -184,7 +184,7 @@ video {
 .subtitle {
   position: absolute;
   font-size: 25px;
-  top: 280px;
+  top: 250px;
   left: 865px;
   color: white;
 }
@@ -193,7 +193,7 @@ video {
 
     position: absolute;
     font-size: 13.2px;
-    top: 325px;
+    top: 290px;
     left: 865px;
     color: white;
   }

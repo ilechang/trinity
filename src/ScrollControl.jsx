@@ -2,11 +2,14 @@ import { ScrollControls, Scroll } from "@react-three/drei";
 import Images from "./Images";
 import Scene from "./Scene";
 
-
-const ScrollControl = () => {
+const ScrollControl = ({ enabled }) => {
   return (
-    <ScrollControls pages={4} damping={0.2} infinite={false}>
-      
+    <ScrollControls
+      pages={4}
+      damping={0.2}
+      infinite={false}
+      enabled={enabled}
+    >
       {/* Page 1: 只顯示 Scene */}
       <Scroll>
         <Scene />
@@ -18,134 +21,322 @@ const ScrollControl = () => {
       </Scroll>
 
       {/* Page 3: 留空或加入其他內容 */}
-      <Scroll>
-        {/* Empty section or future content */}
-      </Scroll>
+      <Scroll>{/* Empty section or future content */}</Scroll>
 
       {/* Page 4: HTML Text */}
       <Scroll html>
-        <h1 style={{ position: "absolute", top: "115vh", left: "0.5em", fontSize: "12vw" }}>
-        Vision
+        <h1
+          style={{
+            position: "absolute",
+            top: "115vh",
+            left: "0.5em",
+            fontSize: "12vw",
+          }}
+        >
+          Vision
         </h1>
         <div
-  style={{
-    position: "absolute",
-    top: "160vh",
-    left: "6em",
-    width: "40vw",
-    fontSize: "16px",
-    fontFamily: "Arial, sans-serif",
-    lineHeight: "1.6",
-  }}
->
-<h3 style={{ marginBottom: 0 }}>Background</h3>
-  <p style={{ marginTop: "8px" }}>
-    In response to the renewed popularity of airsoft in the post-COVID era, MODIFY TECH set out to boost brand recognition with the launch of a competition pistol.
-  </p>
+          style={{
+            position: "absolute",
+            top: "160vh",
+            left: "6em",
+            width: "40vw",
+            fontSize: "16px",
+            fontFamily: "Arial, sans-serif",
+            lineHeight: "1.6",
+          }}
+        >
+          <h3 style={{ marginBottom: 0 }}>Background</h3>
+          <p style={{ marginTop: "8px" }}>
+            In response to the renewed popularity of airsoft in the post-COVID
+            era, MODIFY TECH set out to boost brand recognition with the launch
+            of a competition pistol.
+          </p>
 
-  <h3 style={{ marginBottom: 0 }}>Challenge</h3>
-  <p style={{ marginTop: "8px" }}>
-    As a lower-profile brand, MODIFY needed a design that delivered strong performance without a high price tag—innovative, yet compatible with common Hi-CAPA specifications.
-  </p>
-</div>
+          <h3 style={{ marginBottom: 0 }}>Challenge</h3>
+          <p style={{ marginTop: "8px" }}>
+            As a lower-profile brand, MODIFY needed a design that delivered
+            strong performance without a high price tag—innovative, yet
+            compatible with common Hi-CAPA specifications.
+          </p>
+        </div>
 
-
-        <h1 style={{ position: "absolute", top: "180vh", left: "60vw", fontSize: "10vw" }}>
+        <h1
+          style={{
+            position: "absolute",
+            top: "180vh",
+            left: "60vw",
+            fontSize: "10vw",
+          }}
+        >
           to
         </h1>
         <div
-  style={{
-    position: "absolute",
-    top: "218vh",
-    left: "60.5vw",
-    width: "40vw",
-    fontSize: "16px",
-    fontFamily: "Arial, sans-serif",
-    lineHeight: "1.6",
-  }}
->
-<h3 style={{ marginBottom: 0 }}>Process</h3>
-  <h4 style={{ marginBottom: 0}}>1. Reverse engineering</h4>
-  <p style={{ marginTop: "8px" }}>
-    - 3D SCANNING of an existing product (Tokyo Marui Hi-CAPA 5.1)<br />
+          style={{
+            position: "absolute",
+            top: "218vh",
+            left: "60.5vw",
+            width: "40vw",
+            fontSize: "16px",
+            fontFamily: "Arial, sans-serif",
+            lineHeight: "1.6",
+          }}
+        >
+          <h3 style={{ marginBottom: 0 }}>Process</h3>
+          <h4 style={{ marginBottom: 0 }}>1. Reverse engineering</h4>
+          <p style={{ marginTop: "8px" }}>
+            - 3D SCANNING of an existing product (Tokyo Marui Hi-CAPA 5.1)
+            <br />
+          </p>
 
-  </p>
+          <h4 style={{ marginBottom: 0 }}>2. Research & Improvement</h4>
+          <p style={{ marginTop: "8px" }}>
+            - Identifying user pain points through surveys, interviews and
+            analysis
+            <br />- CAD modeling
+          </p>
 
-  <h4 style={{ marginBottom: 0 }}>2. Research & Improvement</h4>
-  <p style={{ marginTop: "8px" }}>
-    - Identifying user pain points through surveys, interviews and analysis<br />
-    - CAD modeling
-  </p>
+          <h4 style={{ marginBottom: 0 }}>3. Prototyping</h4>
+          <p style={{ marginTop: "8px" }}>
+            - 3D printing to test the optimized ergonomics
+            <br />- Testing for existing in-house parts to maximize cost
+            reduction
+          </p>
 
-  <h4 style={{ marginBottom: 0 }}>3. Prototyping</h4>
-  <p style={{ marginTop: "8px" }}>
-    - 3D printing to test the optimized ergonomics<br />
-    - Testing for existing in-house parts to maximize cost reduction
-  </p>
+          <h3 style={{ marginBottom: 0 }}>Design Decisions</h3>
 
-  <h3 style={{ marginBottom: 0 }}>Design Decisions</h3>
-  
+          <h4 style={{ marginBottom: 0 }}>1. Hop-up system redesign</h4>
+          <p style={{ marginTop: "8px" }}>
+            - The new hop-up allows adjustment without disassembling the gun.
+          </p>
 
-  <h4 style={{ marginBottom: 0 }}>1. Hop-up system redesign</h4>
-  <p style={{ marginTop: "8px" }}>
-  - The new hop-up allows adjustment without disassembling the gun.
-  </p>
+          <h4 style={{ marginBottom: 0 }}>2. Trigger system redesign</h4>
+          <p style={{ marginTop: "8px" }}>
+            - Ultra-short trigger pull for faster shooting.
+          </p>
+        </div>
 
-
-
-<h4 style={{ marginBottom: 0 }}>2. Trigger system redesign</h4>
-<p style={{ marginTop: "8px" }}>
-  - Ultra-short trigger pull for faster shooting.
-  </p>
-
-
-
-</div>
-
-        <h1 style={{ position: "absolute", top: "275vh", left: "6vw", fontSize: "16vw" }}>
-        Production
+        <h1
+          style={{
+            position: "absolute",
+            top: "275vh",
+            left: "6vw",
+            fontSize: "16vw",
+          }}
+        >
+          Production
         </h1>
-     
-        <div
-  style={{
-    position: "absolute",
-    top: "330vh",
-    left: "6em",
-    width: "85vw",
-    fontSize: "16px",
-    fontFamily: "Arial, sans-serif",
-    lineHeight: "1.6",
-    display: "flex",
-    gap: "4em", // spacing between columns
-    justifyContent: "space-between",
-  }}
->
-  {/* Result section */}
-  <div style={{ flex: 1 }}>
-    <h3 style={{ marginBottom: 0 }}>The result</h3>
-    <p style={{ fontSize: "16px" }}>
-      The end result is a refined competition pistol where form meets function —
-      featuring an ergonomic grip, an innovative hop-up system, a match-grade trigger,
-      and high compatibility with Tokyo Marui Hi-CAPA platforms.
-    </p>
-  </div>
 
-  {/* Reflection section */}
-  <div style={{ flex: 1 }}>
-    <h3 style={{ marginBottom: 0 }}>Reflection</h3>
-    <p style={{ fontSize: "16px" }}>
-      In the end, the trigger redesign was a miscalculation. The original Tokyo Marui trigger
-      was already excellent, and most players are not willing to pay more for minor performance gains.
-      In the airsoft world, creativity often comes after price.
-    </p>
-  </div>
-</div>
+        <div
+          style={{
+            position: "absolute",
+            top: "330vh",
+            left: "6em",
+            width: "85vw",
+            fontSize: "16px",
+            fontFamily: "Arial, sans-serif",
+            lineHeight: "1.6",
+            display: "flex",
+            gap: "4em", // spacing between columns
+            justifyContent: "space-between",
+          }}
+        >
+          {/* Result section */}
+          <div style={{ flex: 1 }}>
+            <h3 style={{ marginBottom: 0 }}>The result</h3>
+            <p style={{ fontSize: "16px" }}>
+              The end result is a refined competition pistol where form meets
+              function — featuring an ergonomic grip, an innovative hop-up
+              system, a match-grade trigger, and high compatibility with Tokyo
+              Marui Hi-CAPA platforms.
+            </p>
+          </div>
+
+          {/* Reflection section */}
+          <div style={{ flex: 1 }}>
+            <h3 style={{ marginBottom: 0 }}>Reflection</h3>
+            <p style={{ fontSize: "16px" }}>
+              In the end, the trigger redesign was a miscalculation. The
+              original Tokyo Marui trigger was already excellent, and most
+              players are not willing to pay more for minor performance gains.
+              In the airsoft world, creativity often comes after price.
+            </p>
+          </div>
+        </div>
       </Scroll>
     </ScrollControls>
   );
 };
 
 export default ScrollControl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { ScrollControls, Scroll } from "@react-three/drei";
+// import Images from "./Images";
+// import Scene from "./Scene";
+
+
+// const ScrollControl = () => {
+//   return (
+//     <ScrollControls pages={4} damping={0.2} infinite={false}>
+      
+//       {/* Page 1: 只顯示 Scene */}
+//       <Scroll>
+//         <Scene />
+//       </Scroll>
+
+//       {/* Page 2: 顯示 Images */}
+//       <Scroll>
+//         <Images />
+//       </Scroll>
+
+//       {/* Page 3: 留空或加入其他內容 */}
+//       <Scroll>
+//         {/* Empty section or future content */}
+//       </Scroll>
+
+//       {/* Page 4: HTML Text */}
+//       <Scroll html>
+//         <h1 style={{ position: "absolute", top: "115vh", left: "0.5em", fontSize: "12vw" }}>
+//         Vision
+//         </h1>
+//         <div
+//   style={{
+//     position: "absolute",
+//     top: "160vh",
+//     left: "6em",
+//     width: "40vw",
+//     fontSize: "16px",
+//     fontFamily: "Arial, sans-serif",
+//     lineHeight: "1.6",
+//   }}
+// >
+// <h3 style={{ marginBottom: 0 }}>Background</h3>
+//   <p style={{ marginTop: "8px" }}>
+//     In response to the renewed popularity of airsoft in the post-COVID era, MODIFY TECH set out to boost brand recognition with the launch of a competition pistol.
+//   </p>
+
+//   <h3 style={{ marginBottom: 0 }}>Challenge</h3>
+//   <p style={{ marginTop: "8px" }}>
+//     As a lower-profile brand, MODIFY needed a design that delivered strong performance without a high price tag—innovative, yet compatible with common Hi-CAPA specifications.
+//   </p>
+// </div>
+
+
+//         <h1 style={{ position: "absolute", top: "180vh", left: "60vw", fontSize: "10vw" }}>
+//           to
+//         </h1>
+//         <div
+//   style={{
+//     position: "absolute",
+//     top: "218vh",
+//     left: "60.5vw",
+//     width: "40vw",
+//     fontSize: "16px",
+//     fontFamily: "Arial, sans-serif",
+//     lineHeight: "1.6",
+//   }}
+// >
+// <h3 style={{ marginBottom: 0 }}>Process</h3>
+//   <h4 style={{ marginBottom: 0}}>1. Reverse engineering</h4>
+//   <p style={{ marginTop: "8px" }}>
+//     - 3D SCANNING of an existing product (Tokyo Marui Hi-CAPA 5.1)<br />
+
+//   </p>
+
+//   <h4 style={{ marginBottom: 0 }}>2. Research & Improvement</h4>
+//   <p style={{ marginTop: "8px" }}>
+//     - Identifying user pain points through surveys, interviews and analysis<br />
+//     - CAD modeling
+//   </p>
+
+//   <h4 style={{ marginBottom: 0 }}>3. Prototyping</h4>
+//   <p style={{ marginTop: "8px" }}>
+//     - 3D printing to test the optimized ergonomics<br />
+//     - Testing for existing in-house parts to maximize cost reduction
+//   </p>
+
+//   <h3 style={{ marginBottom: 0 }}>Design Decisions</h3>
+  
+
+//   <h4 style={{ marginBottom: 0 }}>1. Hop-up system redesign</h4>
+//   <p style={{ marginTop: "8px" }}>
+//   - The new hop-up allows adjustment without disassembling the gun.
+//   </p>
+
+
+
+// <h4 style={{ marginBottom: 0 }}>2. Trigger system redesign</h4>
+// <p style={{ marginTop: "8px" }}>
+//   - Ultra-short trigger pull for faster shooting.
+//   </p>
+
+
+
+// </div>
+
+//         <h1 style={{ position: "absolute", top: "275vh", left: "6vw", fontSize: "16vw" }}>
+//         Production
+//         </h1>
+     
+//         <div
+//   style={{
+//     position: "absolute",
+//     top: "330vh",
+//     left: "6em",
+//     width: "85vw",
+//     fontSize: "16px",
+//     fontFamily: "Arial, sans-serif",
+//     lineHeight: "1.6",
+//     display: "flex",
+//     gap: "4em", // spacing between columns
+//     justifyContent: "space-between",
+//   }}
+// >
+//   {/* Result section */}
+//   <div style={{ flex: 1 }}>
+//     <h3 style={{ marginBottom: 0 }}>The result</h3>
+//     <p style={{ fontSize: "16px" }}>
+//       The end result is a refined competition pistol where form meets function —
+//       featuring an ergonomic grip, an innovative hop-up system, a match-grade trigger,
+//       and high compatibility with Tokyo Marui Hi-CAPA platforms.
+//     </p>
+//   </div>
+
+//   {/* Reflection section */}
+//   <div style={{ flex: 1 }}>
+//     <h3 style={{ marginBottom: 0 }}>Reflection</h3>
+//     <p style={{ fontSize: "16px" }}>
+//       In the end, the trigger redesign was a miscalculation. The original Tokyo Marui trigger
+//       was already excellent, and most players are not willing to pay more for minor performance gains.
+//       In the airsoft world, creativity often comes after price.
+//     </p>
+//   </div>
+// </div>
+//       </Scroll>
+//     </ScrollControls>
+//   );
+// };
+
+// export default ScrollControl;
 
 
 
