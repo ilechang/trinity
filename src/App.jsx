@@ -1,103 +1,103 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
-import { Canvas } from "@react-three/fiber";
-import { ScrollControls } from "@react-three/drei";
-import Detail from "./Detail";
-import HopupScene from "./HopupScene";
-import TriggerScene from "./TriggerScene";
-import Tm from "./Tm";
-import Video from "./Video";
-import Scene from "./Scene";
-import CameraRig from "./CameraRig";
+// import { useEffect, useState } from "react";
+// import "./styles.css";
+// import { Canvas } from "@react-three/fiber";
+// import { ScrollControls } from "@react-three/drei";
+// import Detail from "./Detail";
+// import HopupScene from "./HopupScene";
+// import TriggerScene from "./TriggerScene";
+// import Tm from "./Tm";
+// import Video from "./Video";
+// import Scene from "./Scene";
+// import CameraRig from "./CameraRig";
 
-function App() {
-  const [noticeVisible, setNoticeVisible] = useState(true);
-  const [showLoading, setShowLoading] = useState(true);
+// function App() {
+//   const [noticeVisible, setNoticeVisible] = useState(true);
+//   const [showLoading, setShowLoading] = useState(true);
 
-  useEffect(() => {
-    const minDelay = new Promise((resolve) => setTimeout(resolve, 4000)); // 至少顯示3秒
+//   useEffect(() => {
+//     const minDelay = new Promise((resolve) => setTimeout(resolve, 4000)); // 至少顯示3秒
 
-    const contentReady = new Promise((resolve) => {
-      // requestIdleCallback fallback，確保 Safari 不會卡住
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(resolve);
-      } else {
-        setTimeout(resolve, 0);
-      }
-    });
+//     const contentReady = new Promise((resolve) => {
+//       // requestIdleCallback fallback，確保 Safari 不會卡住
+//       if ("requestIdleCallback" in window) {
+//         requestIdleCallback(resolve);
+//       } else {
+//         setTimeout(resolve, 0);
+//       }
+//     });
 
-    Promise.all([minDelay, contentReady]).then(() => {
-      setShowLoading(false);
+//     Promise.all([minDelay, contentReady]).then(() => {
+//       setShowLoading(false);
 
-      // ⛔ 移除 index.html 中的初始 loading 畫面
-      const loader = document.getElementById("global-loading");
-      if (loader) loader.remove();
-    });
-  }, []);
+//       // ⛔ 移除 index.html 中的初始 loading 畫面
+//       const loader = document.getElementById("global-loading");
+//       if (loader) loader.remove();
+//     });
+//   }, []);
 
-  if (showLoading) {
-    return (
-      <div className="loading-screen">
+//   if (showLoading) {
+//     return (
+//       <div className="loading-screen">
       
-      </div>
-    );
-  }
+//       </div>
+//     );
+//   }
 
-  return (
-    <>
-      {noticeVisible && (
-        <div className="notice-bar">
-          <p>This is a toy gun, not a real gun.</p>
-          <button onClick={() => setNoticeVisible(false)}>I Understand</button>
-        </div>
-      )}
+//   return (
+//     <>
+//       {noticeVisible && (
+//         <div className="notice-bar">
+//           <p>This is a toy gun, not a real gun.</p>
+//           <button onClick={() => setNoticeVisible(false)}>I Understand</button>
+//         </div>
+//       )}
 
-      <div className="main-container">
-
-
-        {/* ✅ Canvas 避免在 loading 中渲染 */}
-        {!showLoading && (
-          <div className="secondSection" style={{ height: "100vh" }}>
-  <Canvas
-    camera={{ position: [0, 0, 5], fov: 60 }}
-    style={{ background: "rgb(31,31,51)", width: "100vw", height: "100%" }}
-    frameloop="demand"
-  >
-    <CameraRig />  {/* 改成用 wheel 控制 */}
-    <Scene />
-  </Canvas>
-</div>
-        )}
+//       <div className="main-container">
 
 
-        <div className="thirdSection">
-          <Detail />
-        </div>
+//         {/* ✅ Canvas 避免在 loading 中渲染 */}
+//         {!showLoading && (
+//           <div className="secondSection" style={{ height: "100vh" }}>
+//   <Canvas
+//     camera={{ position: [0, 0, 5], fov: 60 }}
+//     style={{ background: "rgb(31,31,51)", width: "100vw", height: "100%" }}
+//     frameloop="demand"
+//   >
+//     <CameraRig />  {/* 改成用 wheel 控制 */}
+//     <Scene />
+//   </Canvas>
+// </div>
+//         )}
 
-        <div className="fifthSection" style={{ height: "110vh" }}>
-          <TriggerScene />
-        </div>
 
-        <div
-          className="forthSection"
-          style={{ height: "130vh", background: "rgb(31,31,31)" }}
-        >
-          <HopupScene />
-        </div>
+//         <div className="thirdSection">
+//           <Detail />
+//         </div>
 
-        <div className="fifthSection">
-          <Tm />
-        </div>
+//         <div className="fifthSection" style={{ height: "110vh" }}>
+//           <TriggerScene />
+//         </div>
 
-        <div className="sixthSection">
-          <Video />
-        </div>
-      </div>
-    </>
-  );
-}
+//         <div
+//           className="forthSection"
+//           style={{ height: "130vh", background: "rgb(31,31,31)" }}
+//         >
+//           <HopupScene />
+//         </div>
 
-export default App;
+//         <div className="fifthSection">
+//           <Tm />
+//         </div>
+
+//         <div className="sixthSection">
+//           <Video />
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
 
 
 
@@ -230,100 +230,100 @@ export default App;
 
 
 
-// import { useEffect, useState } from "react";
-// import "./styles.css";
-// import { Canvas } from "@react-three/fiber";
-// import ScrollControl from "./ScrollControl";
-// import Detail from "./Detail";
-// import HopupScene from "./HopupScene";
-// import TriggerScene from "./TriggerScene";
-// import Tm from "./Tm";
-// import Video from "./Video";
+import { useEffect, useState } from "react";
+import "./styles.css";
+import { Canvas } from "@react-three/fiber";
+import ScrollControl from "./ScrollControl";
+import Detail from "./Detail";
+import HopupScene from "./HopupScene";
+import TriggerScene from "./TriggerScene";
+import Tm from "./Tm";
+import Video from "./Video";
 
-// function App() {
-//   const [noticeVisible, setNoticeVisible] = useState(true);
-//   const [showLoading, setShowLoading] = useState(true);
+function App() {
+  const [noticeVisible, setNoticeVisible] = useState(true);
+  const [showLoading, setShowLoading] = useState(true);
 
-//   useEffect(() => {
-//     const minDelay = new Promise((resolve) => setTimeout(resolve, 3000)); // 至少顯示3秒
+  useEffect(() => {
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 3000)); // 至少顯示3秒
 
-//     const contentReady = new Promise((resolve) => {
-//       if ("requestIdleCallback" in window) {
-//         requestIdleCallback(resolve); // Chrome/Edge
-//       } else {
-//         setTimeout(resolve, 0); // Safari fallback
-//       }
-//     });
+    const contentReady = new Promise((resolve) => {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(resolve); // Chrome/Edge
+      } else {
+        setTimeout(resolve, 0); // Safari fallback
+      }
+    });
 
-//     Promise.all([minDelay, contentReady]).then(() => {
-//       setShowLoading(false);
+    Promise.all([minDelay, contentReady]).then(() => {
+      setShowLoading(false);
 
-//       // 移除 index.html 裡的最初 loading 畫面
-//       const loader = document.getElementById("global-loading");
-//       if (loader) loader.remove();
-//     });
-//   }, []);
+      // 移除 index.html 裡的最初 loading 畫面
+      const loader = document.getElementById("global-loading");
+      if (loader) loader.remove();
+    });
+  }, []);
 
-//   if (showLoading) {
-//     return (
-//       <div className="loading-screen">
-//         <h1>Loading...</h1>
-//       </div>
-//     );
-//   }
+  if (showLoading) {
+    return (
+      <div className="loading-screen">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
-//   return (
-//     <>
-//       {noticeVisible && (
-//         <div className="notice-bar">
-//           <p>This is a toy gun, not a real gun.</p>
-//           <button onClick={() => setNoticeVisible(false)}>I Understand</button>
-//         </div>
-//       )}
+  return (
+    <>
+      {noticeVisible && (
+        <div className="notice-bar">
+          <p>This is a toy gun, not a real gun.</p>
+          <button onClick={() => setNoticeVisible(false)}>I Understand</button>
+        </div>
+      )}
 
-//       <div className="main-container">
-//         <div className="secondSection">
-//           <Canvas
-//             camera={{ position: [0, 0, 5], fov: 60 }}
-//             style={{
-//               background: "#f0f0f0",
-//               width: "100vw",
-//               height: "100vh",
-//               zIndex:100
-//             }}
-//           >
-//             <ScrollControl />
-//           </Canvas>
-//         </div>
+      <div className="main-container">
+        <div className="secondSection">
+          <Canvas
+            camera={{ position: [0, 0, 5], fov: 60 }}
+            style={{
+              background: "#f0f0f0",
+              width: "100vw",
+              height: "100vh",
+              zIndex:100
+            }}
+          >
+            <ScrollControl />
+          </Canvas>
+        </div>
 
-//         <div className="thirdSection">
-//           <Detail />
-//         </div>
+        <div className="thirdSection">
+          <Detail />
+        </div>
 
-//         <div className="fifthSection" style={{ height: "110vh" }}>
-//           <TriggerScene />
-//         </div>
+        <div className="fifthSection" style={{ height: "110vh" }}>
+          <TriggerScene />
+        </div>
 
-//         <div
-//           className="forthSection"
-//           style={{ height: "130vh", background: "rgb(31,31,31)" }}
-//         >
-//           <HopupScene />
-//         </div>
+        <div
+          className="forthSection"
+          style={{ height: "130vh", background: "rgb(31,31,31)" }}
+        >
+          <HopupScene />
+        </div>
 
-//         <div className="fifthSection">
-//           <Tm />
-//         </div>
+        <div className="fifthSection">
+          <Tm />
+        </div>
 
-//         <div className="sixthSection">
-//           <Video />
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
+        <div className="sixthSection">
+          <Video />
+        </div>
+      </div>
+    </>
+  );
+}
 
-// export default App;
+export default App;
 
 
 
