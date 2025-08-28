@@ -268,23 +268,29 @@ export default function Research() {
 
                 </div>
             </div>
-            {/* 小螢幕隱藏，大螢幕顯示 */}
-            <div className="d-none d-md-block">
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "90%",
+                    zIndex: 10,
+                    textAlign: "center",
+                    display: window.innerWidth < 1200 ? "none" : "block", // 小於 1200px 隱藏
+                }}
+            >
+              
                 <img
-                    src="/images/123.png"
+                    src="/images/123.webp"
                     alt="Bottom Decoration"
                     style={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        width: "90%",
-                        zIndex: 10,
+                        width: "100%",
                     }}
                 />
             </div>
+
         </div>
     );
 }
