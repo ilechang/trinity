@@ -121,7 +121,7 @@ export default function Research() {
                     safe nature, it is also widely adopted by military and law
                     enforcement agencies for simulated combat training.
                 </p>
-                <img src="./images/bgtry.jpg" alt="" className="w-100 rounded rounded-4" />
+                <img src="./images/bgtry.webp" alt="" className="w-100 rounded rounded-4" />
             </div>
 
             {/* Main Content */}

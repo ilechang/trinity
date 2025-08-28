@@ -83,14 +83,14 @@ const HopupScene = () => {
 
         <div style={{ flex: "0 0 35%" }}>
           <img
-            src="./images/hop1.jpg"
+            src="./images/hop1.webp"
             alt="Hop-Up Detail"
             style={{ width: "80%", display: "block" }}
           />
         </div>
       </div>
 
-      {/* {shouldRender && (
+      {shouldRender && (
         <video
           ref={videoRef}
           src="./withhop.mp4"
@@ -109,7 +109,7 @@ const HopupScene = () => {
             border: "5px solid red",
           }}
         />
-      )} */}
+      )}
     </div>
   );
 };

@@ -21,7 +21,7 @@ function LazyDetailContent() {
         { key: "B", x: 44.1, y: 36, desc: "Stainless Steel Ambidextrous Thumb safety", img: "./images/thumbsafty1.jpg" },
         { key: "C", x: 31.5, y: 79.5, desc: "M11 CW Female Thread", img: "./images/detail3.jpg" },
         { key: "D", x: 58.4, y: 51.4, desc: "Extended Match Grade Magazine Release", img: "./images/detail4.jpg" },
-        { key: "E", x: 51.5, y: 57.3, desc: "Patented Quickly-Adjustable Hop-Up System", img: "./images/hop1.jpg" },
+        { key: "E", x: 51.5, y: 57.3, desc: "Patented Quickly-Adjustable Hop-Up System", img: "./images/hop1.webp" },
         { key: "F", x: 55.5, y: 59.8, desc: "Patented Match Grade Trigger", img: "./images/detail6.jpg" },
         { key: "G", x: 49.5, y: 73, desc: "Stainless Steel Middle Frame with Tactical Rail", img: "./images/detail7.jpg" },
         { key: "H", x: 49.8, y: 49.5, desc: "7075 Aluminum Alloy Light-Weight Slide", img: "./images/detail8.jpg" },
@@ -103,7 +103,7 @@ function LazyDetailContent() {
                 </style>
                 <div class="position-relative w-100">
                   <div class="d-flex justify-content-center">
-                    <img src="./images/hicapa說明.png" alt="Hicapa 說明" class="w-50 mt-5">
+                    <img src="./images/hicapa說明.webp" alt="Hicapa 說明" class="w-50 mt-5">
                   </div>
                   <div id="hotspots"></div>
                 </div>
