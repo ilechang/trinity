@@ -27,7 +27,7 @@ function Model() {
 
   // 硬編碼模型屬性
   const scale = 12;
-  const posX = 0;
+  const posX = 0.6;
   const posY = 0.9;
   const posZ = 0;
   const rotX = 0;
@@ -63,7 +63,7 @@ function Scene() {
         enableZoom={false} // 禁止滾輪縮放
         enableRotate={true} // 允許旋轉
         autoRotate={true} // 自動旋轉
-        autoRotateSpeed={1.5} // 自動旋轉速度
+        autoRotateSpeed={-2.5} // 自動旋轉速度
         target={[0, 0.5, 0]} // 聚焦到模型中心
         position={[camX, camY, camZ]}
       />
