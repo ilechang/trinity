@@ -90,7 +90,7 @@ const HopupScene = () => {
         </div>
       </div>
 
-      {/* {shouldRender && (
+      {shouldRender && (
         <video
           ref={videoRef}
           src="./withhop.mp4"
@@ -109,7 +109,7 @@ const HopupScene = () => {
             border: "5px solid red",
           }} */}
         {/* />
-      )} */}
+      )}
     </div>
   );
 };
