@@ -106,7 +106,10 @@ const designProcess = [
 
 export default function Research() {
     return (
-        <div className="text-white w-100 py-5 mb-5" style={{ backgroundColor: "rgb(255,255,255)" }}>
+        <div
+            className="text-white w-100 py-5  "
+            style={{ backgroundColor: "rgb(255,255,255)", position: "relative" }}
+        >
             {/* Background Section */}
             <div className="mx-auto mt-5 mb-5" style={{ maxWidth: "1300px" }}>
                 <h2 className="fw-bold mb-3 text-center text-dark">
@@ -264,6 +267,23 @@ export default function Research() {
 
 
                 </div>
+            </div>
+            {/* 小螢幕隱藏，大螢幕顯示 */}
+            <div className="d-none d-md-block">
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+                <img
+                    src="/images/123.png"
+                    alt="Bottom Decoration"
+                    style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: "90%",
+                        zIndex: 10,
+                    }}
+                />
             </div>
         </div>
     );
