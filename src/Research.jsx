@@ -60,7 +60,7 @@ const designProcess = [
         text: [
             "With original manufacturer authorization, analyzed and retained components that required no redesign, reducing development overhead."
         ],
-        pics: ["./images/scan.jpg"],
+
         time: "2022/04 – 2022/05"
     },
     {
@@ -68,7 +68,7 @@ const designProcess = [
         text: [
             "Focused on the grip, slide, hop-up, and trigger to improve ergonomics and usability."
         ],
-        pics: ["./images/sw.jpg", "./images/sw2.jpg"],
+
         time: "2022/05 – 2022/11"
     },
     {
@@ -98,7 +98,7 @@ const designProcess = [
         text: [
             "Officially launched in 2023, distributed across Asia, Europe, and North America."
         ],
-        pics: ["./images/trinity5.jpg"],
+     
         time: "2023/05"
     }
 ];
@@ -165,7 +165,7 @@ export default function Research() {
                             </p>
                         </div>
                         <img
-                            src="./images/tpsa1.png"
+                            src="./images/tpsa1.webp"
                             alt="TPSA Logo"
                             className="me-3"
                             style={{ width: "120px" }}
@@ -223,16 +223,16 @@ export default function Research() {
                                 <div className="card-body">
                                     <div className="row align-items-center">
                                         {/* 日期 col-2 */}
-                                        <div className="col-md-2 mb-3 mb-md-0">
+                                        <div className="col-md-4 mb-3 ">
                                             {step.time && (
-                                                <p className="text-white fw-bold text-md-start text-start m-0">
+                                                <h4 className="text-white fw-bold text-md-center text-start m-0">
                                                     {step.time}
-                                                </p>
+                                                </h4>
                                             )}
                                         </div>
 
                                         {/* 文字 col-6 */}
-                                        <div className="col-md-6 mb-3 mb-md-0">
+                                        <div className="col-md-7 mb-3 mb-md-0">
                                             <h5 className="text-white fw-bold text-start ">{step.title}</h5>
                                             {Array.isArray(step.text) && (
                                                 <ul className="text-white text-start m-0">

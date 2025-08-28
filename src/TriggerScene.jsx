@@ -177,7 +177,7 @@ const TriggerScene = () => {
 
       <div style={{ display: "flex", justifyContent: "start", marginTop: "6vh", paddingLeft: "15%"  }}>
         <img
-          src="./images/triggerilla.jpg"
+          src="./images/triggerilla.webp"
           alt="Trigger View"
           className="responsive-img"
         />
