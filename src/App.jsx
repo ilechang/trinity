@@ -55,7 +55,7 @@ function App() {
           <div className="secondSection" style={{ height: "100vh" }}>
             <Canvas
               camera={{ position: [0, 0, 5], fov: 60 }}
-              style={{ background: "rgb(31,31,51)", width: "100vw", height: "100%" }}
+              style={{ background: "rgb(31,31,31)", width: "100vw", height: "100%" }}
               frameloop="demand"
             >
               <CameraRig />  {/* 改成用 wheel 控制 */}
