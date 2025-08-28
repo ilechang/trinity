@@ -82,17 +82,17 @@ function App() {
           <HopupScene />
         </div>
 
-        <div className="fifthSection">
+        {/* <div className="fifthSection">
           <Tm />
         </div>
 
-        {/* <div  style={{ height: "130vh", background: "rgb(31,31,31)" }}   >
+        <div  style={{ height: "130vh", background: "rgb(31,31,31)" }}   >
         <OpenKit/>
-        </div>
+        </div> */}
 
         <div className="sixthSection">
           <Video />
-        </div> */}
+        </div>
 
   
       </div>
