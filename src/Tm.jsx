@@ -105,13 +105,7 @@ function ModelItem({ file, number, activeCategory }) {
     <group>
       <primitive object={scene} scale={18} rotation={[0, -2.5, -0.3]} />
       <Html position={[0, -2.5, 0]} zIndexRange={[10, 0]}>
-        <img
-          src="/images/360.jpg"
-          alt="360° 產品預覽"
-          width="40"
-          height="40"
-          style={{ pointerEvents: "none", opacity: 0.8, animation: "floatHint 2s ease-in-out infinite" }}
-        />
+       
       </Html>
       {activeCategory !== null &&
         PARTS_WITH_FILES[activeCategory].parts.some(part => part.file === file) && (

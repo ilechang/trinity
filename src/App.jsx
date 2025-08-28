@@ -10,6 +10,7 @@ import Tm from "./Tm";
 import Video from "./Video";
 import Scene from "./Scene";
 import CameraRig from "./CameraRig";
+import OpenKit from "./OpenKit";
 
 function App() {
   const [noticeVisible, setNoticeVisible] = useState(true);
@@ -85,9 +86,15 @@ function App() {
           <Tm />
         </div>
 
+        <div  style={{ height: "130vh", background: "rgb(31,31,31)" }}   >
+        <OpenKit/>
+        </div>
+
         <div className="sixthSection">
           <Video />
         </div>
+
+  
       </div>
     </>
   );
