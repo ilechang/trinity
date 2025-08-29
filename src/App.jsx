@@ -90,7 +90,7 @@ function App() {
 
         <div
           style={{
-            background: "linear-gradient(180deg, rgb(31,31,31) 0%, rgb(200,200,200) 100%)",
+            background: "linear-gradient(180deg, rgb(31,31,31) 0%, rgb(160,160,160) 100%)",
           }}
         >
           <OpenKit />

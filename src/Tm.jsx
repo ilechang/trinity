@@ -248,7 +248,7 @@ export default function Tm() {
               </div>
               <div
                 className="accordion-body"
-                style={{ maxHeight: "24rem", overflowY: "auto" }}
+                style={{ maxHeight: "20rem", overflowY: "auto" }}
               >
                 <table className="accordion-table">
                   <tbody>
