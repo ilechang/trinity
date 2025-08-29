@@ -161,5 +161,3 @@ This kit features essential IPSC Open Division upgrades: compensator, thumb rest
     </div>
   );
 }
-
-useGLTF.preload("./models/open.glb");
