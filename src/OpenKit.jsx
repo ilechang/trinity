@@ -110,10 +110,8 @@ export default function OpenKit() {
           color: "white",
         }}
       >
-        A complete upgrade package designed for IPSC Open Division pistols. <br />
-        Featuring essential components such as compensator, thumb rest, magwell,
-        optic mount, and charging handle — each part engineered for speed, control,
-        and precision in competition.
+This kit features essential IPSC Open Division upgrades: compensator, thumb rest, magwell, optic mount, and charging handle. 
+<br/>Each component is precision-engineered for competition, delivering faster handling, enhanced control, and unmatched accuracy.
       </p>
 
       {/* 3D 模型區域 */}
