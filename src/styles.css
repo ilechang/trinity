@@ -593,18 +593,18 @@ video {
 
 
 /* 預設隱藏 */
-.mobile-only {
+.mobile-only-d {
   display: none;
 }
 
 /* 小螢幕 (<=450px) 顯示 */
 @media (max-width: 450px) {
-  .mobile-only {
+  .mobile-only-d {
     display: block;
   }
 
   /* 把其他內容隱藏 */
-  .desktop-content {
+  .desktop-content-d {
     display: none !important;
   }
 }

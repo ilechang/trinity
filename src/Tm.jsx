@@ -156,125 +156,116 @@ export default function Tm() {
   };
 
   return (
-    <>
-      <div className="mobile-only">
-        <img src="./images/tm-mobile.webp" alt="TM Compatibility" style={{ width: "100%" }} />
+    <div style={{ position: "relative", width: "100vw", minHeight: "100vh" }}>
+      <h2
+        className="archivo-black-regular hi-capa-title no-select"
+        style={{
+          fontSize: "clamp(28px, 8vw, 120px)", // 自適應大小
+          textAlign: "center",
+          width: "100%",
+          color: "black",
+          margin: "55px auto 30px auto",
+          lineHeight: "1.1",
+          wordBreak: "break-word",
+        }}
+      >
+        TM Compatibility
+      </h2>
+      <hr />
+      <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem" }}>
+        Tokyo Marui(TM) sets the gold standard in the airsoft industry. The more parts of a gun that are compatible with TM, the easier it is to find replacements and upgrades.
+      </p>
+
+      <div ref={sceneRef} style={{ width: "100%", }} className="canvas-container">
+        {shouldRender && (
+          <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
+            <ambientLight intensity={0.85} />
+            <Environment files="./quad.hdr" />
+            <Suspense fallback={null}>
+              {PARTS_WITH_FILES.flatMap(category =>
+                category.parts.map((part, index) => (
+                  <ModelItem
+                    key={index}
+                    file={part.file}
+                    number={part.number}
+                    activeCategory={activeCategory}
+                  />
+                ))
+              )}
+              <RotatingCamera speed={0.3} isUserInteracting={isUserInteracting} />
+              <OrbitControls
+                enableZoom={false}
+                enablePan={false}
+                minPolarAngle={Math.PI / 2}
+                maxPolarAngle={Math.PI / 2}
+                onStart={() => setIsUserInteracting(true)}
+                onEnd={() => setIsUserInteracting(false)}
+              />
+            </Suspense>
+          </Canvas>
+        )}
       </div>
 
-
-      <div className="desktop-content">
-        <div style={{ position: "relative", width: "100vw", minHeight: "100vh" }}>
-          <h2
-            className="archivo-black-regular hi-capa-title no-select"
-            style={{
-              fontSize: "clamp(28px, 8vw, 120px)", // 自適應大小
-              textAlign: "center",
-              width: "100%",
-              color: "black",
-              margin: "55px auto 30px auto",
-              lineHeight: "1.1",
-              wordBreak: "break-word",
-            }}
-          >
-            TM Compatibility
-          </h2>
-          <hr />
-          <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem" }}>
-            Tokyo Marui(TM) sets the gold standard in the airsoft industry. The more parts of a gun that are compatible with TM, the easier it is to find replacements and upgrades.
-          </p>
-
-          <div ref={sceneRef} style={{ width: "100%", }} className="canvas-container">
-            {shouldRender && (
-              <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
-                <ambientLight intensity={0.85} />
-                <Environment files="./quad.hdr" />
-                <Suspense fallback={null}>
-                  {PARTS_WITH_FILES.flatMap(category =>
-                    category.parts.map((part, index) => (
-                      <ModelItem
-                        key={index}
-                        file={part.file}
-                        number={part.number}
-                        activeCategory={activeCategory}
-                      />
-                    ))
-                  )}
-                  <RotatingCamera speed={0.3} isUserInteracting={isUserInteracting} />
-                  <OrbitControls
-                    enableZoom={false}
-                    enablePan={false}
-                    minPolarAngle={Math.PI / 2}
-                    maxPolarAngle={Math.PI / 2}
-                    onStart={() => setIsUserInteracting(true)}
-                    onEnd={() => setIsUserInteracting(false)}
-                  />
-                </Suspense>
-              </Canvas>
-            )}
-          </div>
-
-          {/* Accordion 區域 */}
-          <div
-            className="accordion-container"
-            style={
-              isMobile
-                ? {
-                  width: "90%",          // 小螢幕寬度
-                  margin: "2rem auto",   // 與上下留距
-                  position: "relative",  // 不用絕對定位
-                  display: "flex",       // ✅ 加 flex
-                  justifyContent: "center", // ✅ 水平置中
-                }
-                : {
-                  position: "absolute",  // 大螢幕 → 固定右側
-                  top: "35%",
-                  left: "80%",
-                  width: "25%",
-                }
+      {/* Accordion 區域 */}
+      <div
+        className="accordion-container"
+        style={
+          isMobile
+            ? {
+              width: "90%",          // 小螢幕寬度
+              margin: "2rem auto",   // 與上下留距
+              position: "relative",  // 不用絕對定位
+              display: "flex",       // ✅ 加 flex
+              justifyContent: "center", // ✅ 水平置中
             }
-          >
-            <div style={{ width: "100%" }}>
-              {PARTS_WITH_FILES.map((category, index) => (
-                <div
-                  key={index}
-                  className={`accordion-item ${activeCategory === index ? "active" : ""}`}
-                >
-                  <div
-                    className="accordion-header"
-                    onClick={() => toggleAccordion(index)}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span>{category.category}</span>
-                    <span style={{ transform: "scaleY(0.6)", display: "inline-block" }}>
-                      {activeCategory === index ? "▲" : "▼"}
-                    </span>
-                  </div>
-                  <div
-                    className="accordion-body"
-                    style={{ maxHeight: "24rem", overflowY: "auto" }}
-                  >
-                    <table className="accordion-table">
-                      <tbody>
-                        {category.parts.map((part) => (
-                          <tr key={part.number}>
-                            <td>{part.number}</td>
-                            <td>{part.name}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              ))}
+            : {
+              position: "absolute",  // 大螢幕 → 固定右側
+              top: "35%",
+              left: "80%",
+              width: "25%",
+            }
+        }
+      >
+        <div style={{ width: "100%" }}>
+          {PARTS_WITH_FILES.map((category, index) => (
+            <div
+              key={index}
+              className={`accordion-item ${activeCategory === index ? "active" : ""}`}
+            >
+              <div
+                className="accordion-header my-1"
+                onClick={() => toggleAccordion(index)}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span>{category.category}</span>
+                <span style={{ transform: "scaleY(0.6)", display: "inline-block" }}>
+                  {activeCategory === index ? "▲" : "▼"}
+                </span>
+              </div>
+              <div
+                className="accordion-body"
+                style={{ maxHeight: "24rem", overflowY: "auto" }}
+              >
+                <table className="accordion-table">
+                  <tbody>
+                    {category.parts.map((part) => (
+                      <tr key={part.number}>
+                        <td>{part.number}</td>
+                        <td>{part.name}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

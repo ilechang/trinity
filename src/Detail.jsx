@@ -148,7 +148,7 @@ function LazyDetailContent() {
   }, [isVisible]);
 
   return (
-<div className="position-relative w-100" style={{ maxHeight: "900px", overflow: "hidden" }}>
+    <div className="position-relative w-100" style={{ maxHeight: "900px", overflow: "hidden" }}>
       {isVisible && (
         <h2
           className="archivo-black-regular hi-capa-title no-select"
