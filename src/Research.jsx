@@ -111,7 +111,7 @@ export default function Research() {
             style={{ backgroundColor: "rgb(255,255,255)", position: "relative" }}
         >
             {/* Background Section */}
-            <div className="mx-auto mt-5 mb-5" style={{ maxWidth: "1300px" }}>
+            <div className="mx-auto mt-5 mb-5" style={{ maxWidth: "1100px" }}>
                 <h2 className="fw-bold mb-3 text-center text-dark">
                     Background – What is Airsoft?
                 </h2>
@@ -125,7 +125,7 @@ export default function Research() {
             </div>
 
             {/* Main Content */}
-            <div className="d-flex flex-column justify-content-center align-items-center text-center w-100 h-100">
+            <div className="mx-auto d-flex flex-column justify-content-center align-items-center text-center w-100 h-100" style={{ maxWidth: "1100px" }}>
                 <div
                     className="rounded rounded-4 pt-5 pb-0 px-5 mb-5"
                     style={{

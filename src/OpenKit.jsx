@@ -1,13 +1,6 @@
-
-
-
-
-
-
-
 "use client";
 
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment, useGLTF } from "@react-three/drei";
 import { Suspense, useRef, useState, useEffect } from "react";
 
@@ -27,52 +20,42 @@ const partsData = {
     "An extended charging handle offers better grip and accessibility, making slide manipulation faster and more efficient, especially during competition.",
 };
 
-// 3D 模型
+// 3D 模型 (自轉)
 function Model() {
   const gltf = useGLTF("./models/open.glb");
   const modelRef = useRef();
 
-  // 硬編碼模型屬性
-  const scale = 12;
-  const posX = 0.6;
-  const posY = 0.9;
-  const posZ = 0;
-  const rotX = -0.3;
-  const rotY = 0;
-  const rotZ = 0
+  // ✅ 讓模型本身旋轉（fps independent）
+  useFrame((_, delta) => {
+    if (modelRef.current) {
+      modelRef.current.rotation.y -= delta * 0.5; // 調整 0.5 速度
+    }
+  });
 
   return (
     <primitive
       ref={modelRef}
       object={gltf.scene}
-      scale={scale}
-      position={[posX, posY, posZ]}
-      rotation={[rotX, rotY, rotZ]}
+      scale={11.2}
+      position={[0.6, 1.1, 0]}
+      rotation={[0, 0, 0]}
     />
   );
 }
 
 // 場景
 function Scene() {
-  // 硬編碼相機位置
-  const camX = 3.1;
-  const camY = 2.0;
-  const camZ = 3.4;
-
   return (
     <>
       <Environment files="./quad.hdr" background={false} />
       <Model />
 
-      {/* OrbitControls 禁用縮放 */}
+      {/* OrbitControls 只保留互動，不用 autoRotate */}
       <OrbitControls
-        enablePan={false} // 禁止平移
-        enableZoom={false} // 禁止滾輪縮放
-        enableRotate={true} // 允許旋轉
-        autoRotate={true} // 自動旋轉
-        autoRotateSpeed={-3} // 自動旋轉速度
-        target={[0, 0.5, 0]} // 聚焦到模型中心
-        position={[camX, camY, camZ]}
+        enablePan={false}
+        enableZoom={false}
+        enableRotate={true}
+        target={[0, 0.5, 0]}
       />
     </>
   );
@@ -80,10 +63,8 @@ function Scene() {
 
 // 主組件
 export default function OpenKit() {
-  const buttons = Object.keys(partsData); // 直接用 partsData 的 key 當按鈕
+  const buttons = Object.keys(partsData);
   const [activePart, setActivePart] = useState(null);
-
-  // ✅ IntersectionObserver 控制是否渲染模型
   const [shouldRender, setShouldRender] = useState(false);
   const sceneRef = useRef(null);
 
@@ -92,7 +73,7 @@ export default function OpenKit() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setShouldRender(true);
-          observer.disconnect(); // 只觸發一次
+          observer.disconnect();
         }
       },
       { threshold: 0.2 }
@@ -106,11 +87,10 @@ export default function OpenKit() {
       className="text-white min-vh-100 d-flex flex-column align-items-center"
       style={{ position: "relative", width: "100vw" }}
     >
-      {/* 標題 */}
       <h2
         className="archivo-black-regular hi-capa-title no-select"
         style={{
-          fontSize: "clamp(28px, 8vw, 120px)", // 自適應大小
+          fontSize: "clamp(28px, 8vw, 120px)",
           textAlign: "center",
           width: "100%",
           color: "white",
@@ -122,7 +102,6 @@ export default function OpenKit() {
         IPSC Open Kit
       </h2>
 
-      {/* 簡介文字 */}
       <p
         style={{
           textAlign: "center",
@@ -137,8 +116,8 @@ export default function OpenKit() {
         and precision in competition.
       </p>
 
-      {/* 3D 模型區域 → IntersectionObserver 控制 */}
-      <div ref={sceneRef} className="w-100 canvas-container-open"  >
+      {/* 3D 模型區域 */}
+      <div ref={sceneRef} className="w-100 canvas-container-open">
         {shouldRender && (
           <Canvas camera={{ position: [3.1, 2.0, 3.4], fov: 35 }}>
             <Suspense fallback={null}>
@@ -148,22 +127,23 @@ export default function OpenKit() {
         )}
       </div>
 
-      {/* 按鈕區域 → 永遠在 Canvas 下方 */}
-      <div className="mt-5 d-flex flex-wrap justify-content-center gap-4">
+      {/* 按鈕 */}
+      <div className="mt-5 d-flex flex-wrap  justify-content-center gap-4">
         {buttons.map((b, i) => (
           <button
             key={i}
-            className="btn btn-outline-light px-4 "
+            className="btn btn-outline-light rounded-0 px-4"
             onMouseEnter={() => setActivePart(b)}
             onMouseLeave={() => setActivePart(null)}
             onClick={() => setActivePart(b)}
+           
           >
             {b}
           </button>
         ))}
       </div>
 
-      {/* 說明文字區 → 固定最小高度避免跳動 */}
+      {/* 說明文字 */}
       <div
         style={{
           marginTop: "1.5rem",
