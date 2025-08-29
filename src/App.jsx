@@ -86,7 +86,13 @@ function App() {
           <Tm />
         </div>
 
-        <div style={{ background: "rgb(31,31,31)" }}   >
+
+
+        <div
+          style={{
+            background: "linear-gradient(180deg, rgb(31,31,31) 0%, rgb(200,200,200) 100%)",
+          }}
+        >
           <OpenKit />
         </div>
 

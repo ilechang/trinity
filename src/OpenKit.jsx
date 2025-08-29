@@ -125,8 +125,7 @@ This kit features essential IPSC Open Division upgrades: compensator, thumb rest
         )}
       </div>
 
-      {/* 按鈕 */}
-      <div className="mt-5 d-flex flex-wrap  justify-content-center gap-4">
+      {/* <div className="mt-5 d-flex flex-wrap  justify-content-center gap-4">
         {buttons.map((b, i) => (
           <button
             key={i}
@@ -141,7 +140,6 @@ This kit features essential IPSC Open Division upgrades: compensator, thumb rest
         ))}
       </div>
 
-      {/* 說明文字 */}
       <div
         style={{
           marginTop: "1.5rem",
@@ -157,7 +155,7 @@ This kit features essential IPSC Open Division upgrades: compensator, thumb rest
         <p style={{ fontSize: "clamp(14px, 1.2vw, 1rem)", color: "white" }}>
           {activePart ? partsData[activePart] : ""}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
