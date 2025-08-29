@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 "use client";
 
 import { Canvas } from "@react-three/fiber";
@@ -30,9 +37,9 @@ function Model() {
   const posX = 0.6;
   const posY = 0.9;
   const posZ = 0;
-  const rotX = 0;
+  const rotX = -0.3;
   const rotY = 0;
-  const rotZ = 0;
+  const rotZ = 0
 
   return (
     <primitive
@@ -63,7 +70,7 @@ function Scene() {
         enableZoom={false} // 禁止滾輪縮放
         enableRotate={true} // 允許旋轉
         autoRotate={true} // 自動旋轉
-        autoRotateSpeed={-2.5} // 自動旋轉速度
+        autoRotateSpeed={-3} // 自動旋轉速度
         target={[0, 0.5, 0]} // 聚焦到模型中心
         position={[camX, camY, camZ]}
       />

@@ -9,7 +9,7 @@ const TriggerScene = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 800);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <800);
+    const handleResize = () => setIsMobile(window.innerWidth < 800);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -84,54 +84,16 @@ const TriggerScene = () => {
 
       <hr />
 
-      {/* ✅ 播放影片，維持比例、不變形、不留黑框 */}
-      {shouldRender && !isMobile && (
-        <div
-          style={{
-            position: "absolute",
-            top: "490px",
-            left: "85%",
-            transform: "translate(-50%, -50%)",
-            width: "45%",
-            height: "45%",
-            overflow: "hidden",     // 裁切影片黑邊
-            backgroundColor: "white", // 保底背景
-            zIndex: 0,
-          }}
-        >
-          <video
-            ref={videoRef}
-            src="./trigger.mp4"
-            autoPlay
-            muted
-            playsInline
-            onEnded={handleEnded}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              backgroundColor: "white",
-              pointerEvents: "none",
-            }}
-          />
-        </div>
-      )}
 
       <p
+        className="mb-5 mx-auto"
         style={{
-          fontSize: "16px",
-          textAlign: "start",
-          width: "100%",
-          fontFamily: "'Arial', sans-serif",
+          textAlign: "center",
+          fontFamily: "Arial, sans-serif",
+          marginTop: "2rem",
           color: "black",
-          fontWeight: 500,
-          pointerEvents: "none",
-          maxWidth: "clamp(350px, 45vw, 900px)",
-          marginLeft: isMobile ? "2rem" : "15%",  // ✅ 小螢幕不要左邊距
-          marginRight: isMobile ? "2rem" : "0", // ✅ 小螢幕加右邊距
-          marginTop: "35px",
-          lineHeight: "1.5",
-          zIndex: 10,
+          padding: "0 2rem", // 小螢幕留邊距
+          maxWidth: "1400px",
         }}
       >
         The Trinity match grade trigger system has a super short trigger pull (only 1mm) and resets in a split second.
@@ -142,8 +104,11 @@ const TriggerScene = () => {
         <img
           src="./images/triggerilla.webp"
           alt="Trigger View"
-          className="responsive-img"
-style={{zIndex:1000}}        
+          className="responsive-img mt-5 mx-auto"
+          style={{
+            zIndex: 1000,
+            marginBottom: "5rem",
+          }}
         />
       </div>
     </div>
