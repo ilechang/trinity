@@ -95,6 +95,7 @@ function App() {
         >
           <OpenKit />
         </div>
+        
 
         <div className="sixthSection"   >
           <Video />
