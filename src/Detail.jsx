@@ -148,6 +148,8 @@ function LazyDetailContent() {
   }, [isVisible]);
 
   return (
+    <>
+    <div className="desktop-content-d">
     <div className="position-relative w-100" style={{ maxHeight: "900px", overflow: "hidden" }}>
       {isVisible && (
         <h2
@@ -168,6 +170,13 @@ function LazyDetailContent() {
       )}
       <div ref={containerRef} className="w-100"></div>
     </div>
+    </div>
+
+    
+    <div className="mobile-only-d">
+    <img src="./images/hicapa說明.webp" alt="TM Compatibility" className="mt-5" style={{ width: "100%", }} />
+  </div>
+</>
   );
 }
 
