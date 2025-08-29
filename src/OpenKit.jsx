@@ -145,7 +145,7 @@ export default function OpenKit() {
           marginBottom: "2rem",
          
           minHeight: "200px", // ✅ 預設高度
-          maxWidth: "800px",
+          maxWidth: "1100px",
           textAlign: "center",
           fontFamily: "Arial, sans-serif",
           display: "flex",
@@ -164,7 +164,7 @@ export default function OpenKit() {
             objectFit: "contain",
           }}
         />
-        <p style={{ fontSize: "clamp(14px, 1.2vw, 1rem)", color: "white" }}>
+        <p style={{ fontSize: "clamp(14px, 1.2vw, 1rem)", color: "white", textAlign:"start" }}>
           {partsData[activePart]?.desc || ""}
         </p>
       </div>
