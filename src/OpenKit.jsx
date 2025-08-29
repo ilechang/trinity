@@ -22,7 +22,7 @@ const partsData = {
 
 // 3D 模型 (自轉)
 function Model() {
-  const gltf = useGLTF("./models/open.glb");
+  const gltf = useGLTF("./models/openc.glb");
   const modelRef = useRef();
 
   // ✅ 讓模型本身旋轉（fps independent）
