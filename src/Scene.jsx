@@ -40,7 +40,7 @@ const Scene = () => {
   // ✅ 判斷螢幕大小 → 選擇 config
   useEffect(() => {
     const updateConfig = () => {
-      if (window.innerWidth < 1200) {
+      if (window.innerWidth < 1000) {
         setConfig(configs.mobile);
       } else {
         setConfig(configs.desktop);

@@ -220,7 +220,7 @@ export default function Tm() {
             }
             : {
               position: "absolute",  // 大螢幕 → 固定右側
-              top: "45%",
+              top: "35%",
               left: "80%",
               width: "25%",
             }
@@ -248,7 +248,7 @@ export default function Tm() {
               </div>
               <div
                 className="accordion-body"
-                style={{ maxHeight: "19rem", overflowY: "auto" }}
+                style={{ maxHeight: "24rem", overflowY: "auto" }}
               >
                 <table className="accordion-table">
                   <tbody>
