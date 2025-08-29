@@ -69,7 +69,7 @@ const HopupScene = () => {
         Taiwan Utility Models Patent: M626103
       </p>
 
-      <hr />
+      <hr style={{ borderColor: "white" }} />
 
       <p
        className="mb-5 mx-auto"
