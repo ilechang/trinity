@@ -166,6 +166,8 @@ export default function OpenKit() {
         />
         <p style={{ fontSize: "clamp(14px, 1.2vw, 1rem)", color: "white", textAlign:"start" }}>
           {partsData[activePart]?.desc || ""}
+
+          
         </p>
       </div>
     </div>
