@@ -158,7 +158,32 @@ video {
   line-height: 1;
   white-space: nowrap;
 }
+/* Trinity Title */
+.trinity-title {
+  position: absolute;
+  top: clamp(40px, 16vh, 150px); /* 預設 */
+  left: clamp(40px, 28%, 550px);
+  transform: translateX(-50%) rotate(-13deg);
+  color: white;
+  font-size: clamp(40px, 11vw, 300px);
+  z-index: 2;
+  line-height: 1;
+  white-space: nowrap;
+}
 
+/* 小螢幕（460px 以下）覆蓋 top */
+@media (max-width: 1000px) {
+  .trinity-title {
+    top: 4vh; /* ✅ 覆蓋 */
+  }
+}
+
+/* 小螢幕（460px 以下）覆蓋 top */
+@media (max-width: 460px) {
+  .trinity-title {
+    top: 1vh; /* ✅ 覆蓋 */
+  }
+}
 
 
 /* Hi-CAPA Title */

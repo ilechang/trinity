@@ -21,18 +21,18 @@ function LazyDetailContent() {
     return () => observer.disconnect();
   }, []);
 
+  // ✅ 預設位置（初始值）
   const positions = [
-    { key: "Magazine", x: 72, y: 52, desc: "30rd Magazine (Green gas/CO2)", img: "./images/mag.jpg" },
-    { key: "B", x: 44.1, y: 36, desc: "Stainless Steel Ambidextrous Thumb safety", img: "./images/thumbsafty.webp" },
-    { key: "C", x: 31.5, y: 79.5, desc: "M11 CW Female Thread", img: "./images/detail3.jpg" },
-    { key: "D", x: 58.4, y: 51.4, desc: "Extended Match Grade Magazine Release", img: "./images/detail4.jpg" },
-    { key: "E", x: 51.5, y: 57.3, desc: "Patented Quickly-Adjustable Hop-Up System", img: "./images/hop1.webp" },
-    { key: "F", x: 55.5, y: 59.8, desc: "Patented Match Grade Trigger", img: "./images/detail6.jpg" },
-    { key: "G", x: 49.5, y: 73, desc: "Stainless Steel Middle Frame with Tactical Rail", img: "./images/detail7.jpg" },
-    { key: "H", x: 49.8, y: 49.5, desc: "7075 Aluminum Alloy Light-Weight Slide", img: "./images/detail8.jpg" },
-    { key: "Removable rear sight", x: 52.4, y: 34.2, desc: "The rear sight can be replaced with an optic mount or a charging handle.", img: "./images/opticmount1.webp" },
+    { key: "Magazine", x: 84.6, y: 49.4, desc: "30rd Magazine (Green gas/CO2)", img: "./images/mag.jpg" },
+    { key: "ThumbSafety", x: 41, y: 25.7, desc: "Stainless Steel Ambidextrous Thumb safety", img: "./images/thumbsafty.webp" },
+    { key: "BarrelThread", x: 22, y: 91, desc: "M11 CW Female Thread", img: "./images/detail3.jpg" },
+    { key: "MagRelease", x: 61.5, y: 51.4, desc: "Extended Match Grade Magazine Release", img: "./images/detail4.jpg" },
+    { key: "HopUp", x: 52.5, y: 55.3, desc: "Patented Quickly-Adjustable Hop-Up System", img: "./images/hop1.webp" },
+    { key: "Trigger", x: 58.2, y: 59.8, desc: "Patented Match Grade Trigger", img: "./images/detail6.jpg" },
+    { key: "Frame", x: 49.5, y: 79.5, desc: "Stainless Steel Middle Frame with Tactical Rail", img: "./images/detail7.jpg" },
+    { key: "Slide", x: 49.8, y: 49.5, desc: "7075 Aluminum Alloy Light-Weight Slide", img: "./images/detail8.jpg" },
+    { key: "RearSight", x: 53.4, y: 22.1, desc: "The rear sight can be replaced with an optic mount or a charging handle.", img: "./images/opticmount1.webp" }
   ];
-
   useEffect(() => {
     if (!isVisible) return;
     const container = containerRef.current;
@@ -100,7 +100,7 @@ function LazyDetailContent() {
 
         <div class="d-flex justify-content-center">
           <div class="image-wrapper">
-            <img src="./images/hicapa說明.png" alt="Hicapa 說明" class="w-50 mt-5 mx-auto d-block">
+            <img src="./images/hicapa說明.webp" alt="Hicapa 說明" class="w-75 mt-5 mx-auto d-block">
             <div id="hotspots"></div>
           </div>
         </div>

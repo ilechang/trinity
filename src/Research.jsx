@@ -98,7 +98,7 @@ const designProcess = [
         text: [
             "Officially launched in 2023, distributed across Asia, Europe, and North America."
         ],
-     
+
         time: "2023/05"
     }
 ];
@@ -134,14 +134,14 @@ export default function Research() {
                     }}
                 >
                     {/* Project Overview */}
-                    <div className="d-flex align-items-start my-5">
+                    <div className="d-flex flex-column flex-sm-row align-items-start my-5">
                         <img
                             src="./images/modify.jpg"
                             alt="Modify Logo"
-                            className="me-3 "
+                            className="me-3 mb-3 mb-sm-0"
                             style={{ width: "120px" }}
                         />
-                        <div className="text-white rounded ms-3 mb-5">
+                        <div className="text-white rounded ms-sm-3 mb-5">
                             <h2 className="fw-bold text-start mb-3">Project Overview</h2>
                             <p className="mb-4 text-start">
                                 Modify has historically specialized in airsoft upgrade parts. This
@@ -151,10 +151,9 @@ export default function Research() {
                             </p>
                         </div>
                     </div>
-
                     {/* Collaboration */}
-                    <div className="d-flex align-items-start">
-                        <div className="text-white rounded me-3 mb-5">
+                    <div className="d-flex flex-column flex-sm-row align-items-start">
+                        <div className="text-white rounded me-sm-3 mb-3 mb-sm-0">
                             <h2 className="fw-bold text-start mb-3">Collaboration</h2>
                             <p className="mb-4 text-start">
                                 We collaborated with the Taiwan Practical Shooting Association and
@@ -171,6 +170,7 @@ export default function Research() {
                             style={{ width: "120px" }}
                         />
                     </div>
+
 
                     {/* Problems */}
                     <h2 className="text-center my-3 fw-bold">Problem Identification</h2>
@@ -281,7 +281,7 @@ export default function Research() {
                     display: window.innerWidth < 1200 ? "none" : "block", // 小於 1200px 隱藏
                 }}
             >
-              
+
                 <img
                     src="/images/123.webp"
                     alt="Bottom Decoration"
