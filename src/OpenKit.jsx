@@ -101,16 +101,15 @@ export default function OpenKit() {
     >
       {/* 標題 */}
       <h2
-        className="archivo-black-regular hi-capa-secondary-title no-select text-center"
+        className="archivo-black-regular hi-capa-title no-select"
         style={{
-          fontSize: "120px",
+          fontSize: "clamp(28px, 8vw, 120px)", // 自適應大小
           textAlign: "center",
           width: "100%",
           color: "white",
-          zIndex: 0,
-          pointerEvents: "none",
           margin: "55px auto 30px auto",
           lineHeight: "1.1",
+          wordBreak: "break-word",
         }}
       >
         IPSC Open Kit
@@ -132,7 +131,7 @@ export default function OpenKit() {
       </p>
 
       {/* 3D 模型區域 → IntersectionObserver 控制 */}
-      <div ref={sceneRef} className="w-100" style={{ height: "80vh" }}>
+      <div ref={sceneRef} className="w-100 canvas-container-open"  >
         {shouldRender && (
           <Canvas camera={{ position: [3.1, 2.0, 3.4], fov: 35 }}>
             <Suspense fallback={null}>

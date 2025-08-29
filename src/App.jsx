@@ -71,13 +71,13 @@ function App() {
           <Detail />
         </div>
 
-        <div className="fifthSection" style={{ height: "110vh" }}>
+        <div className="fifthSection">
           <TriggerScene />
         </div>
 
         <div
-          className="forthSection"
-          style={{ height: "130vh", background: "rgb(31,31,31)" }}
+          className=""
+          style={{ background: "rgb(31,31,31)" }}
         >
           <HopupScene />
         </div>
@@ -86,15 +86,15 @@ function App() {
           <Tm />
         </div>
 
-        <div  style={{ height: "130vh", background: "rgb(31,31,31)" }}   >
-        <OpenKit/>
+        <div style={{ background: "rgb(31,31,31)" }}   >
+          <OpenKit />
         </div>
 
-        <div className="sixthSection">
+        <div className="sixthSection"   >
           <Video />
         </div>
 
-  
+
       </div>
     </>
   );

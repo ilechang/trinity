@@ -1,19 +1,31 @@
-import { Suspense, useEffect, useState, useRef } from "react";
-
+import { useEffect, useState, useRef } from "react";
 
 const HopupScene = () => {
   const [shouldRender, setShouldRender] = useState(false);
+  const [withHop, setWithHop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef();
-  const videoRef = useRef(); // 加入 videoRef
+  const videoRef = useRef();
 
+  // 偵測螢幕寬度
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setShouldRender(true);
-        observer.disconnect();
-      }
-    }, { threshold: 0.1 });
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
+  // IntersectionObserver 控制影片渲染
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldRender(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
@@ -26,18 +38,18 @@ const HopupScene = () => {
   }, [shouldRender]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width: "100vw", height: "100vh" }}>
+    <div ref={ref} style={{ position: "relative", width: "100vw" }}>
+      {/* 標題 */}
       <h2
         className="archivo-black-regular hi-capa-title no-select"
         style={{
-          fontSize: "120px",
+          fontSize: "clamp(28px, 8vw, 120px)", // 自適應大小
           textAlign: "center",
           width: "100%",
           color: "white",
-          zIndex: 10,
-          pointerEvents: "none",
-          margin: "-70px auto 0 auto",
+          margin: "55px auto 30px auto",
           lineHeight: "1.1",
+          wordBreak: "break-word",
         }}
       >
         Hop-up Adjustment
@@ -50,78 +62,186 @@ const HopupScene = () => {
           width: "100%",
           fontFamily: "'Arial', sans-serif",
           color: "white",
-          zIndex: 10,
           fontWeight: 500,
           margin: "20px 0 30px 0",
         }}
       >
         Taiwan Utility Models Patent: M626103
       </p>
+
       <hr />
-      <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem", color: "white" }}>
-        Hop-up is a device that applies friction to the top of a BB, creating backspin, which generates lift through the Magnus effect, thereby increasing the effective range of low muzzle velocity airsoft guns.
+
+      <p
+       className="mb-5 mx-auto"
+        style={{
+          textAlign: "center",
+          fontFamily: "Arial, sans-serif",
+          marginTop: "2rem",
+          color: "white",
+          padding: "0 2rem", // 小螢幕留邊距
+          maxWidth: "1400px",
+        }}
+      >
+        Hop-up is a device that applies friction to the top of a BB, creating
+        backspin, which generates lift through the Magnus effect, thereby
+        increasing the effective range of low muzzle velocity airsoft guns.
       </p>
-      <div style={{ color: "white", display: "flex", width: "100%", maxWidth: "1600px", margin: "10px auto", alignItems: "flex-start", marginTop: "2rem" }}>
-        <div style={{ flex: "0 0 65%" }}>
+
+      {/* 左文字 + 右圖片 */}
+      <div
+     
+        style={{
+          display: "flex",
+          flexWrap: "wrap", // 小螢幕自動換行
+          width: "100%",
+          maxWidth: "1600px",
+          margin: "20px auto",
+          alignItems: "flex-start",
+          color: "white",
+        }}
+      >
+        {/* 左側文字 */}
+        <div
+          style={{
+            flex: "1 1 600px",
+            minWidth: isMobile ? "100%" : "300px", // 小螢幕滿版，大螢幕最小300
+            maxWidth: "100%",
+            boxSizing: "border-box",
+            padding: isMobile ? "0 1rem" : "0 2rem",
+          }}
+        >
           <h5 className="section-title">What is the problem?</h5>
-          <p className="section-text">
-            Adjusting Hop-Up on a traditional airsoft pistol takes a lot of effort. Users either have to use a special tool, or they have to take the gun apart in order to reach it.
+          <p
+            className="section-text"
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+              paddingRight: isMobile ? "2rem" : "0rem",
+            }}
+          >
+            Adjusting Hop-Up on a traditional airsoft pistol takes a lot of
+            effort. Users either have to use a special tool, or they have to
+            take the gun apart in order to reach it.
           </p>
 
           <h5 className="section-title">Our Solution</h5>
-          <p className="section-text">
-            The Trinity Hop-Up system turns the slide release(E) into an adjustment key. With the teeth(e) on the other end of it engaging the gear(B) inside the Hop-Up unit, it allows users quick adjustment without extra tools.
+          <p
+            className="section-text"
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+              paddingRight: isMobile ? "2rem" : "0rem",
+            }}
+          >
+            The Trinity Hop-Up system turns the slide release(E) into an
+            adjustment key. With the teeth(e) on the other end of it engaging
+            the gear(B) inside the Hop-Up unit, it allows users quick adjustment
+            without extra tools.
           </p>
 
           <img
+            className="mb-4"
             src="./images/illa.webp"
-            style={{ width: "100%", marginTop: "20px" }}
-            className="section-title"
+            style={{ width: "100%", marginTop: "20px", height: "auto" }}
             alt="Hop-Up System"
           />
         </div>
 
-        <div style={{ flex: "0 0 35%" }}>
+        {/* 右側圖片 */}
+        <div
+          style={{
+            flex: "1 1 300px",
+            minWidth: isMobile ? "100%" : "250px", // 小螢幕自動掉到下方
+            textAlign: "center",
+            padding: isMobile ? "1rem" : "0",
+          }}
+        >
           <img
             src="./images/hop1.webp"
             alt="Hop-Up Detail"
-            style={{ width: "80%", display: "block" }}
+            style={{
+              width: isMobile ? "100%" : "80%",
+              maxWidth: "400px",
+              display: "block",
+              margin: "0 auto",
+              height: "auto",
+            }}
           />
         </div>
       </div>
 
- {shouldRender && (
-        <video
-          ref={videoRef}
-          src="./withhop.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+      {/* 影片 + 按鈕 */}
+      {shouldRender && (
+        <div
           style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2rem",
+            position: "relative",
             width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            position: "absolute",
-            top: "55%",
-            left: "10%",
-            zIndex: 1,
-            border: "5px solid red",
-          }} 
-      />
-      )} 
+            height: "80%",
+            flexDirection: isMobile ? "column" : "initial",
+            alignItems: "center",
+          }}
+        >
+          <video
+            key={withHop ? "with" : "without"}
+            ref={videoRef}
+            src={withHop ? "./withhop.mp4" : "./withouthop.mp4"}
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top",
+            }}
+          />
+
+          {/* 疊在影片上的按鈕 */}
+          <div
+            style={{
+              position: isMobile ? "static" : "absolute",
+              top: isMobile ? "auto" : "55%",
+              left: isMobile ? "auto" : "50%",
+              transform: isMobile ? "none" : "translate(-50%, -50%)",
+              textAlign: "center",
+              zIndex: 10,
+              marginTop: isMobile ? "1rem" : "0",
+              marginBottom: isMobile ? "1rem" : "0",
+            }}
+          >
+            <p
+              style={{
+                marginTop: "12px",
+                color: "white",
+                fontSize: "1.1rem",
+                fontWeight: 500,
+                textShadow: "0 0 8px rgba(0,0,0,0.7)",
+              }}
+            >
+              {withHop
+                ? "With hop-up adjusted, the trajectory can extend over three times farther."
+                : "Without hop-up, the BBs can’t travel far."}
+            </p>
+            <button
+              className="btn btn-outline-light px-4 rounded-0"
+              onClick={() => setWithHop((prev) => !prev)}
+            >
+              {withHop ? "See Without Hop up" : "See the Difference"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default HopupScene;
-
-
-
-
-
-
-
 
 
 

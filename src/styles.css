@@ -72,7 +72,7 @@ body,
 
 .fifthSection {
   width: 100%;
-  height: 100vh;
+
   /* Full viewport height */
   background-color: rgb(255, 255, 255);
   display: flex;
@@ -149,25 +149,36 @@ video {
 /* Trinity Title */
 .trinity-title {
   position: absolute;
-  top: 90px;
-  left: 30%;
+  top: clamp(40px, 16vh, 150px); /* 預設 */
+  left: clamp(40px, 28%, 550px);
   transform: translateX(-50%) rotate(-13deg);
   color: white;
-  font-size: 170px;
+  font-size: clamp(40px, 11vw, 300px);
   z-index: 2;
+  line-height: 1;
+  white-space: nowrap;
 }
+
+
 
 /* Hi-CAPA Title */
 .hi-capa-title {
   color: rgb(146, 146, 146);
-  font-size: 280px;
   font-weight: bold;
-  margin-top: -50px;
+  margin-top: clamp(-80px, -20vh, -190px);
+  /* ✅ 跟隨螢幕高度調整 */
+  font-size: clamp(80px, 20vw, 300px);
+  /* ✅ 手機縮小，桌機維持280px */
   z-index: 1;
   white-space: nowrap;
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 3%, rgba(0, 0, 0, 1) 60%);
+  -webkit-mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 0) 3%,
+      rgba(0, 0, 0, 1) 60%);
+  mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 0) 3%,
+      rgba(0, 0, 0, 1) 60%);
 }
+
 
 .hi-capa-secondary-title {
   color: rgb(146, 146, 146);
@@ -180,23 +191,39 @@ video {
   mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 1) 60%);
 }
 
-/* Subtitle */
-.subtitle {
+/* 外層容器：固定靠右 */
+/* 外層容器：固定靠右 */
+.info-block {
   position: absolute;
-  font-size: 25px;
-  top: 250px;
-  left: 865px;
+  top: clamp(120px, 25vh, 300px);
+  /* ✅ 大中螢幕 */
+  right: 2%;
+  text-align: right;
   color: white;
 }
 
-.landing-p{
-
-    position: absolute;
-    font-size: 13.2px;
-    top: 290px;
-    left: 865px;
-    color: white;
+/* 小螢幕時 top 改成 4vh */
+@media (max-width: 1200px) {
+  .info-block {
+    top: 12vh;
   }
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: clamp(14px, 2.5vw, 25px);
+  margin: 0;
+  /* ✅ 移除預設 margin，避免跑掉 */
+  white-space: nowrap;
+}
+
+/* Landing paragraph */
+.landing-p {
+  font-size: clamp(10px, 2vw, 13.2px);
+  margin-top: 8px;
+  /* ✅ 與 subtitle 保持固定距離 */
+  white-space: nowrap;
+}
 
 .text {
   font-family: "Archivo Black", sans-serif;
@@ -266,12 +293,16 @@ video {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to right, 
-    #1f1f1f 18%,  /* Dark color covers 20% of the left */
-    #4e4e4e 50%,  /* Lighter center peak at 50% */
-    #1f1f1f 82%   /* Dark color returns at 80% */
-  );
-  color: #ffffff; /* White text */
+  background: linear-gradient(to right,
+      #1f1f1f 18%,
+      /* Dark color covers 20% of the left */
+      #4e4e4e 50%,
+      /* Lighter center peak at 50% */
+      #1f1f1f 82%
+      /* Dark color returns at 80% */
+    );
+  color: #ffffff;
+  /* White text */
   padding: 5px 20px;
   text-align: center;
   font-size: 16px;
@@ -290,13 +321,17 @@ video {
 }
 
 .notice-bar button {
-  background: transparent; /* Transparent background */
-  color: #ffffff; /* White text */
-  border: 1px solid #ffffff; /* Thinner white border */
+  background: transparent;
+  /* Transparent background */
+  color: #ffffff;
+  /* White text */
+  border: 1px solid #ffffff;
+  /* Thinner white border */
   padding: 6px 15px;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 0; /* Remove rounded corners */
+  border-radius: 0;
+  /* Remove rounded corners */
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   margin-left: 20px;
@@ -304,8 +339,10 @@ video {
 }
 
 .notice-bar button:hover {
-  background-color: #ffffff; /* White background on hover */
-  color: #4e4e4e; /* Dark text color on hover */
+  background-color: #ffffff;
+  /* White background on hover */
+  color: #4e4e4e;
+  /* Dark text color on hover */
 }
 
 
@@ -315,10 +352,13 @@ video {
   width: 100%;
   font-family: "Arial", sans-serif;
   font-weight: 600;
-  max-width: clamp(500px, 45vw, 900px); /* Responsive width */
+  max-width: clamp(500px, 45vw, 900px);
+  /* Responsive width */
   margin-left: 10%;
-  margin-bottom: 0px; /* Removes extra spacing */
-  margin-top: 20px; /* Controls spacing */
+  margin-bottom: 0px;
+  /* Removes extra spacing */
+  margin-top: 20px;
+  /* Controls spacing */
 }
 
 .section-text {
@@ -327,49 +367,133 @@ video {
   width: 100%;
   font-family: "Arial", sans-serif;
   font-weight: 500;
-  max-width: clamp(500px, 45vw, 900px); /* Responsive width */
+  max-width: clamp(500px, 45vw, 900px);
+  /* Responsive width */
   margin-left: 10%;
   line-height: 1.5;
-  margin-bottom: 3px; /* Controls spacing */
-  margin-top: 3px; /* Controls spacing */
+  margin-bottom: 3px;
+  /* Controls spacing */
+  margin-top: 3px;
+  /* Controls spacing */
 }
 
 .label-container {
   background: rgb(31, 31, 31);
   padding: 3px;
   border-radius: 50px;
-  opacity: 0.8; /* Background should be semi-transparent */
+  opacity: 0.8;
+  /* Background should be semi-transparent */
 }
 
 .label-container span {
   font-family: Arial, sans-serif;
-  color: white; /* Ensure text is white */
-  opacity: 1; /* Text remains fully visible */
+  color: white;
+  /* Ensure text is white */
+  opacity: 1;
+  /* Text remains fully visible */
   font-size: 0.9rem;
+}
+
+.canvas-container-open {
+  width: 100%;
+  height: 80vh;
+  /* 預設大螢幕 */
+}
+
+@media (max-width: 1199px) {
+  .canvas-container-open {
+    height: 60vh;
+    /* 中螢幕 */
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas-container-open {
+    height: 35vh;
+    /* 小螢幕 */
+  }
+}
+
+.trigger-img-container {
+  display: flex;
+  justify-content: flex-start;
+  /* 大螢幕靠左 */
+  margin-top: 6vh;
+  padding-left: 15%;
+}
+
+.trigger-img-container .responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width:1200px) {
+  .trigger-img-container {
+    justify-content: center;
+    /* 小螢幕置中 */
+    margin-top: 17vh;
+    padding-left: 0;
+  }
+
+  .trigger-img-container .responsive-img {
+    width: 90%;
+    /* 小螢幕縮到 90% */
+  }
+}
+
+
+
+.canvas-container {
+  width: 100%;
+  height: 100vh;
+  /* 預設大螢幕 */
+}
+
+@media (max-width: 1199px) {
+  .canvas-container {
+    height: 60vh;
+    /* 中螢幕 */
+  }
+}
+
+@media (max-width: 768px) {
+  .canvas-container {
+    height: 35vh;
+    /* 小螢幕 */
+  }
 }
 
 
 
 
 
-
-
-
-
-
-/* Accordion container */
+/* Accordion container (大螢幕維持右邊) */
 .accordion-container {
   position: absolute;
   top: 25%;
   left: 70%;
   transform: translateX(-50%);
   width: 30%;
-  z-index: 10;
+  z-index: 9999;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+}
+
+/* 小於 1200px 時，跑到 Canvas 下方並置中 */
+@media (max-width: 1200px) {
+  .accordion-container {
+    position: relative;
+    /* ❌ 不再 absolute */
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    /* ✅ 縮小寬度 */
+    margin: 2rem auto;
+    /* ✅ 自動置中 */
+  }
 }
 
 /* Accordion Header */
@@ -408,7 +532,8 @@ video {
   border-collapse: collapse;
 }
 
-.accordion-table th, .accordion-table td {
+.accordion-table th,
+.accordion-table td {
   border: 1px solid #dee2e6;
   padding: 8px;
   text-align: center;
@@ -417,4 +542,28 @@ video {
 .accordion-table th {
   background: #343a40;
   color: white;
+}
+.image-wrapper {
+  position: relative;
+  display: inline-block; /* 確保圖片包住內容 */
+}
+
+.detail-img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;         /* 桌機預設 */
+  max-width: 600px;   /* 避免過大 */
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .detail-img {
+    width: 70%;       /* iPad 或中螢幕 → 放大一些 */
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-img {
+    width: 90%;       /* 手機 → 幾乎滿版 */
+  }
 }

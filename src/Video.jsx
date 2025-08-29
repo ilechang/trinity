@@ -127,7 +127,7 @@ const Video = () => {
   return (
     <div
       style={{
-        backgroundColor: "rgb(31,31,31)",
+        backgroundColor: "",
         color: "white",
         padding: "40px",
         textAlign: "center",
