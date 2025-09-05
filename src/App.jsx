@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Detail from "./Detail";
 import HopupScene from "./HopupScene";
 import TriggerScene from "./TriggerScene";
-// import Tm from "./Tm";
+import Tm from "./Tm";
 import Video from "./Video";
 import Scene from "./Scene";
 import CameraRig from "./CameraRig";
@@ -82,10 +82,9 @@ function App() {
           <HopupScene />
         </div>
 
-        {/* <div className="fifthSection">
+       <div className="fifthSection">
           <Tm />
-        </div> */}
-
+        </div> 
 
 
         <div
