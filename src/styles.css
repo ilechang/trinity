@@ -606,22 +606,14 @@ video {
     display: none !important;
   }
 }
-
 /* styles.css */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .loader-overlay {
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .loader-overlay.fade-out {
   opacity: 0;
+  transform: scale(0.95);
   pointer-events: none;
 }
-
-
-
 

@@ -3,6 +3,7 @@ import { Environment, Html, useGLTF, useProgress } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import React, { useRef, useState, useEffect, useMemo, Suspense } from "react";
 import { useFrame } from "@react-three/fiber";
+import "bootstrap/dist/css/bootstrap.min.css"; // ✅ 引入 Bootstrap
 import "./styles.css";
 
 const items = [
@@ -28,7 +29,7 @@ const configs = {
   },
 };
 
-// ✅ Loading 元件（含縮小淡出動畫）
+// ✅ Loader 使用 Bootstrap spinner
 const Loader = () => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
@@ -50,21 +51,19 @@ const Loader = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
+          width: "100%",
+          background: "rgba(0,0,0,0.85)",
           color: "white",
-          background: "rgba(0,0,0,0.8)", // ✅ 背景遮罩
         }}
       >
+        {/* Bootstrap Spinner */}
         <div
-          className="spinner"
-          style={{
-            border: "4px solid rgba(255, 255, 255, 0.3)",
-            borderTop: "4px solid white",
-            borderRadius: "50%",
-            width: "40px",
-            height: "40px",
-            marginBottom: "1rem",
-          }}
-        />
+          className="spinner-border text-light mb-3"
+          role="status"
+          style={{ width: "3rem", height: "3rem" }}
+        >
+          <span className="visually-hidden">Loading...</span>
+        </div>
         <p>Loading...</p>
       </div>
     </Html>
@@ -185,6 +184,8 @@ export default function ExperienceWrapper() {
     </Suspense>
   );
 }
+
+
 
 
 
