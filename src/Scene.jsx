@@ -28,13 +28,13 @@ const configs = {
   },
 };
 
-// ✅ Loading 元件（不會被 Suspense 卸載）
+// ✅ Loader：進度條（無數字）
 const Loader = ({ onFinish }) => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
   const [displayProgress, setDisplayProgress] = useState(0);
 
-  // 更新顯示進度，但到 100 就鎖定
+  // 持續更新進度，但到 100 就鎖定
   useEffect(() => {
     if (progress < 100) {
       setDisplayProgress(progress);
@@ -42,9 +42,8 @@ const Loader = ({ onFinish }) => {
       setDisplayProgress(100);
       const timer = setTimeout(() => {
         setFadeOut(true);
-        // 動畫結束後通知父層隱藏 Loader
-        setTimeout(onFinish, 800);
-      }, 500); // 100% 停留 0.5 秒再淡出
+        setTimeout(onFinish, 800); // 動畫結束後關閉
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [progress, onFinish]);
@@ -55,26 +54,19 @@ const Loader = ({ onFinish }) => {
         className={`loader-overlay ${fadeOut ? "fade-out" : ""}`}
         style={{
           display: "flex",
-          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          color: "white",
-          background: "rgba(0,0,0,0.8)",
+          width: "100%",
+          background: "rgba(0,0,0,0.9)",
         }}
       >
-        <div
-          className="spinner"
-          style={{
-            border: "4px solid rgba(255, 255, 255, 0.3)",
-            borderTop: "4px solid white",
-            borderRadius: "50%",
-            width: "40px",
-            height: "40px",
-            marginBottom: "1rem",
-          }}
-        />
-        <p>Loading {displayProgress.toFixed(0)}%</p>
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${displayProgress}%` }}
+          />
+        </div>
       </div>
     </Html>
   );
@@ -175,7 +167,7 @@ const Scene = () => {
               Airsoft Gas Blowback Pistol
             </h3>
             <p className="landing-p archivo-black-thin">
-              Industrial Design | Modify Tech | 2022–2023 | Solo-led1
+              Industrial Design | Modify Tech | 2022–2023 | Solo-led
             </p>
           </div>
         </div>
@@ -196,7 +188,6 @@ export default function ExperienceWrapper() {
     </>
   );
 }
-
 
 
 
