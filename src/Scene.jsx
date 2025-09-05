@@ -28,27 +28,26 @@ const configs = {
   },
 };
 
-// ✅ Loading 元件（防止最後閃回 0%）
-const Loader = () => {
+// ✅ Loading 元件（不會被 Suspense 卸載）
+const Loader = ({ onFinish }) => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
   const [displayProgress, setDisplayProgress] = useState(0);
 
-  // 持續更新進度，達到 100% 後就鎖定
+  // 更新顯示進度，但到 100 就鎖定
   useEffect(() => {
     if (progress < 100) {
       setDisplayProgress(progress);
     } else {
       setDisplayProgress(100);
-    }
-  }, [progress]);
-
-  useEffect(() => {
-    if (progress >= 100) {
-      const timer = setTimeout(() => setFadeOut(true), 300);
+      const timer = setTimeout(() => {
+        setFadeOut(true);
+        // 動畫結束後通知父層隱藏 Loader
+        setTimeout(onFinish, 800);
+      }, 500); // 100% 停留 0.5 秒再淡出
       return () => clearTimeout(timer);
     }
-  }, [progress]);
+  }, [progress, onFinish]);
 
   return (
     <Html fullscreen>
@@ -176,7 +175,7 @@ const Scene = () => {
               Airsoft Gas Blowback Pistol
             </h3>
             <p className="landing-p archivo-black-thin">
-              Industrial Design | Modify Tech | 2022–2023 | Solo-led
+              Industrial Design | Modify Tech | 2022–2023 | Solo-led1
             </p>
           </div>
         </div>
@@ -186,12 +185,21 @@ const Scene = () => {
 };
 
 export default function ExperienceWrapper() {
+  const [showLoader, setShowLoader] = useState(true);
+
   return (
-    <Suspense fallback={<Loader />}>
-      <Scene />
-    </Suspense>
+    <>
+      <Suspense>
+        <Scene />
+      </Suspense>
+      {showLoader && <Loader onFinish={() => setShowLoader(false)} />}
+    </>
   );
 }
+
+
+
+
 
 
 
