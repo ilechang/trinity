@@ -129,14 +129,14 @@ export default function Tm() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // ✅ Lazy preload 模型 & HDR
-  useEffect(() => {
-    if (shouldRender) {
-      PARTS_WITH_FILES.forEach(category => {
-        category.parts.forEach(part => useGLTF.preload(`./models/${part.file}`));
-      });
-    }
-  }, [shouldRender]);
+  // // ✅ Lazy preload 模型 & HDR
+  // useEffect(() => {
+  //   if (shouldRender) {
+  //     PARTS_WITH_FILES.forEach(category => {
+  //       category.parts.forEach(part => useGLTF.preload(`./models/${part.file}`));
+  //     });
+  //   }
+  // }, [shouldRender]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
