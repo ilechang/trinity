@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Research from "./Research";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Detail from "./Detail";
-import HopupScene from "./HopupScene";
+// import HopupScene from "./HopupScene";
 import TriggerScene from "./TriggerScene";
 import Tm from "./Tm";
 import Video from "./Video";
@@ -74,13 +74,13 @@ function App() {
         <div className="fifthSection">
           <TriggerScene />
         </div>
-
+{/* 
         <div
           className=""
           style={{ background: "rgb(31,31,31)" }}
         >
           <HopupScene />
-        </div>
+        </div> */}
 
        <div className="fifthSection">
           <Tm />
