@@ -28,10 +28,20 @@ const configs = {
   },
 };
 
-// ✅ Loading 元件（含縮小淡出動畫）
+// ✅ Loading 元件（防止最後閃回 0%）
 const Loader = () => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
+  const [displayProgress, setDisplayProgress] = useState(0);
+
+  // 持續更新進度，達到 100% 後就鎖定
+  useEffect(() => {
+    if (progress < 100) {
+      setDisplayProgress(progress);
+    } else {
+      setDisplayProgress(100);
+    }
+  }, [progress]);
 
   useEffect(() => {
     if (progress >= 100) {
@@ -51,7 +61,7 @@ const Loader = () => {
           alignItems: "center",
           height: "100%",
           color: "white",
-          background: "rgba(0,0,0,0.8)", // ✅ 背景遮罩
+          background: "rgba(0,0,0,0.8)",
         }}
       >
         <div
@@ -65,7 +75,7 @@ const Loader = () => {
             marginBottom: "1rem",
           }}
         />
-        <p>Loading {progress.toFixed(0)}%</p>
+        <p>Loading {displayProgress.toFixed(0)}%</p>
       </div>
     </Html>
   );
@@ -79,7 +89,6 @@ const Scene = () => {
 
   const [config, setConfig] = useState(configs.desktop);
 
-  // ✅ 判斷螢幕大小
   useEffect(() => {
     const updateConfig = () => {
       if (window.innerWidth < 1000) {
@@ -93,7 +102,6 @@ const Scene = () => {
     return () => window.removeEventListener("resize", updateConfig);
   }, []);
 
-  // ✅ clone 模型
   const clonedScenes = useMemo(() => {
     return Array.from({ length: config.count }, () => scene.clone());
   }, [scene, config]);
@@ -104,7 +112,6 @@ const Scene = () => {
     [0.15, -0.8, -0.2],
   ];
 
-  // ✅ springs 動畫
   const springs = useSprings(
     config.positions.length,
     config.positions.map((pos, index) => ({
@@ -185,6 +192,8 @@ export default function ExperienceWrapper() {
     </Suspense>
   );
 }
+
+
 
 
 
