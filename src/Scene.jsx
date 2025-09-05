@@ -28,25 +28,17 @@ const configs = {
   },
 };
 
-// ✅ Loader：進度條（無數字）
-const Loader = ({ onFinish }) => {
+// ✅ Loading 元件（含縮小淡出動畫）
+const Loader = () => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
-  const [displayProgress, setDisplayProgress] = useState(0);
 
-  // 持續更新進度，但到 100 就鎖定
   useEffect(() => {
-    if (progress < 100) {
-      setDisplayProgress(progress);
-    } else {
-      setDisplayProgress(100);
-      const timer = setTimeout(() => {
-        setFadeOut(true);
-        setTimeout(onFinish, 800); // 動畫結束後關閉
-      }, 500);
+    if (progress >= 100) {
+      const timer = setTimeout(() => setFadeOut(true), 300);
       return () => clearTimeout(timer);
     }
-  }, [progress, onFinish]);
+  }, [progress]);
 
   return (
     <Html fullscreen>
@@ -54,19 +46,26 @@ const Loader = ({ onFinish }) => {
         className={`loader-overlay ${fadeOut ? "fade-out" : ""}`}
         style={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
-          width: "100%",
-          background: "rgba(0,0,0,0.9)",
+          color: "white",
+          background: "rgba(0,0,0,0.8)", // ✅ 背景遮罩
         }}
       >
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${displayProgress}%` }}
-          />
-        </div>
+        <div
+          className="spinner"
+          style={{
+            border: "4px solid rgba(255, 255, 255, 0.3)",
+            borderTop: "4px solid white",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            marginBottom: "1rem",
+          }}
+        />
+        <p>Loading...</p>
       </div>
     </Html>
   );
@@ -80,6 +79,7 @@ const Scene = () => {
 
   const [config, setConfig] = useState(configs.desktop);
 
+  // ✅ 判斷螢幕大小
   useEffect(() => {
     const updateConfig = () => {
       if (window.innerWidth < 1000) {
@@ -93,6 +93,7 @@ const Scene = () => {
     return () => window.removeEventListener("resize", updateConfig);
   }, []);
 
+  // ✅ clone 模型
   const clonedScenes = useMemo(() => {
     return Array.from({ length: config.count }, () => scene.clone());
   }, [scene, config]);
@@ -103,6 +104,7 @@ const Scene = () => {
     [0.15, -0.8, -0.2],
   ];
 
+  // ✅ springs 動畫
   const springs = useSprings(
     config.positions.length,
     config.positions.map((pos, index) => ({
@@ -177,22 +179,12 @@ const Scene = () => {
 };
 
 export default function ExperienceWrapper() {
-  const [showLoader, setShowLoader] = useState(true);
-
   return (
-    <>
-      <Suspense>
-        <Scene />
-      </Suspense>
-      {showLoader && <Loader onFinish={() => setShowLoader(false)} />}
-    </>
+    <Suspense fallback={<Loader />}>
+      <Scene />
+    </Suspense>
   );
 }
-
-
-
-
-
 
 
 

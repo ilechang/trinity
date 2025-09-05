@@ -607,35 +607,19 @@ video {
   }
 }
 
-
-
-
-
-
 /* styles.css */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .loader-overlay {
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease;
 }
 
 .loader-overlay.fade-out {
   opacity: 0;
-  transform: scale(0.95);
   pointer-events: none;
-}
-
-.progress-bar {
-  width: 60%;
-  max-width: 400px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: white;
-  transition: width 0.3s ease;
 }
 
 
