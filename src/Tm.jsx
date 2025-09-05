@@ -181,8 +181,8 @@ export default function Tm() {
             <Suspense
               fallback={
                 <Html center>
-                  <div className="spinner-border text-light" role="status">
-                    <span className="visually-hidden">Loading...</span>
+                  <div className="spinner-border text-dark" role="status">
+                    <span className="visually-hidden text-dark">Loading...</span>
                   </div>
                 </Html>
               }
