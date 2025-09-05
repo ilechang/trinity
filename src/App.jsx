@@ -10,7 +10,7 @@ import Tm from "./Tm";
 import Video from "./Video";
 import Scene from "./Scene";
 import CameraRig from "./CameraRig";
-// import OpenKit from "./OpenKit";
+import OpenKit from "./OpenKit";
 
 function App() {
   const [noticeVisible, setNoticeVisible] = useState(true);
@@ -86,7 +86,7 @@ function App() {
           <Tm />
         </div> 
 
-{/* 
+
         <div
           style={{
             background: "linear-gradient(180deg, rgb(31,31,31) 0%, rgb(160,160,160) 100%)",
@@ -94,7 +94,7 @@ function App() {
         >
           <OpenKit />
         </div>
-         */}
+
 
         <div className="sixthSection"   >
           <Video />
