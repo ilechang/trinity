@@ -607,18 +607,29 @@ video {
   }
 }
 
+
+
+
+
+
 /* styles.css */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
 .loader-overlay {
-  transition: opacity 0.8s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(1);
 }
 
 .loader-overlay.fade-out {
   opacity: 0;
+  transform: scale(0.7);
   pointer-events: none;
 }
 

@@ -1,6 +1,7 @@
+// Scene.jsx
 import { Environment, Html, useGLTF, useProgress } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
-import { useRef, useState, useEffect, useMemo } from "react";
+import React, { useRef, useState, useEffect, useMemo, Suspense } from "react";
 import { useFrame } from "@react-three/fiber";
 import "./styles.css";
 
@@ -27,14 +28,13 @@ const configs = {
   },
 };
 
-// ✅ Loading 元件 + 淡出動畫
+// ✅ Loading 元件（含縮小淡出動畫）
 const Loader = () => {
   const { progress } = useProgress();
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
     if (progress >= 100) {
-      // 等 0.3s 再開始淡出
       const timer = setTimeout(() => setFadeOut(true), 300);
       return () => clearTimeout(timer);
     }
@@ -55,13 +55,13 @@ const Loader = () => {
         }}
       >
         <div
+          className="spinner"
           style={{
             border: "4px solid rgba(255, 255, 255, 0.3)",
             borderTop: "4px solid white",
             borderRadius: "50%",
             width: "40px",
             height: "40px",
-            animation: "spin 1s linear infinite",
             marginBottom: "1rem",
           }}
         />
@@ -79,6 +79,7 @@ const Scene = () => {
 
   const [config, setConfig] = useState(configs.desktop);
 
+  // ✅ 判斷螢幕大小
   useEffect(() => {
     const updateConfig = () => {
       if (window.innerWidth < 1000) {
@@ -92,6 +93,7 @@ const Scene = () => {
     return () => window.removeEventListener("resize", updateConfig);
   }, []);
 
+  // ✅ clone 模型
   const clonedScenes = useMemo(() => {
     return Array.from({ length: config.count }, () => scene.clone());
   }, [scene, config]);
@@ -102,6 +104,7 @@ const Scene = () => {
     [0.15, -0.8, -0.2],
   ];
 
+  // ✅ springs 動畫
   const springs = useSprings(
     config.positions.length,
     config.positions.map((pos, index) => ({
@@ -177,14 +180,11 @@ const Scene = () => {
 
 export default function ExperienceWrapper() {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Scene />
-      <Loader />
-    </>
+    </Suspense>
   );
 }
-
-
 
 
 
