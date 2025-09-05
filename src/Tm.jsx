@@ -181,8 +181,11 @@ export default function Tm() {
             <Suspense
               fallback={
                 <Html center>
-                  <div className="spinner-border text-dark" role="status">
-                    <span className="visually-hidden text-dark">Loading...</span>
+                  <div className="text-center">
+                    <div className="spinner-border text-dark" role="status">
+                      <span className="visually-hidden">Loading...</span>
+                    </div>
+                    <div className="mt-2 text-dark fw-bold">Loading models...</div>
                   </div>
                 </Html>
               }
@@ -218,18 +221,18 @@ export default function Tm() {
         style={
           isMobile
             ? {
-                width: "90%",
-                margin: "2rem auto",
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-              }
+              width: "90%",
+              margin: "2rem auto",
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+            }
             : {
-                position: "absolute",
-                top: "35%",
-                left: "80%",
-                width: "25%",
-              }
+              position: "absolute",
+              top: "35%",
+              left: "80%",
+              width: "25%",
+            }
         }
       >
         <div style={{ width: "100%" }}>
