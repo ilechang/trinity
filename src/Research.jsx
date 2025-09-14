@@ -115,13 +115,13 @@ export default function Research() {
                 <h2 className="fw-bold mb-3 text-center text-dark">
                     Background – What is Airsoft?
                 </h2>
-                <p className="mb-4 text-center text-dark">
+                <p className="mb-5 text-center text-dark">
                     Airsoft is a recreational sport and competitive activity that uses
                     non-lethal air-powered guns to fire plastic BB pellets. Due to its
                     safe nature, it is also widely adopted by military and law
                     enforcement agencies for simulated combat training.
                 </p>
-                <img src="./images/bgtry.webp" alt="" className="w-100 rounded rounded-4" />
+                {/* <img src="./images/bgtry.webp" alt="" className="w-100 rounded rounded-4" /> */}
             </div>
 
             {/* Main Content */}
