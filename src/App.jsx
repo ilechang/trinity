@@ -40,7 +40,7 @@ function App() {
 
   if (showLoading) {
     return (
-      <div className="loading-screen">
+     <div className="loading-screen">
 
       </div>
     );
@@ -54,6 +54,7 @@ function App() {
 
         {/* ✅ Canvas 避免在 loading 中渲染 */}
         {!showLoading && (
+          <>
           <div
             className="secondSection"
             style={{
@@ -87,10 +88,21 @@ function App() {
           
 
           </div>
+          
+              <div
+      style={{
+        width: "100%",
+        background: "rgb(31,31,31)",
+        padding: "60px 0",
+      }}
+    >
+      <Photo />
+    </div>
+    </>
         )}
 
 
-  <div
+  {/* <div
               style={{
                 width: "100%",
                 background: "rgb(31,31,31)",
@@ -98,9 +110,9 @@ function App() {
               }}
             >
               <Photo />
-            </div>
+            </div> */}
 
-            
+
         <Research />
 
         <div className="thirdSection">
