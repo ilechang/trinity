@@ -11,6 +11,7 @@ import Video from "./Video";
 import Scene from "./Scene";
 import CameraRig from "./CameraRig";
 import OpenKit from "./OpenKit";
+import Photo from "./Photo";
 
 function App() {
   const [noticeVisible, setNoticeVisible] = useState(true);
@@ -53,18 +54,53 @@ function App() {
 
         {/* ✅ Canvas 避免在 loading 中渲染 */}
         {!showLoading && (
-          <div className="secondSection" style={{ height: "100vh" }}>
-            <Canvas
-              camera={{ position: [0, 0, 5], fov: 60 }}
-              style={{ background: "rgb(31,31,31)", width: "100vw", height: "100%" }}
-              frameloop="demand"
+          <div
+            className="secondSection"
+            style={{
+              background: "rgb(31,31,31)",
+              width: "100%",
+            }}
+          >
+
+            {/* 3D 區域 */}
+            <div
+              style={{
+                width: "100%",
+                height: "100vh",   // 讓3D吃滿一個畫面
+              }}
             >
-              <CameraRig />  {/* 改成用 wheel 控制 */}
-              <Scene />
-            </Canvas>
+              <Canvas
+                camera={{ position: [0, 0, 5], fov: 60 }}
+                style={{
+                  display: "block",   // 🔥 這行非常重要
+                  width: "100%",
+                  height: "100%",
+                }}
+                frameloop="demand"
+              >
+                <CameraRig />
+                <Scene />
+              </Canvas>
+            </div>
+
+            {/* Photo 區域 */}
+          
+
           </div>
         )}
 
+
+  <div
+              style={{
+                width: "100%",
+                background: "rgb(31,31,31)",
+                padding: "60px 0",
+              }}
+            >
+              <Photo />
+            </div>
+
+            
         <Research />
 
         <div className="thirdSection">
@@ -82,9 +118,9 @@ function App() {
           <HopupScene />
         </div>
 
-       <div className="fifthSection">
+        <div className="fifthSection">
           <Tm />
-        </div> 
+        </div>
 
 
         <div

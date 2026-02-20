@@ -42,6 +42,8 @@ const Loader = () => {
   }, [progress]);
 
   return (
+
+  <>
     <Html fullscreen>
       <div
         className={`loader-overlay ${fadeOut ? "fade-out" : ""}`}
@@ -56,7 +58,6 @@ const Loader = () => {
           color: "white",
         }}
       >
-        {/* Bootstrap Spinner */}
         <div
           className="spinner-border text-light mb-3"
           role="status"
@@ -67,7 +68,34 @@ const Loader = () => {
         <p>Loading...</p>
       </div>
     </Html>
-  );
+
+    <Html fullscreen>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: "20px",
+        }}
+      >
+        {[1, 2, 3, 4].map((num) => (
+          <img
+            key={num}
+            src={`/images/landing/trinity${num}.jpg`}
+            alt={`trinity-${num}`}
+            style={{
+              width: "180px",
+              height: "auto",
+              borderRadius: "8px",
+            }}
+          />
+        ))}
+      </div>
+    </Html>
+  </>
+);
 };
 
 const Scene = () => {
