@@ -172,8 +172,12 @@ const Scene = () => {
               Airsoft Gas Blowback Pistol
             </h3>
             <p className="landing-p archivo-black-thin">
-              Industrial Design | Modify Tech | 2022–2023 | Solo-led
+              Airsoft Product Design | 2022–2023 | Mass-Produced
             </p>
+            <p className="landing-p archivo-black-thin">
+              Role : User Research - CAD Modeling - Mechanical & Ergonomic Design
+            </p>
+           
           </div>
         </div>
       </Html>
