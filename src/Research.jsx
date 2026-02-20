@@ -173,7 +173,7 @@ export default function Research() {
                     </div>
 
 
-           
+
 
                     {/* Problems */}
                     <h2 className="text-center my-3 fw-bold">Problem Identification</h2>
@@ -214,6 +214,205 @@ export default function Research() {
                             ))}
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <br />
+                    {/* Ergonomic Optimization Section */}
+                    <div className="container my-5 py-5">
+
+                        <h2 className="text-center fw-bold my-5">
+                            Ergonomic Optimization Through Prototyping
+                        </h2>
+
+                        {/* --- Grip Angle Optimization --- */}
+                        <div className="row align-items-center mb-5">
+                            <div className="col-md-5 mb-4">
+                                <div className="d-flex gap-3">
+                                    <img
+                                        src="/images/grip1.webp"
+                                        className="img-fluid rounded shadow"
+                                        alt="Original Grip"
+                                        style={{ width: "50%", height: "auto" }}
+                                    />
+                                    <img
+                                        src="/images/gripSmooth.webp"
+                                        className="img-fluid rounded shadow"
+                                        alt="Refined Grip"
+                                        style={{ width: "50%", height: "auto" }}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="col-md-6 ms-auto text-start ">
+                                <h5 className="fw-bold">Grip Shape Refinement</h5>
+                                <p>
+                                    Users reported that the original TOKYO MARUI Hi-Capa grip featured
+                                    overly sharp side edges, causing discomfort during handling.
+                                    Multiple iterations were 3D printed to soften the grip contours,
+                                    followed by ergonomic testing across users with different hand sizes
+                                    to identify the optimal balance between comfort and control.
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr />
+                        {/* --- Magazine Release Adjustment --- */}
+                        <div className="row align-items-center flex-md-row-reverse my-5">
+                            <div className="col-md-5 mb-4">
+                                <img
+                                    src="/images/magRelease.webp"
+                                    className="img-fluid rounded shadow"
+                                    alt="Magazine Release Adjustment"
+                                />
+                            </div>
+                            <div className="col-md-6 me-auto text-start">
+                                <h5 className="fw-bold">Magazine Release Extension</h5>
+                                <p>
+                                    Users reported that the original TOKYO MARUI magazine release button was too small, requiring users with smaller hands to rotate the pistol in order to reach it with their thumb.
+
+                                    To address this issue, the button was extended to improve accessibility while maintaining a balanced dimension — allowing users with smaller hands to engage it more easily, without increasing the risk of accidental activation for users with larger hands.
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr />
+                        {/* --- Slide Serration Study --- */}
+                        <div className="row align-items-center my-5">
+
+                            <h2 className="text-center fw-bold mb-5">
+                                Slide Design
+                            </h2>
+
+
+
+
+
+                            <div className="mb-5">
+
+                                {/* 圖片區 */}
+                                <div className="row mb-4">
+                                    <div className="col-md-6 mb-3">
+                                        <img
+                                            src="/images/slideAserration.webp"
+                                            className="img-fluid rounded shadow"
+                                            alt="Slide Serration Concept"
+                                        />
+                                    </div>
+                                    <div className="col-md-6 mb-3">
+                                        <img
+                                            src="/images/slideArack.webp"
+                                            className="img-fluid rounded shadow"
+                                            alt="Slide Rack Concept"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* 文字區 */}
+                                <div className="row">
+                                    <div className="col-12 text-start">
+                                        <h5 className="fw-bold">Concept A (Rejected)</h5>
+
+                                        <p className="mb-2">
+                                            <strong>Advantages:</strong><br />
+                                            1. The vertically arranged cutouts on the upper slide allowed users to rack the slide using their thumb. Several testers found this method convenient.
+                                        </p>
+
+                                        <p className="mb-2">
+                                            <strong>Limitations:</strong><br />
+                                            1. Similar designs are already common on the market, offering limited visual differentiation.<br />
+                                            2. During slide return, the serrations contacted the user’s thumbs, causing discomfort and potentially affecting shooting smoothness.
+                                        </p>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <div className="mb-5">
+
+                            {/* 圖片區 */}
+                            <div className="row mb-4">
+                                <div className="col-md-6 mb-3">
+                                    <img
+                                        src="/images/slideBserration.webp"
+                                        className="img-fluid rounded shadow"
+                                        alt="Slide Serration Concept B"
+                                    />
+                                </div>
+                                <div className="col-md-6 mb-3">
+                                    <img
+                                        src="/images/slideBrack.webp"
+                                        className="img-fluid rounded shadow"
+                                        alt="Slide Rack Concept B"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* 文字區 */}
+                            <div className="row">
+                                <div className="col-12 text-start">
+                                    <h5 className="fw-bold">Concept B (Selected)</h5>
+
+                                    <p className="mb-2">
+                                        <strong>Advantages:</strong><br />
+                                        1. The upper slide cutouts followed the surface contour, creating a more cohesive, streamlined, and modern visual profile.<br />
+                                        2. The serrations were intentionally stopped before reaching the lower edge, preserving thumb placement space and preventing contact during slide return.
+                                    </p>
+
+                                    <p className="mb-5">
+                                        <strong>Considerations:</strong><br />
+                                        1. The slide could not be racked using only the thumb and required a firmer grip; however, user feedback indicated this was not a critical concern in recreational airsoft use.
+                                    </p>
+                                    <hr />
+                                    <div className="row justify-content-center my-5">
+                                        <div className="col-md-10">
+                                            <img
+                                                src="/images/3dp.webp"
+                                                className="img-fluid rounded shadow"
+                                                alt="3D Printed Prototypes"
+                                            />
+                                        </div>
+                                    </div>
+                                      <hr />
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
 
                     <div className="container my-4 py-4">
                         <h2 className="text-center fw-bold mb-3">Design Process</h2>
