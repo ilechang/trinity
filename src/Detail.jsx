@@ -25,13 +25,13 @@ export default function Detail() {
   // ✅ 所有點的位置與內容
   const positions = [
     { key: "Magazine", x: 84.6, y: 45.4, desc: "30rd/50rd Magazine (Green gas/CO2)", img: "./images/mag.webp" },
-    { key: "ThumbSafety", x: 41, y: 25.7, desc: "Stainless Steel Ambidextrous Thumb safety", img: "./images/thumbsafty.webp" },
+    { key: "ThumbSafety", x: 41, y: 25.7, desc: "Stainless Steel Ambidextrous Thumb safety", img: "./images/thumbsafty.jpg" },
     { key: "BarrelThread", x: 22.2, y: 90, desc: "Threaded muzzle(M11 CW Female Thread) allows for attachment of accessories.", img: "./images/muzzle.jpg" },
 
     { key: "HopUp", x: 52.2, y: 53, desc: "Patented Quickly-Adjustable Hop-Up System", img: "./images/hop1.webp" },
    
-    { key: "Frame", x: 49.5, y: 79.5, desc: "Stainless Steel Middle Frame with Tactical Rail", img: "./images/light.webp" },
-    { key: "Slide", x: 47, y: 49.5, desc: "7075 Aluminum Alloy Light-Weight Slide", img: "./images/slide.jpg" },
+    { key: "Frame", x: 49.5, y: 79.5, desc: "Zinc Alloy Die-Cast Middle Frame with Tactical Rail", img: "./images/light.webp" },
+    { key: "Slide", x: 47, y: 49.5, desc: "Cast Aluminum Alloy Light-Weight Slide", img: "./images/slide.jpg" },
     { key: "RearSight", x: 52.4, y: 18.1, desc: "The rear sight can be replaced with an optic mount or a charging handle.", img: "./images/opticmount1.webp" }
   ];
 

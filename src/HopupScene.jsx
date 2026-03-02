@@ -156,17 +156,18 @@ const HopupScene = () => {
 
       {/* 影片 + 按鈕 */}
       {shouldRender && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "2rem",
-            position: "relative",
-            width: "100%",
-            flexDirection: isMobile ? "column" : "initial",
-            alignItems: "center",
-          }}
-        >
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "2rem",
+    position: "relative",
+    width: "100%",
+    flexDirection: isMobile ? "column" : "initial",
+    alignItems: "center",
+    minHeight: isMobile ? "300px" : "600px" // ✅ 固定高度
+  }}
+>
           {/* ✅ Spinner while loading */}
           {!isVideoLoaded && (
             <div
@@ -201,7 +202,9 @@ const HopupScene = () => {
               height: "100%",
               objectFit: "cover",
               objectPosition: "top",
-              display: isVideoLoaded ? "block" : "none", // ✅ 避免黑屏
+             visibility: isVideoLoaded ? "visible" : "hidden",
+opacity: isVideoLoaded ? 1 : 0,
+transition: "opacity 0.3s ease", // ✅ 避免黑屏
             }}
           />
 

@@ -173,8 +173,14 @@ export default function Tm() {
       <p style={{ textAlign: "center", fontFamily: "Arial, sans-serif", marginTop: "2rem" }}>
         Tokyo Marui(TM) sets the gold standard in the airsoft industry. The more parts of a gun that are compatible with TM, the easier it is to find replacements and upgrades.
       </p>
-
-      <div ref={sceneRef} style={{ width: "100%" }} className="canvas-container">
+      <div
+        ref={sceneRef}
+        className="canvas-container"
+        style={{
+          width: "100%",
+          cursor: "url('/images/360.png') 20 20, grab"
+        }}
+      >
         {shouldRender && (
           <Canvas camera={{ position: [0, 0, 20], fov: 20 }}>
             <ambientLight intensity={0.85} />

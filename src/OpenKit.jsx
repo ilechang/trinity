@@ -122,7 +122,13 @@ export default function OpenKit() {
       </p>
 
       {/* 3D 模型區域 */}
-      <div ref={sceneRef} className="w-100 canvas-container-open">
+<div
+  ref={sceneRef}
+  className="w-100 canvas-container-open"
+  style={{
+    cursor: "url('/images/360.png') 32 32, grab"
+  }}
+>
         {shouldRender && (
           <Canvas camera={{ position: [3.1, 2.0, 3.4], fov: 35 }}>
             <Suspense
