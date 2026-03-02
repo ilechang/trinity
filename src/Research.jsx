@@ -215,10 +215,20 @@ export default function Research() {
                         </div>
                     </div>
 
+<div className="text-center mt-5 py-3">
+      <h2 className="text-center mt-5 fw-bold">Design Sketches</h2>
+  <img
+    src="/images/sketch.webp"
+    alt="Slide Serration Concept B"
+    className="img-fluid rounded shadow my-3"
+    style={{
+      maxWidth: "100%",
+      height: "auto",
+          opacity: 1
 
-
-
-
+    }}
+  />
+</div>
 
 
 
@@ -227,7 +237,7 @@ export default function Research() {
 
                     <br />
                     {/* Ergonomic Optimization Section */}
-                    <div className="container my-5 py-5">
+                    <div className="container mb-5 mt-3 py-5">
 
                         <h2 className="text-center fw-bold my-5">
                             Ergonomic Optimization Through Prototyping
@@ -414,7 +424,7 @@ export default function Research() {
 
 
 
-                    <div className="container my-4 py-4">
+                    <div className="container  ">
                         <h2 className="text-center fw-bold mb-3">Design Process</h2>
                         {designProcess.map((step, index) => (
                             <div
